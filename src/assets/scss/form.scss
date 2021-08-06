@@ -1,0 +1,52 @@
+form {
+    display: flex;
+    flex-direction: column;
+
+    input, textarea, select, button  {
+        border-radius: $border-radius;
+        height: 35px;
+        outline: none;
+        margin-bottom: 10px;
+        border: 2px solid $grey;
+        background-color: white;
+        color: $black;
+        transition: 150ms;
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+
+    input, textarea, select {
+        padding: 10px;
+        font-weight: 300;
+        color: $blue-dark;
+
+        &::placeholder {
+            color: $grey-light;
+        }
+
+        &:focus {
+            border: 2px solid $blue;
+            color: $blue;
+        }
+    }
+
+    button {
+        width: 30%;
+        align-self: flex-end;
+    }
+
+    .links {
+        a {
+            text-decoration: none;
+            color: $grey-light;
+            font-size: 13px;
+            font-weight: 300;
+
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+    }
+}

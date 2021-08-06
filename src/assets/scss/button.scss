@@ -1,0 +1,19 @@
+button {
+    &.blue-dark {
+        background-color: $blue-dark;
+        border: 1px solid $blue-dark;
+        color: white;
+    }
+
+    &.blue {
+        background-color: $blue;
+        border: 1px solid $blue;
+        color: white;
+
+        &:hover {
+            background-color: $blue-hover;
+            border: 1px solid $blue-hover;
+            box-shadow: 0 10px 30px -13px $blue-hover;
+        }
+    }
+}
