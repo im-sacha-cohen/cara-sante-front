@@ -1,4 +1,6 @@
 button {
+    cursor: pointer;
+
     &.blue-dark {
         background-color: $blue-dark;
         border: 1px solid $blue-dark;
@@ -15,5 +17,11 @@ button {
             border: 1px solid $blue-hover;
             box-shadow: 0 10px 30px -13px $blue-hover;
         }
+    }
+
+    .spinner-border {
+        width: 1rem;
+        height: 1rem;
+        border-width: 0.15rem;
     }
 }

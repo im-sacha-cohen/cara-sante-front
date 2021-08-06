@@ -1,13 +1,14 @@
 <div class="section-card login">
     <h1>Connexion</h1>
-    <form>
-        <input type="mail" placeholder="Ex: mail@carasante.com">
-        <input type="password" placeholder="*******">
+    <form [formGroup]="formLogin">
+        <input formControlName="username" type="mail" placeholder="Ex: mail@carasante.com">
+        <input formControlName="password" type="password" placeholder="*******">
         <div class="d-flex justify-content-between links">
             <a routerLink="forgot-password">Mot de passe oublié ?</a>
         </div>
-        <button class="blue">
-            <i class="bi bi-box-arrow-in-right"></i>
+        <button class="blue" (click)="onSubmit()">
+            <i *ngIf="!showSpinner" class="bi bi-box-arrow-in-right"></i>
+            <div *ngIf="showSpinner" class="spinner-border"></div>
             Connexion
         </button>
     </form>
