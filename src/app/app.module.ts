@@ -9,13 +9,18 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { TooltipModule } from 'ngx-bootstrap/tooltip';
 import { AlertModule } from 'ngx-bootstrap/alert';
-import { JwtModule } from '@auth0/angular-jwt';
+import { SideBarComponent } from './shared/components/side-bar/side-bar.component';
+import { MainPrivateComponent } from './private/main/main.component';
+import { IndexComponent } from './private/index/index.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    MainPublicComponent
+    MainPublicComponent,
+    SideBarComponent,
+    MainPrivateComponent,
+    IndexComponent
   ],
   imports: [
     BrowserModule,

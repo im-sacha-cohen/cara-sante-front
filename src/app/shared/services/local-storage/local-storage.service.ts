@@ -13,6 +13,10 @@ export class LocalStorageService {
     localStorage.setItem(this.tokenName, token);
   }
 
+  getToken(): string {
+    return localStorage.getItem(this.tokenName);
+  }
+
   setMail(mail: string): void {
     localStorage.setItem(this.mailName, mail);
   }

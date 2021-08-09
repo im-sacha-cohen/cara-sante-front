@@ -1,7 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { AuthService } from 'src/app/services/auth/auth-service.service';
+import { Router } from '@angular/router';
+import { AuthService } from 'src/app/shared/services/auth/service/auth-service.service';
 import { environment } from 'src/environments/environment';
 
 @Component({
@@ -18,7 +19,8 @@ export class LoginComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private httpClient: HttpClient,
-    private authService: AuthService
+    private authService: AuthService,
+    private router: Router
   ) { }
 
   ngOnInit(): void {
@@ -40,10 +42,12 @@ export class LoginComponent implements OnInit {
       environment.apiUrl + '/login',
       this.formLogin.value
     ).subscribe(
-      response => {
+      (response: { token: string })  => {
         this.showSpinner = false;
         this.authService.setToken(response.token);
         this.authService.setEmail(response.token);
+
+        this.router.navigate(['/home']);
       },
       error => {
         this.showSpinner = false;

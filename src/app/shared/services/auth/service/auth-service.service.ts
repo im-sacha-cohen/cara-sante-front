@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { JwtHelperService } from '@auth0/angular-jwt';
-import { LocalStorageService } from '../local-storage/local-storage.service';
+import { LocalStorageService } from '../../local-storage/local-storage.service';
 
 @Injectable({
   providedIn: 'root'
@@ -24,10 +24,21 @@ export class AuthService {
 
   setEmail(token: string): void {
     const decodedToken = this.getDecodedToken(token);
-    this.localStorageService.setMail(decodedToken.username);
+    // tslint:disable-next-line: no-string-literal
+    this.localStorageService.setMail(decodedToken['username']);
   }
 
   getMail(): string {
     return this.localStorageService.getMail();
+  }
+
+  isConnected(): boolean {
+    const token = this.localStorageService.getToken();
+
+    if (!this.jwtHelper.isTokenExpired(token)) {
+      return true;
+    }
+
+    return false;
   }
 }

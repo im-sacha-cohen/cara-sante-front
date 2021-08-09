@@ -1,0 +1,88 @@
+aside {
+    &.side-bar {
+        background-color: $blue-dark;
+        width: 60px;
+        height: 98%;
+        position: absolute;
+        margin: 1%;
+        border-radius: $border-radius;
+        padding: 10px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        transition: 150ms;
+
+        &:hover {
+            width: 150px;
+
+            ul {
+                align-items: flex-start;
+
+                li {
+                    a {
+                        justify-content: flex-start;
+
+                        i {
+                            margin-right: 10px;
+                        }
+
+                        span {
+                            display: block;
+                        }
+                    }
+                }
+            }
+        }
+
+        .person-round {
+            height: 50px;
+            width: 50px;
+            background-color: $grey-light;
+            border-radius: 100%;
+            padding: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: $black;
+        }
+
+        ul {
+            padding: 0;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 80%;
+            transition: align-items 300ms;
+
+            li {
+                list-style: none;
+                width: 100%;
+
+                a {
+                    text-decoration: none;
+                    color: white;
+                    opacity: 0.9;
+                    width: 100%;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+
+                    i {
+                        font-size: 25px;
+                    }
+
+                    span {
+                        font-size: 13px;
+                        display: none;
+                        opacity: 0.8;
+                        transition-delay: 1500ms;
+                        transition: opacity 300ms;
+                        align-self: center;
+                    }
+                }
+            }
+        }
+    }
+}
