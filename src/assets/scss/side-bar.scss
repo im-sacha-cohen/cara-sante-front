@@ -14,6 +14,7 @@ aside {
 
         &:hover {
             width: 150px;
+            box-shadow: 10px 0 23px -16px $blue-dark;
 
             ul {
                 align-items: flex-start;
@@ -27,7 +28,9 @@ aside {
                         }
 
                         span {
-                            display: block;
+                            left: 30%;
+                            visibility: visible;
+                            opacity: 0.7;
                         }
                     }
                 }
@@ -63,7 +66,6 @@ aside {
                 a {
                     text-decoration: none;
                     color: white;
-                    opacity: 0.9;
                     width: 100%;
                     display: flex;
                     align-items: center;
@@ -71,15 +73,23 @@ aside {
 
                     i {
                         font-size: 25px;
+                        opacity: 0.7;
+                        transition: 150ms;
                     }
 
                     span {
                         font-size: 13px;
-                        display: none;
-                        opacity: 0.8;
-                        transition-delay: 1500ms;
-                        transition: opacity 300ms;
+                        position: absolute;
                         align-self: center;
+                        opacity: 0;
+                        right: -100%;
+                        visibility: hidden;
+                    }
+
+                    &:hover {
+                        i, span {
+                            opacity: 1;
+                        }
                     }
                 }
             }
