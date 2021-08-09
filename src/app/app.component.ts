@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { MainToggleService } from './shared/services/main-toggle/main-toggle.service';
 
 @Component({
   selector: 'app-root',

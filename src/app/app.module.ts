@@ -12,6 +12,7 @@ import { AlertModule } from 'ngx-bootstrap/alert';
 import { SideBarComponent } from './shared/components/side-bar/side-bar.component';
 import { MainPrivateComponent } from './private/main/main.component';
 import { IndexComponent } from './private/index/index.component';
+import { NgChartsModule } from 'ng2-charts';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { IndexComponent } from './private/index/index.component';
     HttpClientModule,
     AppRoutingModule,
     TooltipModule.forRoot(),
-    AlertModule.forRoot()
+    AlertModule.forRoot(),
+    NgChartsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

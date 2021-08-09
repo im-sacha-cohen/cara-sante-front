@@ -14,7 +14,15 @@ html {
             }
 
             &.private {
-                margin-left: 70px;
+                padding-top: 1%;
+                padding-left: 80px;
+                height: 100%;
+                width: 100%;
+                transition: 150ms;
+
+                &.is-dark {
+                    background-color: $background-color-dark;
+                }
             }
         }
     }

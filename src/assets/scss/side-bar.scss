@@ -2,7 +2,7 @@ aside {
     &.side-bar {
         background-color: $blue-dark;
         width: 60px;
-        height: 98%;
+        height: 98vh;
         position: absolute;
         margin: 1%;
         border-radius: $border-radius;
@@ -18,21 +18,19 @@ aside {
 
             ul {
                 align-items: flex-start;
+            }
 
-                li {
-                    a {
-                        justify-content: flex-start;
+            a, div {
+                justify-content: flex-start;
 
-                        i {
-                            margin-right: 10px;
-                        }
+                i {
+                    margin-right: 10px;
+                }
 
-                        span {
-                            left: 30%;
-                            visibility: visible;
-                            opacity: 0.7;
-                        }
-                    }
+                span {
+                    left: 30%;
+                    visibility: visible;
+                    opacity: 0.7;
                 }
             }
         }
@@ -62,37 +60,41 @@ aside {
             li {
                 list-style: none;
                 width: 100%;
+            }
+        }
 
-                a {
-                    text-decoration: none;
-                    color: white;
-                    width: 100%;
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
+        a, div {
+            text-decoration: none;
+            color: white;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
 
-                    i {
-                        font-size: 25px;
-                        opacity: 0.7;
-                        transition: 150ms;
-                    }
+            i {
+                font-size: 25px;
+                opacity: 0.7;
+                transition: 150ms;
+            }
 
-                    span {
-                        font-size: 13px;
-                        position: absolute;
-                        align-self: center;
-                        opacity: 0;
-                        right: -100%;
-                        visibility: hidden;
-                    }
+            span {
+                font-size: 13px;
+                position: absolute;
+                align-self: center;
+                opacity: 0;
+                right: -100%;
+                visibility: hidden;
+            }
 
-                    &:hover {
-                        i, span {
-                            opacity: 1;
-                        }
-                    }
+            &:hover {
+                i, span {
+                    opacity: 1;
                 }
             }
+        }
+
+        div {
+            cursor: pointer;
         }
     }
 }

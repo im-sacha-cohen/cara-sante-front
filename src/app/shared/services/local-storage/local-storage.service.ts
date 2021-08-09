@@ -17,6 +17,10 @@ export class LocalStorageService {
     return localStorage.getItem(this.tokenName);
   }
 
+  removeToken(): void {
+    localStorage.removeItem(this.tokenName);
+  }
+
   setMail(mail: string): void {
     localStorage.setItem(this.mailName, mail);
   }

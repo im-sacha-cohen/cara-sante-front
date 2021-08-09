@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 import { JwtHelperService } from '@auth0/angular-jwt';
 import { LocalStorageService } from '../../local-storage/local-storage.service';
 
@@ -9,7 +10,8 @@ export class AuthService {
   jwtHelper: JwtHelperService;
 
   constructor(
-    private localStorageService: LocalStorageService
+    private localStorageService: LocalStorageService,
+    private router: Router
   ) {
     this.jwtHelper = new JwtHelperService();
   }
@@ -40,5 +42,10 @@ export class AuthService {
     }
 
     return false;
+  }
+
+  logout(): void {
+    this.localStorageService.removeToken();
+    this.router.navigate(['/login']);
   }
 }
