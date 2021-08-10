@@ -13,6 +13,7 @@ import { SideBarComponent } from './shared/components/side-bar/side-bar.componen
 import { MainPrivateComponent } from './private/main/main.component';
 import { IndexComponent } from './private/index/index.component';
 import { NgChartsModule } from 'ng2-charts';
+import { TakePatientComponent } from './private/take-patient/take-patient.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { NgChartsModule } from 'ng2-charts';
     MainPublicComponent,
     SideBarComponent,
     MainPrivateComponent,
-    IndexComponent
+    IndexComponent,
+    TakePatientComponent
   ],
   imports: [
     BrowserModule,

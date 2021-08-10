@@ -22,6 +22,8 @@ html {
 
                 &.is-dark {
                     background-color: $background-color-dark;
+                    padding-left: 180px;
+                    transition-delay: 100ms;
                 }
             }
         }
