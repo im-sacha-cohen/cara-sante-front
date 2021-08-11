@@ -8,7 +8,7 @@ import { QueryService } from 'src/app/shared/services/query/query.service';
 })
 export class TakePatientComponent implements OnInit {
   showSpinner = true;
-  patients: any[];
+  detectionTests: any[];
 
   constructor(private queryService: QueryService) { }
 
@@ -26,7 +26,7 @@ export class TakePatientComponent implements OnInit {
       (resp: any[]) => {
         this.showSpinner = false;
         console.log(resp);
-        this.patients = resp;
+        this.detectionTests = resp;
       },
       error => {
         this.showSpinner = false;

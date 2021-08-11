@@ -5,6 +5,7 @@ import { BsDatepickerConfig, BsLocaleService } from 'ngx-bootstrap/datepicker';
 import { defineLocale } from 'ngx-bootstrap/chronos';
 import { frLocale } from 'ngx-bootstrap/locale';
 import { QueryService } from 'src/app/shared/services/query/query.service';
+import { faVirusSlash, faNotesMedical } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-detail-to-take-patient',
@@ -19,6 +20,8 @@ export class DetailToTakePatientComponent implements OnInit {
   isDateActive = false;
   bsConfig: Partial<BsDatepickerConfig> = { containerClass: 'blue' };
   today = new Date().toISOString();
+  faVirusSlash = faVirusSlash;
+  nir = faNotesMedical;
 
   constructor(
     private route: ActivatedRoute,
@@ -44,7 +47,7 @@ export class DetailToTakePatientComponent implements OnInit {
 
     this.queryService.query(
       'GET',
-      '/api/patient/' + this.id
+      '/api/detection-test/' + this.id
     ).subscribe(
       resp => {
         this.showSpinner = false;

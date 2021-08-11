@@ -17,6 +17,7 @@ import { IndexComponent } from './private/index/index.component';
 import { NgChartsModule } from 'ng2-charts';
 import { TakePatientComponent } from './private/patients/to-take/take-patient.component';
 import { DetailToTakePatientComponent } from './private/patients/detail/detail.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,8 @@ import { DetailToTakePatientComponent } from './private/patients/detail/detail.c
     TooltipModule.forRoot(),
     AlertModule.forRoot(),
     NgChartsModule,
-    BsDatepickerModule.forRoot()
+    BsDatepickerModule.forRoot(),
+    FontAwesomeModule
   ],
   providers: [],
   bootstrap: [AppComponent]

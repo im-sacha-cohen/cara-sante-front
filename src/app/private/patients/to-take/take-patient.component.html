@@ -11,12 +11,12 @@
         </tr>
     </thead>
     <tbody>
-        <tr *ngFor="let patient of patients" routerLink="/take-patient/{{ patient.id }}">
-            <th scope="row">{{ patient.firstName }}</th>
-            <td>{{ patient.lastName }}</td>
-            <td>{{ patient.birth }}</td>
-            <td>{{ patient.phone }}</td>
-            <td>{{ patient.mail }}</td>
+        <tr *ngFor="let detectionTest of detectionTests" routerLink="/take-patient/{{ detectionTest.id }}">
+            <th scope="row">{{ detectionTest.patient.firstName }}</th>
+            <td>{{ detectionTest.patient.lastName }}</td>
+            <td>{{ detectionTest.patient.birth }}</td>
+            <td>{{ detectionTest.patient.phone }}</td>
+            <td>{{ detectionTest.patient.mail }}</td>
         </tr>
     </tbody>
 </table>

@@ -5,28 +5,32 @@
         <h1>Informations patient</h1>
         <div>
             <i class="bi bi-person-fill"></i>
-            <span>{{ patient['firstName'] }} </span>
-            <span>{{ patient['lastName'] }}</span>
+            <span>{{ patient['patient']['firstName'] }} </span>
+            <span>{{ patient['patient']['lastName'] }}</span>
         </div>
         <div>
             <i class="bi bi-calendar-day-fill"></i>
-            <span>{{ patient['birth'] }}</span>
+            <span>{{ patient['patient']['birth'] }}</span>
         </div>
         <div>
             <i class="bi bi-envelope-fill"></i>
-            <span>{{ patient['mail'] }}</span>
+            <span>{{ patient['patient']['mail'] }}</span>
         </div>
         <div>
             <i class="bi bi-telephone-fill"></i>
-            <span>{{ patient['phone'] }}</span>
+            <span>{{ patient['patient']['phone'] }}</span>
         </div>
         <div>
             <i class="bi bi-house-fill"></i>
-            <span>{{ patient['street'] }} {{ patient['zip'] }} {{ patient['city'] }}</span>
+            <span>{{ patient['patient']['street'] }} {{ patient['patient']['zip'] }} {{ patient['patient']['city'] }}</span>
         </div>
         <div>
-            <i class="bi bi-file-earmark-medical-fill"></i>
-            <span>{{ patient['nir'] }}</span>
+            <fa-icon [icon]="nir"></fa-icon>
+            <span>{{ patient['patient']['nir'] }}</span>
+        </div>
+        <div>
+            <fa-icon [icon]="faVirusSlash"></fa-icon>
+            <span>Testé le {{ patient['frenchTestedAt'] }}</span>
         </div>
     </div>
     <div class="mt-5 col-12 d-flex flex-column">
