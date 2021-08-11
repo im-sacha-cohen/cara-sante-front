@@ -6,4 +6,12 @@
     border-radius: $border-radius;
     box-shadow: 0 5px 32px -30px black;
     min-width: 410px;
+
+    &.blue {
+        background-color: $blue-transparent;
+
+        div, span {
+            color: white;
+        }
+    }
 }

@@ -1,4 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 import {HttpClientModule} from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
@@ -9,6 +10,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { TooltipModule } from 'ngx-bootstrap/tooltip';
 import { AlertModule } from 'ngx-bootstrap/alert';
+import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 import { SideBarComponent } from './shared/components/side-bar/side-bar.component';
 import { MainPrivateComponent } from './private/main/main.component';
 import { IndexComponent } from './private/index/index.component';
@@ -29,6 +31,7 @@ import { DetailToTakePatientComponent } from './private/patients/detail/detail.c
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     CommonModule,
     ReactiveFormsModule,
     FormsModule,
@@ -36,7 +39,8 @@ import { DetailToTakePatientComponent } from './private/patients/detail/detail.c
     AppRoutingModule,
     TooltipModule.forRoot(),
     AlertModule.forRoot(),
-    NgChartsModule
+    NgChartsModule,
+    BsDatepickerModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -2,20 +2,26 @@ button {
     cursor: pointer;
 
     &.blue-dark {
-        background-color: $blue-dark;
-        border: 1px solid $blue-dark;
-        color: white;
+        background-color: $blue-dark!important;
+        border: 1px solid $blue-dark!important;
+        color: white!important;
+
+        &:hover {
+            background-color: $blue-dark-hover!important;
+            border: 1px solid $blue-dark-hover!important;
+            box-shadow: 0 10px 30px -13px $blue-dark-hover!important;
+        }
     }
 
     &.blue {
-        background-color: $blue;
-        border: 1px solid $blue;
-        color: white;
+        background-color: $blue!important;
+        border: 1px solid $blue!important;
+        color: white!important;
 
         &:hover {
-            background-color: $blue-hover;
-            border: 1px solid $blue-hover;
-            box-shadow: 0 10px 30px -13px $blue-hover;
+            background-color: $blue-hover!important;
+            border: 1px solid $blue-hover!important;
+            box-shadow: 0 10px 30px -13px $blue-hover!important;
         }
     }
 

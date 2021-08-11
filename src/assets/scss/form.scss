@@ -1,21 +1,21 @@
+input, textarea, select, button  {
+    border-radius: $border-radius!important;
+    height: 35px!important;
+    outline: none!important;
+    margin-bottom: 10px!important;
+    border: 2px solid $grey!important;
+    background-color: white!important;
+    color: $black!important;
+    transition: 150ms!important;
+
+    &:last-child {
+        margin-bottom: 0!important;
+    }
+}
+
 form {
     display: flex;
     flex-direction: column;
-
-    input, textarea, select, button  {
-        border-radius: $border-radius;
-        height: 35px;
-        outline: none;
-        margin-bottom: 10px;
-        border: 2px solid $grey;
-        background-color: white;
-        color: $black;
-        transition: 150ms;
-
-        &:last-child {
-            margin-bottom: 0;
-        }
-    }
 
     input, textarea, select {
         padding: 10px;
