@@ -20,6 +20,10 @@ export class AuthService {
     this.localStorageService.setToken(token);
   }
 
+  getToken(): string {
+    return this.localStorageService.getToken();
+  }
+
   getDecodedToken(token: string): string {
     return this.jwtHelper.decodeToken(token);
   }
