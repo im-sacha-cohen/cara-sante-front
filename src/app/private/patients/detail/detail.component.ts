@@ -1,6 +1,9 @@
 import { Component, Input, OnInit, Query } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
+import { BsDatepickerConfig, BsLocaleService } from 'ngx-bootstrap/datepicker';
+import { defineLocale } from 'ngx-bootstrap/chronos';
+import { frLocale } from 'ngx-bootstrap/locale';
 import { QueryService } from 'src/app/shared/services/query/query.service';
 
 @Component({
@@ -14,11 +17,14 @@ export class DetailToTakePatientComponent implements OnInit {
   patient = [];
   dateForm: FormGroup;
   isDateActive = false;
+  bsConfig: Partial<BsDatepickerConfig> = { containerClass: 'blue' };
+  today = new Date().toISOString();
 
   constructor(
     private route: ActivatedRoute,
     private queryService: QueryService,
-    private formBuilder: FormBuilder
+    private formBuilder: FormBuilder,
+    private localeService: BsLocaleService
   ) {}
 
   ngOnInit(): void {
@@ -28,6 +34,9 @@ export class DetailToTakePatientComponent implements OnInit {
     this.dateForm = this.formBuilder.group({
       date: null
     });
+
+    defineLocale('fr', frLocale);
+    this.localeService.use('fr');
   }
 
   getDetailToTakePatient(): void {
@@ -50,7 +59,10 @@ export class DetailToTakePatientComponent implements OnInit {
   }
 
   showDate(): void {
-    console.log('here');
     this.isDateActive = true;
+  }
+
+  onSubmit(): void {
+    console.log(this.dateForm.value);
   }
 }

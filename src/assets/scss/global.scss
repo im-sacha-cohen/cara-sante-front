@@ -13,6 +13,12 @@ html {
                 color: $black;
             }
 
+            .spinner-border {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+            }
+
             &.private {
                 padding-top: 1%;
                 padding-left: 80px;

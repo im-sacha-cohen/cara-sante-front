@@ -19,6 +19,18 @@
         margin-bottom: 25px;
     }
 
+    .section-card {
+        div {
+            i {
+                margin-right: 10px;
+            }
+
+            span {
+                font-weight: 500;
+            }
+        }
+    }
+
     form {
         .date-section {
             opacity: 0;
