@@ -1,0 +1,74 @@
+<h1>Mon profile</h1>
+<div *ngIf="showSpinner" class="spinner-border"></div>
+<ng-container *ngIf="!showSpinner">
+    <div class="section-card blue-dark w-100 m-0">
+        <h2>Informations</h2>
+        <div>
+            <i class="bi bi-person-fill"></i>
+            <span>{{ user['firstName'] }} </span>
+            <span>{{ user['lastName'] }}</span>
+        </div>
+        <div>
+            <i class="bi bi-envelope-fill"></i>
+            <span>{{ user['mail'] }}</span>
+        </div>
+        <div>
+            <i class="bi bi-telephone-fill"></i>
+            <span>{{ user['phone'] }}</span>
+        </div>
+    </div>
+    <div class="d-flex">
+        <div class="section-card blue m-2 ms-0">
+            <h3>Informations complémentaires</h3>
+            <div>
+                <i class="bi bi-people"></i>
+                <span>{{ user['roles'] }} </span>
+            </div>
+            <div>
+                <i class="bi bi-pen"></i>
+                <span>Inscrit le {{ user['createdAt'] }}</span>
+            </div>
+        </div>
+        <div class="section-card blue m-2 me-0">
+            <h3>Statistiques</h3>
+            <div>
+                <i class="bi bi-laptop"></i>
+                <span>5 patients saisit <small>(total)</small></span>
+            </div>
+        </div>
+    </div>
+    <div class="d-flex">
+        <div class="section-card m-2 ms-0">
+            <h4>Mettre à jour mes informations</h4>
+            <form [formGroup]="profileForm">
+                <div class="d-flex">
+                    <input formControlName="firstName" type="text" class="w-50 me-2" placeholder="Prénom">
+                    <input formControlName="lastName" type="text" class="w-50 ms-2" placeholder="Nom">
+                </div>
+                <input formControlName="phone" type="phone" class="w-50" placeholder="Téléphone">
+                <input formControlName="mail" type="mail" placeholder="Adresse mail">
+                <button
+                    [disabled]="showProfileButtonSpinner || profileForm.invalid"
+                    (click)="onSubmitProfile()"
+                    class="blue w-100 align-self-baseline"
+                >
+                    <fa-icon *ngIf="!showProfileButtonSpinner" [icon]="update"></fa-icon>
+                    <div *ngIf="showProfileButtonSpinner" class="spinner-border"></div>
+                    Mettre à jour mes informations
+                </button>
+            </form>
+        </div>
+        <div class="section-card m-2 me-0">
+            <h4>Mettre à jour mon mot de passe</h4>
+            <form>
+                <input type="text" placeholder="Mot de passe actuel">
+                <input type="text" placeholder="Nouveau mot de passe">
+                <input type="text" placeholder="Confirmation nouveau mot de passe">
+                <button class="blue w-100 align-self-baseline">
+                    <fa-icon [icon]="password"></fa-icon>
+                    Changer mon mot de passe
+                </button>
+            </form>
+        </div>
+    </div>
+</ng-container>

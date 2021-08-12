@@ -18,6 +18,7 @@ import { NgChartsModule } from 'ng2-charts';
 import { TakePatientComponent } from './private/patients/to-take/take-patient.component';
 import { DetailToTakePatientComponent } from './private/patients/detail/detail.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { ProfileComponent } from './private/user/profile/profile.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     MainPrivateComponent,
     IndexComponent,
     TakePatientComponent,
-    DetailToTakePatientComponent
+    DetailToTakePatientComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,

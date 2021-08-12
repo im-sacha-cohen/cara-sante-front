@@ -25,7 +25,7 @@ export class SideBarComponent implements OnInit {
     this.mainToggleService.isDark.next(true);
   }
 
-  there(): void {
+  leave(): void {
     this.mainToggleService.isDark.next(false);
   }
 }

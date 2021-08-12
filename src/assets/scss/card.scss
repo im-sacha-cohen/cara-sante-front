@@ -10,7 +10,15 @@
     &.blue {
         background-color: $blue-transparent;
 
-        div, span {
+        div, span, h1, h2, h3 {
+            color: $black;
+        }
+    }
+
+    &.blue-dark {
+        background-color: $blue-dark-transparent;
+
+        div, span, h1, h2 {
             color: white;
         }
     }
