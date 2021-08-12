@@ -42,11 +42,11 @@
             <h4>Mettre à jour mes informations</h4>
             <form [formGroup]="profileForm">
                 <div class="d-flex">
-                    <input formControlName="firstName" type="text" class="w-50 me-2" placeholder="Prénom">
-                    <input formControlName="lastName" type="text" class="w-50 ms-2" placeholder="Nom">
+                    <input formControlName="firstName" type="text" class="w-50 me-2" placeholder="Prénom (facultatif)">
+                    <input formControlName="lastName" type="text" class="w-50 ms-2" placeholder="Nom (facultatif)">
                 </div>
-                <input formControlName="phone" type="phone" class="w-50" placeholder="Téléphone">
-                <input formControlName="mail" type="mail" placeholder="Adresse mail">
+                <input formControlName="phone" type="phone" class="w-50" placeholder="Téléphone (facultatif)">
+                <input formControlName="mail" type="mail" placeholder="Adresse mail (facultatif)">
                 <button
                     [disabled]="showProfileButtonSpinner || profileForm.invalid"
                     (click)="onSubmitProfile()"

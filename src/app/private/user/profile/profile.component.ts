@@ -29,10 +29,10 @@ export class ProfileComponent implements OnInit {
 
   private buildProfileForm(): void {
     this.profileForm = this.formBuilder.group({
-      firstName: ['', Validators.required],
-      lastName: ['', Validators.required],
-      phone: ['', Validators.required],
-      mail: ['', Validators.required]
+      firstName: [''],
+      lastName: [''],
+      phone: [''],
+      mail: ['']
     });
   }
 
@@ -46,6 +46,7 @@ export class ProfileComponent implements OnInit {
     ).subscribe(
       resp => {
         this.showProfileButtonSpinner = false;
+        this.user = resp;
       },
       error => {
         this.showProfileButtonSpinner = false;
@@ -63,6 +64,7 @@ export class ProfileComponent implements OnInit {
       user => {
         this.showSpinner = false;
         this.user = user;
+        this.profileForm.reset();
       },
       error => {
         this.showSpinner = false;
