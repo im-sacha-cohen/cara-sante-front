@@ -72,4 +72,8 @@ export class ProfileComponent implements OnInit {
       }
     );
   }
+
+  alert(): void {
+    alert('Cette fonctionnalité n\'est pour le moment pas disponible');
+  }
 }

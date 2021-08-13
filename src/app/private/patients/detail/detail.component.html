@@ -37,15 +37,18 @@
         <form [formGroup]="dateForm">
             <h2>Ce patient a-t-il été facturé ?</h2>
             <div class="d-flex align-items-center justify-content-between col-5">
-                <button class="blue col-5 mb-0" (click)="onSubmit()">Non <small>puis enregistrer</small></button>
+                <button class="blue col-5 mb-0" (click)="onSubmit()">
+                    Non <small>puis enregistrer</small>
+                </button>
                 <button (click)="showDate()" class="blue-dark col-5">Oui</button>
             </div>
             <div [ngClass]="isDateActive ? 'is-active' : ''" class="date-section mt-3">
                 <h3>Quand a-t-il été facturé ?<small>(Optionel)</small></h3>
-                <input type="text" class="col-2" placeholder="Ajourd'hui" bsDatepicker formControlName="date" placement="right" [bsConfig]="bsConfig" />
+                <input type="text" class="col-2" placeholder="Ajourd'hui" bsDatepicker formControlName="filledAt" placement="right" [bsConfig]="bsConfig" />
                 <div class="d-flex justify-content-end col-2">
                     <button class="blue-dark col-12" (click)="onSubmit()">
-                        <i class="bi bi-save"></i>
+                        <i *ngIf="!showButtonSpinner" class="bi bi-save"></i>
+                        <div *ngIf="showButtonSpinner" class="spinner-border"></div>
                         Enregistrer
                     </button>
                 </div>

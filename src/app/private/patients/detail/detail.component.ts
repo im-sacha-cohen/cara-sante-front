@@ -1,6 +1,6 @@
 import { Component, Input, OnInit, Query } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { BsDatepickerConfig, BsLocaleService } from 'ngx-bootstrap/datepicker';
 import { defineLocale } from 'ngx-bootstrap/chronos';
 import { frLocale } from 'ngx-bootstrap/locale';
@@ -15,6 +15,7 @@ import { faVirusSlash, faNotesMedical } from '@fortawesome/free-solid-svg-icons'
 export class DetailToTakePatientComponent implements OnInit {
   id: any;
   showSpinner = true;
+  showButtonSpinner = false;
   patient = [];
   dateForm: FormGroup;
   isDateActive = false;
@@ -27,7 +28,8 @@ export class DetailToTakePatientComponent implements OnInit {
     private route: ActivatedRoute,
     private queryService: QueryService,
     private formBuilder: FormBuilder,
-    private localeService: BsLocaleService
+    private localeService: BsLocaleService,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
@@ -35,7 +37,7 @@ export class DetailToTakePatientComponent implements OnInit {
     this.getDetailToTakePatient();
 
     this.dateForm = this.formBuilder.group({
-      date: null
+      filledAt: ['']
     });
 
     defineLocale('fr', frLocale);
@@ -67,5 +69,20 @@ export class DetailToTakePatientComponent implements OnInit {
 
   onSubmit(): void {
     console.log(this.dateForm.value);
+    this.showButtonSpinner = true;
+
+    this.queryService.query(
+      'PUT',
+      '/api/detection-test/' + this.id,
+      this.dateForm.value
+    ).subscribe(
+      () => {
+        this.router.navigate(['/take-patient']);
+        this.showButtonSpinner = false;
+      },
+      () => {
+        this.showButtonSpinner = true;
+      }
+    );
   }
 }
