@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { IndexComponent } from './private/index/index.component';
 import { MainPrivateComponent } from './private/main/main.component';
 import { DetailToTakePatientComponent } from './private/patients/detail/detail.component';
+import { TakenPatientComponent } from './private/patients/taken/taken.component';
 import { TakePatientComponent } from './private/patients/to-take/take-patient.component';
 import { ProfileComponent } from './private/user/profile/profile.component';
 import { LoginComponent } from './public/login/login.component';
@@ -45,6 +46,10 @@ const routes: Routes = [
       {
         path: 'take-patient/:id',
         component: DetailToTakePatientComponent
+      },
+      {
+        path: 'taken-patient',
+        component: TakenPatientComponent
       }
     ]
   }

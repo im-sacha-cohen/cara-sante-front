@@ -19,6 +19,7 @@ import { TakePatientComponent } from './private/patients/to-take/take-patient.co
 import { DetailToTakePatientComponent } from './private/patients/detail/detail.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { ProfileComponent } from './private/user/profile/profile.component';
+import { TakenPatientComponent } from './private/patients/taken/taken.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { ProfileComponent } from './private/user/profile/profile.component';
     IndexComponent,
     TakePatientComponent,
     DetailToTakePatientComponent,
-    ProfileComponent
+    ProfileComponent,
+    TakenPatientComponent
   ],
   imports: [
     BrowserModule,
