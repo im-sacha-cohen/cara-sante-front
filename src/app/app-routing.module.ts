@@ -5,6 +5,7 @@ import { MainPrivateComponent } from './private/main/main.component';
 import { DetailToTakePatientComponent } from './private/patients/detail/detail.component';
 import { TakenPatientComponent } from './private/patients/taken/taken.component';
 import { TakePatientComponent } from './private/patients/to-take/take-patient.component';
+import { UsersDetailComponent } from './private/user/detail/detail.component';
 import { UsersListComponent } from './private/user/list/list.component';
 import { ProfileComponent } from './private/user/profile/profile.component';
 import { LoginComponent } from './public/login/login.component';
@@ -60,6 +61,10 @@ const routes: Routes = [
           {
             path: '',
             component: UsersListComponent
+          },
+          {
+            path: ':id',
+            component: UsersDetailComponent
           }
         ]
       }

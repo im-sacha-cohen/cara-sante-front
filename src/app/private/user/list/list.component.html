@@ -7,18 +7,20 @@
             <tr>
               <th scope="col">Prénom</th>
               <th scope="col">Nom</th>
-              <th scope="col">Testé le</th>
-              <th scope="col">Facturé</th>
-              <th scope="col">Saisit le</th>
+              <th scope="col">Mail</th>
+              <th scope="col">Téléphone</th>
+              <th scope="col">Rôles</th>
+              <th scope="col">Créé le</th>
             </tr>
         </thead>
         <tbody>
-            <tr *ngFor="let patient of patients">
-                <th scope="row">{{ patient.patient.firstName }}</th>
-                <td>{{ patient.patient.lastName }}</td>
-                <td>{{ patient.frenchTestedAt }}</td>
-                <td>{{ patient.isInvoiced ? 'Oui' : 'Non' }}</td>
-                <td>{{ patient.filledAtFrench }}</td>
+            <tr *ngFor="let user of users" routerLink="/users/{{ user.id }}">
+                <th scope="row">{{ user.firstName }}</th>
+                <td>{{ user.lastName }}</td>
+                <td>{{ user.mail }}</td>
+                <td>{{ user.phone }}</td>
+                <td>{{ user.roles }}</td>
+                <td>{{ user.createdAtFrench }}</td>
             </tr>
         </tbody>
     </table>

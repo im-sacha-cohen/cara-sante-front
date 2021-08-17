@@ -21,6 +21,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { ProfileComponent } from './private/user/profile/profile.component';
 import { TakenPatientComponent } from './private/patients/taken/taken.component';
 import { UsersListComponent } from './private/user/list/list.component';
+import { UsersDetailComponent } from './private/user/detail/detail.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { UsersListComponent } from './private/user/list/list.component';
     DetailToTakePatientComponent,
     ProfileComponent,
     TakenPatientComponent,
-    UsersListComponent
+    UsersListComponent,
+    UsersDetailComponent
   ],
   imports: [
     BrowserModule,
