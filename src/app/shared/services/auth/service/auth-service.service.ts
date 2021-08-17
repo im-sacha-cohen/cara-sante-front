@@ -48,6 +48,16 @@ export class AuthService {
     return false;
   }
 
+  isAdmin(): boolean {
+    const token = this.getDecodedToken(this.getToken());
+    console.log(this.isConnected() && token['roles'].includes('ROLE_ADMIN') || token['roles'].includes('ROLE_SUPERADMIN'));
+    if (this.isConnected() && token['roles'].includes('ROLE_ADMIN') || token['roles'].includes('ROLE_SUPERADMIN')) {
+      return true;
+    }
+
+    return false;
+  }
+
   logout(): void {
     this.localStorageService.removeToken();
     this.router.navigate(['/login']);

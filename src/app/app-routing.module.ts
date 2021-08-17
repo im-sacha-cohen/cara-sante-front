@@ -5,10 +5,12 @@ import { MainPrivateComponent } from './private/main/main.component';
 import { DetailToTakePatientComponent } from './private/patients/detail/detail.component';
 import { TakenPatientComponent } from './private/patients/taken/taken.component';
 import { TakePatientComponent } from './private/patients/to-take/take-patient.component';
+import { UsersListComponent } from './private/user/list/list.component';
 import { ProfileComponent } from './private/user/profile/profile.component';
 import { LoginComponent } from './public/login/login.component';
 import { MainPublicComponent } from './public/main/main.component';
-import { AuthGuard } from './shared/services/auth/guard/auth.guard';
+import { AdminGuard } from './shared/services/auth/guard/admin/admin.guard';
+import { AuthenticatedGuard } from './shared/services/auth/guard/authenticated/auth.guard';
 
 const routes: Routes = [
   {
@@ -28,7 +30,7 @@ const routes: Routes = [
   },
   {
     path: '',
-    canActivate: [AuthGuard],
+    canActivate: [AuthenticatedGuard],
     component: MainPrivateComponent,
     children: [
       {
@@ -50,6 +52,16 @@ const routes: Routes = [
       {
         path: 'taken-patient',
         component: TakenPatientComponent
+      },
+      {
+        path: 'users',
+        canActivate: [AdminGuard],
+        children: [
+          {
+            path: '',
+            component: UsersListComponent
+          }
+        ]
       }
     ]
   }

@@ -28,4 +28,8 @@ export class SideBarComponent implements OnInit {
   leave(): void {
     this.mainToggleService.isDark.next(false);
   }
+
+  isAdmin(): boolean {
+    return this.authService.isAdmin();
+  }
 }

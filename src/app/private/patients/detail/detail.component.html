@@ -1,8 +1,8 @@
+<h1>Informations patient</h1>
 <div *ngIf="showSpinner" class="spinner-border"></div>
 <div *ngIf="!showSpinner" class="center">
     <div class="person-round">{{ patient['patient']['firstName'][0] + patient['patient']['lastName'][0] }}</div>
     <div class="section-card blue-dark w-100 m-0">
-        <h1>Informations patient</h1>
         <div>
             <i class="bi bi-person-fill"></i>
             <span>{{ patient['patient']['firstName'] }} </span>
