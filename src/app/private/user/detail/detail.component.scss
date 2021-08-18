@@ -1,0 +1,35 @@
+@import '../../../../assets/scss/variables.scss';
+
+.center {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    height: 98vh;
+
+    .person-round {
+        height: 150px;
+        width: 150px;
+        border-radius: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: $grey;
+        font-size: 25px;
+        margin-bottom: 25px;
+    }
+
+    .section-card {
+        &.user {
+            div {
+                i, fa-icon {
+                    margin-right: 10px;
+                }
+    
+                span {
+                    font-weight: 500;
+                }
+            }
+        }
+    }
+}

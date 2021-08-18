@@ -10,6 +10,7 @@ import { QueryService } from 'src/app/shared/services/query/query.service';
 export class UsersDetailComponent implements OnInit {
   id: any;
   user: any;
+  detectionTests: any;
   showSpinner = true;
 
   constructor(
@@ -29,7 +30,14 @@ export class UsersDetailComponent implements OnInit {
       'GET',
       '/api/user/' + this.id
     ).subscribe(
-      //
+      user => {
+        this.user = user[0];
+        this.detectionTests = user[0].detectionTests;
+        this.showSpinner = false;
+      },
+      error => {
+        this.showSpinner = false;
+      }
     );
   }
 }

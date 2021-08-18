@@ -1,58 +1,53 @@
 <h1>Informations utilisateur</h1>
 <div *ngIf="showSpinner" class="spinner-border"></div>
 <div *ngIf="!showSpinner" class="center">
-    <div class="person-round">{{ patient['patient']['firstName'][0] + patient['patient']['lastName'][0] }}</div>
-    <div class="section-card blue-dark w-100 m-0">
+    <div class="person-round">{{ user['firstName'][0] + user['lastName'][0] }}</div>
+    <div class="section-card user blue-dark w-100 m-0">
         <div>
             <i class="bi bi-person-fill"></i>
-            <span>{{ patient['patient']['firstName'] }} </span>
-            <span>{{ patient['patient']['lastName'] }}</span>
+            <span>{{ user['firstName'] }} </span>
+            <span>{{ user['lastName'] }}</span>
         </div>
         <div>
             <i class="bi bi-calendar-day-fill"></i>
-            <span>{{ patient['patient']['birth'] }}</span>
         </div>
         <div>
             <i class="bi bi-envelope-fill"></i>
-            <span>{{ patient['patient']['mail'] }}</span>
+            <span>{{ user['mail'] }}</span>
         </div>
         <div>
             <i class="bi bi-telephone-fill"></i>
-            <span>{{ patient['patient']['phone'] }}</span>
+            <span>{{ user['phone'] }}</span>
         </div>
         <div>
-            <i class="bi bi-house-fill"></i>
-            <span>{{ patient['patient']['street'] }} {{ patient['patient']['zip'] }} {{ patient['patient']['city'] }}</span>
+            <i class="bi bi-person-bounding-box"></i>
+            <span>{{ user['roles'] }}</span>
         </div>
         <div>
-            <fa-icon [icon]="nir"></fa-icon>
-            <span>{{ patient['patient']['nir'] }}</span>
-        </div>
-        <div>
-            <fa-icon [icon]="faVirusSlash"></fa-icon>
-            <span>Testé le {{ patient['frenchTestedAt'] }}</span>
+            <i class="bi bi-person-plus-fill"></i>
+            <span>Créé le {{ user['createdAtFrench'] }}</span>
         </div>
     </div>
-    <div class="mt-5 col-12 d-flex flex-column">
-        <form [formGroup]="dateForm">
-            <h2>Ce patient a-t-il été facturé ?</h2>
-            <div class="d-flex align-items-center justify-content-between col-5">
-                <button class="blue col-5 mb-0" (click)="onSubmit()">
-                    Non <small>puis enregistrer</small>
+    <div class="d-flex w-100 justify-content-between align-items-start">
+        <div class="section-card h-100 blue w-50 m-2 me-0 ms-0">
+            <h3>Nombre de patients saisis</h3>
+            <div>
+                <i class="bi bi-pencil"></i>
+                <span>{{ detectionTests.length }} patients saisit <small>(total)</small></span>
+            </div>
+        </div>
+        <div class="section-card h-100 w-50 blue-dark m-2 me-0">
+            <h3>Actions</h3>
+            <div class="d-flex">
+                <button class="red me-2">
+                    <i class="bi bi-x-circle"></i>
+                    Désactiver ce compte
                 </button>
-                <button (click)="showDate()" class="blue-dark col-5">Oui</button>
+                <button class="orange">
+                    <i class="bi bi-reply"></i>
+                    Réénitialiser le mot de passe
+                </button>
             </div>
-            <div [ngClass]="isDateActive ? 'is-active' : ''" class="date-section mt-3">
-                <h3>Quand a-t-il été facturé ?<small>(Optionel)</small></h3>
-                <input type="text" class="col-2" placeholder="Ajourd'hui" bsDatepicker formControlName="filledAt" placement="right" [bsConfig]="bsConfig" />
-                <div class="d-flex justify-content-end col-2">
-                    <button class="blue-dark col-12" (click)="onSubmit()">
-                        <i *ngIf="!showButtonSpinner" class="bi bi-save"></i>
-                        <div *ngIf="showButtonSpinner" class="spinner-border"></div>
-                        Enregistrer
-                    </button>
-                </div>
-            </div>
-        </form>
+        </div>
     </div>
 </div>
