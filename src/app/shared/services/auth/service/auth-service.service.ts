@@ -50,7 +50,7 @@ export class AuthService {
 
   isAdmin(): boolean {
     const token = this.getDecodedToken(this.getToken());
-    console.log(this.isConnected() && token['roles'].includes('ROLE_ADMIN') || token['roles'].includes('ROLE_SUPERADMIN'));
+
     if (this.isConnected() && token['roles'].includes('ROLE_ADMIN') || token['roles'].includes('ROLE_SUPERADMIN')) {
       return true;
     }

@@ -37,6 +37,14 @@ form {
         align-self: flex-end;
     }
 
+    .box-info {
+        i, span {
+            color: $grey-dark;
+            font-weight: 100;
+            font-size: 13px;
+        }
+    }
+
     .links {
         a {
             text-decoration: none;

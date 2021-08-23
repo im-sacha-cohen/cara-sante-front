@@ -22,6 +22,7 @@ import { ProfileComponent } from './private/user/profile/profile.component';
 import { TakenPatientComponent } from './private/patients/taken/taken.component';
 import { UsersListComponent } from './private/user/list/list.component';
 import { UsersDetailComponent } from './private/user/detail/detail.component';
+import { AddUserComponent } from './private/user/add/add.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { UsersDetailComponent } from './private/user/detail/detail.component';
     ProfileComponent,
     TakenPatientComponent,
     UsersListComponent,
-    UsersDetailComponent
+    UsersDetailComponent,
+    AddUserComponent
   ],
   imports: [
     BrowserModule,
