@@ -4,21 +4,21 @@
     margin: auto;
     padding: 20px;
     border-radius: $border-radius;
-    box-shadow: 0 5px 32px -30px black;
+    box-shadow: 2px 2px 20px -19px $blue-dark;
     min-width: 410px;
 
-    &.blue {
-        background-color: $blue-transparent;
+    &.blue-medium {
+        background-color: $blue-medium;
 
         div, span, h1, h2, h3 {
-            color: $black;
+            color: white;
         }
     }
 
-    &.blue-dark {
-        background-color: $blue-dark-transparent;
+    &.blue {
+        background-color: $blue;
 
-        div, span, h1, h2 {
+        div, span, h1, h2, h3 {
             color: white;
         }
     }

@@ -2,7 +2,7 @@
 <div *ngIf="showSpinner" class="spinner-border"></div>
 <div *ngIf="!showSpinner" class="center">
     <div class="person-round">{{ patient['patient']['firstName'][0] + patient['patient']['lastName'][0] }}</div>
-    <div class="section-card blue-dark w-100 m-0">
+    <div class="section-card blue-medium w-100 m-0">
         <div>
             <i class="bi bi-person-fill"></i>
             <span>{{ patient['patient']['firstName'] }} </span>
@@ -33,19 +33,19 @@
             <span>Testé le {{ patient['frenchTestedAt'] }}</span>
         </div>
     </div>
-    <div class="mt-5 col-12 d-flex flex-column">
+    <div class="mt-5 col-6 d-flex flex-column section-card blue m-0 align-self-start">
         <form [formGroup]="dateForm">
             <h2>Ce patient a-t-il été facturé ?</h2>
-            <div class="d-flex align-items-center justify-content-between col-5">
-                <button class="blue col-5 mb-0" (click)="onSubmit()">
+            <div class="d-flex align-items-center justify-content-between col-6">
+                <button class="white col-10 me-2 mb-0" (click)="onSubmit()">
                     Non <small>puis enregistrer</small>
                 </button>
-                <button (click)="showDate()" class="blue-dark col-5">Oui</button>
+                <button (click)="showDate()" class="blue-dark col-10">Oui</button>
             </div>
             <div [ngClass]="isDateActive ? 'is-active' : ''" class="date-section mt-3">
                 <h3>Quand a-t-il été facturé ?<small>(Optionel)</small></h3>
-                <input type="text" class="col-2" placeholder="Ajourd'hui" bsDatepicker formControlName="filledAt" placement="right" [bsConfig]="bsConfig" />
-                <div class="d-flex justify-content-end col-2">
+                <input type="text" class="col-6" placeholder="Ajourd'hui" bsDatepicker formControlName="filledAt" placement="right" [bsConfig]="bsConfig" />
+                <div class="d-flex justify-content-end col-6">
                     <button class="blue-dark col-12" (click)="onSubmit()">
                         <i *ngIf="!showButtonSpinner" class="bi bi-save"></i>
                         <div *ngIf="showButtonSpinner" class="spinner-border"></div>

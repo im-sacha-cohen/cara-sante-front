@@ -1,10 +1,10 @@
 aside {
     &.side-bar {
-        background-color: $blue-dark;
+        background-color: $blue-medium;
         width: 60px;
         height: 98vh;
         position: fixed;
-        margin: 1%;
+        margin: 10px;
         border-radius: $border-radius;
         padding: 10px;
         display: flex;
@@ -14,7 +14,7 @@ aside {
 
         &:hover {
             width: 150px;
-            box-shadow: 10px 0 23px -16px $blue-dark;
+            box-shadow: 10px 0 23px -16px $blue;
 
             ul {
                 align-items: flex-start;

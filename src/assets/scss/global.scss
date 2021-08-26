@@ -23,6 +23,14 @@ html {
                 color: $black;
             }
 
+            &.public {
+                padding-top: 8%;
+
+                img {
+                    height: 250px;
+                }
+            }
+
             &.private {
                 padding-top: 1%;
                 padding-left: 80px;

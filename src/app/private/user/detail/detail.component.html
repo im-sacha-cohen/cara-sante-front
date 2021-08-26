@@ -2,14 +2,11 @@
 <div *ngIf="showSpinner" class="spinner-border"></div>
 <div *ngIf="!showSpinner" class="center">
     <div class="person-round">{{ user['firstName'][0] + user['lastName'][0] }}</div>
-    <div class="section-card user blue-dark w-100 m-0">
+    <div class="section-card user blue-medium w-100 m-0">
         <div>
             <i class="bi bi-person-fill"></i>
             <span>{{ user['firstName'] }} </span>
             <span>{{ user['lastName'] }}</span>
-        </div>
-        <div>
-            <i class="bi bi-calendar-day-fill"></i>
         </div>
         <div>
             <i class="bi bi-envelope-fill"></i>
@@ -36,7 +33,7 @@
                 <span>{{ detectionTests.length }} patients saisit <small>(total)</small></span>
             </div>
         </div>
-        <div class="section-card h-100 w-50 blue-dark m-2 me-0">
+        <div class="section-card h-100 w-50 blue m-2 me-0">
             <h3>Actions</h3>
             <div class="d-flex">
                 <button class="red me-2">
