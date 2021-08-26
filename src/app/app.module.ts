@@ -23,6 +23,7 @@ import { TakenPatientComponent } from './private/patients/taken/taken.component'
 import { UsersListComponent } from './private/user/list/list.component';
 import { UsersDetailComponent } from './private/user/detail/detail.component';
 import { AddUserComponent } from './private/user/add/add.component';
+import { SetPasswordComponent } from './public/password/set-password/set-password.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import { AddUserComponent } from './private/user/add/add.component';
     TakenPatientComponent,
     UsersListComponent,
     UsersDetailComponent,
-    AddUserComponent
+    AddUserComponent,
+    SetPasswordComponent
   ],
   imports: [
     BrowserModule,
