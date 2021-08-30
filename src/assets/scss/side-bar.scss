@@ -92,11 +92,12 @@ aside {
                 opacity: 0;
                 right: -100%;
                 visibility: hidden;
+                transition: 150ms;
             }
 
             &:hover {
                 i, span {
-                    opacity: 1;
+                    opacity: 1!important;
                 }
             }
         }

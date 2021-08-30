@@ -7,15 +7,17 @@
         </div>
         <input formControlName="email" type="mail" class="col-12" placeholder="Adresse mail">
         <input formControlName="phone" type="phone" class="col-12" placeholder="Numéro de téléphone">
-        <div class="d-flex box-info">
-            <i class="bi bi-info-circle me-2"></i>
-            <span>Cet utilisateur obtiendra un ROLE_USER (classique). Pour ajouter un admin, 
-                <a href="javascript:;">nous contacter</a>
-            </span>
-        </div>
-        <div class="d-flex box-info">
-            <i class="bi bi-info-circle me-2"></i>
-            <span>Cet utilisateur recevra un mail avec un lien de connexion dès confirmation de ce formulaire.</span>
+        <div class="section-card theme w-100">
+            <div class="d-flex box-info">
+                <i class="bi bi-info-circle me-2"></i>
+                <span>Cet utilisateur obtiendra un ROLE_USER (classique). Pour ajouter un admin, 
+                    <a href="javascript:;">nous contacter</a>
+                </span>
+            </div>
+            <div class="d-flex box-info">
+                <i class="bi bi-info-circle me-2"></i>
+                <span>Cet utilisateur recevra un mail avec un lien de connexion dès confirmation de ce formulaire.</span>
+            </div>
         </div>
         <alert class="mt-2" *ngIf="isError" type="danger">
             {{ errorMessage }}

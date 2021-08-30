@@ -17,6 +17,11 @@ form {
     display: flex;
     flex-direction: column;
 
+    h1 {
+        font-size: 22px;
+        color: $blue-dark!important;
+    }
+
     input, textarea, select {
         padding: 10px;
         font-weight: 300;
