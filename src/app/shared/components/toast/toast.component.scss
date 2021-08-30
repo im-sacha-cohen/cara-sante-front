@@ -1,0 +1,57 @@
+@import '../../../../assets/scss/variables.scss';
+
+.toast {
+    all: unset;
+    position: absolute;
+    top: 10px;
+    right: -340px;
+    height: 80px;
+    width: 300px;
+    background-color: white;
+    display: flex;
+    border-radius: $border-radius;
+    border-left: 15px solid $red;
+    box-shadow: 0 0 30px -27px black;
+    align-items: center;
+    padding: 0 10px;
+    transition: 300ms;
+
+    &.is-active {
+        right: 10px;
+    }
+
+    &:hover {
+        box-shadow: 0 5px 35px -27px black;
+    }
+
+    i {
+        color: $red;
+        font-size: 23px;
+        margin-right: 10px;
+
+        &.cross {
+            color: $grey-light;
+            position: absolute;
+            top: 0;
+            right: 0;
+            cursor: pointer;
+            transition: 300ms;
+
+            &:hover {
+                color: $grey-dark;
+            }
+        }
+    }
+
+    .text-container {
+        display: flex;
+        flex-direction: column;
+
+        span {
+            &.message {
+                font-weight: 200;
+                font-size: 14px;
+            }
+        }
+    }
+}

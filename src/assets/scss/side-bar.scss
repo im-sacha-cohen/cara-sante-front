@@ -40,18 +40,18 @@ aside {
         .person-round {
             height: 50px;
             width: 50px;
-            background-color: $grey-light;
+            background-color: $blue-dark;
             border-radius: 100%;
             padding: 10px;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: $black;
+            color: $grey;
             transition: 150ms;
 
             &:hover {
-                background-color: $grey;
-                color: $blue-dark;
+                background-color: $blue-dark-hover;
+                color: $grey;
             }
         }
 

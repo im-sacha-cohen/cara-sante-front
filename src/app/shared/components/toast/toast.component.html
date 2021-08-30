@@ -1,0 +1,8 @@
+<div [ngClass]="isActive ? 'is-active' : ''" class="toast">
+    <i (click)="close()" class="bi bi-x cross"></i>
+    <i class="{{ icon }}"></i>
+    <div class="text-container">
+        <span class="title">{{ title }}</span>
+        <span class="message">{{ message }}</span>
+    </div>
+</div>

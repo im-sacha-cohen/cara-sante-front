@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/shared/services/auth/service/auth-service.service';
+import { ToastService } from 'src/app/shared/services/toast/toast.service';
 import { environment } from 'src/environments/environment';
 
 @Component({
@@ -20,7 +21,8 @@ export class LoginComponent implements OnInit {
     private formBuilder: FormBuilder,
     private httpClient: HttpClient,
     private authService: AuthService,
-    private router: Router
+    private router: Router,
+    private toastrService: ToastService
   ) { }
 
   ngOnInit(): void {
@@ -51,10 +53,12 @@ export class LoginComponent implements OnInit {
       },
       error => {
         this.showSpinner = false;
-        this.isError = true;
 
         if (error.status === 401) {
+          this.isError = true;
           this.errorMessage = 'L\'adresse mail et/ou le mot de passe est erroné';
+        } else if (error.status === 0 || error.status[0] === 5) {
+          this.toastrService.set('error', 'Une erreur s\'est produite');
         } else {
           this.errorMessage = error.error?.message;
         }

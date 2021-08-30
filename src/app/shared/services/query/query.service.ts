@@ -3,6 +3,8 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { AuthService } from '../auth/service/auth-service.service';
+import { catchError, tap } from 'rxjs/operators';
+import { ToastService } from '../toast/toast.service';
 
 @Injectable({
   providedIn: 'root'
@@ -11,11 +13,12 @@ export class QueryService {
 
   constructor(
     private httpClient: HttpClient,
-    private authService: AuthService
+    private authService: AuthService,
+    private toastService: ToastService
   ) { }
 
   public query(method: string, url: string, payload?: {}): Observable<any> {
-   return this.httpClient.request(
+    return this.httpClient.request(
       method,
       environment.apiUrl + url,
       {
@@ -25,6 +28,19 @@ export class QueryService {
           Authorization: 'Bearer ' + this.authService.getToken()
         })
       }
+    ).pipe(
+      tap(
+        data => {},
+        error => {
+          if (error.status === 0 || error.status[0] === 5) {
+            let message: string;
+
+            error.error?.message ? message = error.error.message : message = 'Une erreur s\'est produite';
+
+            this.toastService.set('error', message);
+          }
+        }
+      )
     );
   }
 }
