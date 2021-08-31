@@ -130,6 +130,10 @@ export class SetPasswordComponent implements OnInit {
           this.alertType = 'success';
           this.alertMessage = 'Votre mot de passe a été créé ! Veuillez maintenant vous connecter';
           this.buildForm();
+
+          this.passwordBiggerThan8 = false;
+          this.passwordHas2Numeric = false;
+          this.passwordHas1SpecialChar = false;
         },
         error => {
           this.showButtonSpinner = false;
