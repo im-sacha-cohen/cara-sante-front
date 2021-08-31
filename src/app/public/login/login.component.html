@@ -1,7 +1,4 @@
 <div class="section-card login">
-    <alert *ngIf="isError" type="danger">
-        {{ errorMessage }}
-    </alert>
     <form [formGroup]="formLogin">
         <h1>Connexion</h1>
         <input formControlName="username" type="mail" placeholder="Ex: mail@carasante.com">
@@ -9,6 +6,9 @@
         <div class="d-flex justify-content-between links">
             <a routerLink="forgot-password">Mot de passe oublié ?</a>
         </div>
+        <alert *ngIf="isError" type="danger">
+            {{ errorMessage }}
+        </alert>
         <button (click)="onSubmit()" [disabled]="showSpinner || this.formLogin.invalid" class="blue">
             <i *ngIf="!showSpinner" class="bi bi-box-arrow-in-right"></i>
             <div *ngIf="showSpinner" class="spinner-border"></div>

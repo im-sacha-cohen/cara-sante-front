@@ -24,7 +24,7 @@
     }
 
     &.error {
-        border-left: 15px solid $red;
+        border-left: 10px solid $red;
 
         i {
             color: $red;
@@ -32,7 +32,7 @@
     }
 
     &.success {
-        border-left: 15px solid $green;
+        border-left: 10px solid $green;
 
         i {
             color: $green;
