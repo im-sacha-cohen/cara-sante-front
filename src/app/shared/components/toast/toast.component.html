@@ -1,4 +1,4 @@
-<div [ngClass]="isActive ? 'is-active' : ''" class="toast">
+<div [ngClass]="isActive ? 'is-active' : ''" class="toast {{ type }}">
     <i (click)="close()" class="bi bi-x cross"></i>
     <i class="{{ icon }}"></i>
     <div class="text-container">

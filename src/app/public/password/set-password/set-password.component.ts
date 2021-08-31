@@ -6,6 +6,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { QueryService } from 'src/app/shared/services/query/query.service';
 import { environment } from 'src/environments/environment';
 import { faUnlockAlt } from '@fortawesome/free-solid-svg-icons'
+import { ToastService } from 'src/app/shared/services/toast/toast.service';
 
 @Component({
   selector: 'app-set-password',
@@ -17,6 +18,7 @@ export class SetPasswordComponent implements OnInit {
   showButtonSpinner = false;
   token: string;
   isError: boolean;
+  isFormError: boolean;
   errorMessage: string;
   showForm = false;
   setPasswordForm: FormGroup;
@@ -32,7 +34,8 @@ export class SetPasswordComponent implements OnInit {
   constructor(
     private httpClient: HttpClient,
     private router: ActivatedRoute,
-    private formBuilder: FormBuilder
+    private formBuilder: FormBuilder,
+    private toastService: ToastService
   ) { }
 
   ngOnInit(): void {
@@ -52,19 +55,18 @@ export class SetPasswordComponent implements OnInit {
     this.httpClient.get(
       environment.apiUrl + '/user/' + this.token
     ).subscribe(
-      resp => {
+      (resp: { token: string }) => {
         this.showSpinner = false;
         this.showForm = true;
+        this.token = resp.token;
       },
       error => {
         console.log('error->', error);
-        /*this.showSpinner = false;
+        this.showSpinner = false;
         this.isError = true;
-        this.errorMessage = error.error.message;*/
+        this.errorMessage = error.error.message;
       }
     );
-    this.showSpinner = false;
-    this.showForm = true;
   }
 
   verifyPassword(): void {
@@ -104,7 +106,38 @@ export class SetPasswordComponent implements OnInit {
     });
   }
 
+  isBothPasswordMatches(password: string, passwordConfirm: string): boolean {
+    if (password === passwordConfirm) {
+      return true;
+    }
+
+    return false;
+  }
+
   onClick(): void {
-    //if 
+    const password = this.setPasswordForm.value.password;
+    const passwordConfirm = this.setPasswordForm.value.confirmPassword;
+    this.isFormError = false;
+
+    if (this.isBothPasswordMatches(password, passwordConfirm)) {
+      this.showButtonSpinner = true;
+
+      this.httpClient.request(
+        'POST',
+        environment.apiUrl + '/set-password/' + this.token,
+        this.setPasswordForm.value
+      ).subscribe(
+        resp => {
+          this.showButtonSpinner = false;
+        },
+        error => {
+          this.showButtonSpinner = false;
+          this.toastService.set('error', error.statusText);
+        }
+      );
+    } else {
+      this.isFormError = true;
+      this.errorMessage = 'Les deux mots de passe ne correspondent pas';
+    }
   }
 }

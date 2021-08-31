@@ -19,7 +19,7 @@
                 <span>Cet utilisateur recevra un mail avec un lien de connexion dès confirmation de ce formulaire.</span>
             </div>
         </div>
-        <alert class="mt-2" *ngIf="isError" type="danger">
+        <alert class="mt-2" *ngIf="isError" type="{{ errorType }}">
             {{ errorMessage }}
         </alert>
         <button [disabled]="addUserForm.invalid || showSpinner" (click)="onClick()" class="blue mt-2">

@@ -10,7 +10,6 @@
     background-color: white;
     display: flex;
     border-radius: $border-radius;
-    border-left: 15px solid $red;
     box-shadow: 0 0 30px -27px black;
     align-items: center;
     padding: 0 10px;
@@ -24,8 +23,23 @@
         box-shadow: 0 5px 35px -27px black;
     }
 
+    &.error {
+        border-left: 15px solid $red;
+
+        i {
+            color: $red;
+        }
+    }
+
+    &.success {
+        border-left: 15px solid $green;
+
+        i {
+            color: $green;
+        }
+    }
+
     i {
-        color: $red;
         font-size: 23px;
         margin-right: 10px;
 

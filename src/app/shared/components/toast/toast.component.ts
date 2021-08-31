@@ -32,5 +32,10 @@ export class ToastComponent implements OnInit {
       this.title = 'Erreur';
       this.icon = 'bi bi-x-circle-fill';
     }
+
+    if (this.type === 'success') {
+      this.title = 'Succès';
+      this.icon = 'bi bi-check-circle-fill';
+    }
   }
 }
