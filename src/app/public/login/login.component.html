@@ -4,7 +4,7 @@
         <input formControlName="username" type="mail" placeholder="Ex: mail@carasante.com">
         <input formControlName="password" type="password" placeholder="*******">
         <div class="d-flex justify-content-between links">
-            <a routerLink="forgot-password">Mot de passe oublié ?</a>
+            <a routerLink="/forgot-password">Mot de passe oublié ?</a>
         </div>
         <alert *ngIf="isError" type="danger">
             {{ errorMessage }}

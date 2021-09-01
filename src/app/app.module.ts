@@ -25,6 +25,7 @@ import { UsersDetailComponent } from './private/user/detail/detail.component';
 import { AddUserComponent } from './private/user/add/add.component';
 import { SetPasswordComponent } from './public/password/set-password/set-password.component';
 import { ToastComponent } from './shared/components/toast/toast.component';
+import { ForgotPasswordComponent } from './public/password/forgot-password/forgot-password.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +43,8 @@ import { ToastComponent } from './shared/components/toast/toast.component';
     UsersDetailComponent,
     AddUserComponent,
     SetPasswordComponent,
-    ToastComponent
+    ToastComponent,
+    ForgotPasswordComponent
   ],
   imports: [
     BrowserModule,

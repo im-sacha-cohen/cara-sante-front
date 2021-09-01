@@ -11,6 +11,7 @@ import { UsersListComponent } from './private/user/list/list.component';
 import { ProfileComponent } from './private/user/profile/profile.component';
 import { LoginComponent } from './public/login/login.component';
 import { MainPublicComponent } from './public/main/main.component';
+import { ForgotPasswordComponent } from './public/password/forgot-password/forgot-password.component';
 import { SetPasswordComponent } from './public/password/set-password/set-password.component';
 import { AdminGuard } from './shared/services/auth/guard/admin/admin.guard';
 import { AuthenticatedGuard } from './shared/services/auth/guard/authenticated/auth.guard';
@@ -32,6 +33,10 @@ const routes: Routes = [
       {
         path: 'set-password/:token',
         component: SetPasswordComponent
+      },
+      {
+        path: 'forgot-password',
+        component: ForgotPasswordComponent
       }
     ]
   },
