@@ -41,8 +41,7 @@ export class ForgotPasswordComponent implements OnInit {
   onSubmit(): void {
     this.showSpinner = true;
 
-    this.httpClient.request(
-      'POST',
+    this.httpClient.post(
       environment.apiUrl + '/user/forgot-password',
       this.formForgotPassword.value
     ).subscribe(
