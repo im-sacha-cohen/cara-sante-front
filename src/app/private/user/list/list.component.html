@@ -7,19 +7,18 @@
         </button>
     </a>
 </div>
-<div *ngIf="showSpinner" class="spinner-border"></div>
-<ng-container *ngIf="!showSpinner">
+<div class="section-card w-100">
     <div *ngIf="showSpinner" class="spinner-border"></div>
     <table *ngIf="!showSpinner" class="table table-striped table-hover">
         <thead>
             <tr>
-              <th scope="col">Prénom</th>
-              <th scope="col">Nom</th>
-              <th scope="col">Mail</th>
-              <th scope="col">Téléphone</th>
-              <th scope="col">Rôles</th>
-              <th scope="col">Créé le</th>
-              <th scope="col">Status</th>
+                <th scope="col">Prénom</th>
+                <th scope="col">Nom</th>
+                <th scope="col">Mail</th>
+                <th scope="col">Téléphone</th>
+                <th scope="col">Rôles</th>
+                <th scope="col">Créé le</th>
+                <th scope="col">Status</th>
             </tr>
         </thead>
         <tbody>
@@ -41,4 +40,4 @@
             </tr>
         </tbody>
     </table>
-</ng-container>
+</div>
