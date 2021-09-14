@@ -7,7 +7,7 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './public/login/login.component';
 import { MainPublicComponent } from './public/main/main.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { CommonModule } from '@angular/common';
+import { CommonModule, HashLocationStrategy, LocationStrategy } from '@angular/common';
 import { TooltipModule } from 'ngx-bootstrap/tooltip';
 import { AlertModule } from 'ngx-bootstrap/alert';
 import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
@@ -60,7 +60,7 @@ import { ForgotPasswordComponent } from './public/password/forgot-password/forgo
     BsDatepickerModule.forRoot(),
     FontAwesomeModule
   ],
-  providers: [],
+  providers: [{ provide: LocationStrategy, useClass: HashLocationStrategy }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
