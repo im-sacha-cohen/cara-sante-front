@@ -1,0 +1,55 @@
+html {
+    height: 100%;
+    width: 100%;
+
+    body {
+        height: 100%;
+        width: 100%;
+        background-color: $background-color;
+        font-family: 'Roboto'!important;
+        overflow-x: hidden;
+
+        main {
+            h1, h2, h3, h4, h5, h6, span, p {
+                color: $black;
+            }
+
+            .spinner-border {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+
+                &.relative {
+                    position: relative;
+                }
+            }
+
+            a {
+                color: $black;
+            }
+
+            &.public {
+                padding-top: 5%;
+
+                img {
+                    height: 250px;
+                }
+            }
+
+            &.private {
+                padding-top: 1%;
+                padding-left: 80px;
+                padding-right: 10px;
+                height: 100%;
+                width: 100%;
+                transition: 150ms;
+
+                &.is-dark {
+                    background-color: $background-color-dark;
+                    padding-left: 180px;
+                    transition-delay: 100ms;
+                }
+            }
+        }
+    }
+}

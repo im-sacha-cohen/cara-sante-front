@@ -1,0 +1,17 @@
+table {
+    tbody {
+        tr {
+            cursor: pointer;
+        }
+    }
+
+    /*&.table-striped {
+        & > tbody {
+            & > tr {
+                &:nth-of-type(odd) {
+                   background-color: $broken-white;
+                }
+            }
+        }
+    }*/
+}

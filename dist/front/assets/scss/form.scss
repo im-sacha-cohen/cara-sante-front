@@ -1,0 +1,72 @@
+input, textarea, select, button  {
+    border-radius: $border-radius!important;
+    height: 35px!important;
+    outline: none!important;
+    margin-bottom: 10px!important;
+    border: 2px solid $grey!important;
+    background-color: white!important;
+    color: $black!important;
+    transition: 150ms!important;
+
+    &:last-child {
+        margin-bottom: 0!important;
+    }
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+
+    h1 {
+        font-size: 22px;
+        color: $blue-dark!important;
+    }
+
+    input, textarea, select {
+        padding: 10px;
+        font-weight: 300;
+        color: $blue-dark;
+
+        &::placeholder {
+            color: $grey-light;
+        }
+
+        &:focus {
+            border: 2px solid $blue-medium-transparent!important;
+            color: $blue-medium;
+        }
+    }
+
+    button {
+        width: 30%;
+        align-self: flex-end;
+    }
+
+    .box-info {
+        i, span {
+            color: $grey-dark;
+            font-weight: 100;
+            font-size: 13px;
+        }
+
+        &.text-md {
+            i, span {
+                font-size: 15px;
+                font-weight: 400;
+            }
+        }
+    }
+
+    .links {
+        a {
+            text-decoration: none;
+            color: $grey-light;
+            font-size: 13px;
+            font-weight: 300;
+
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+    }
+}

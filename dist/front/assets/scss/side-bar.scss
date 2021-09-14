@@ -1,0 +1,109 @@
+aside {
+    &.side-bar {
+        background-color: $blue-medium;
+        width: 60px;
+        height: 98vh;
+        position: fixed;
+        margin: 10px;
+        border-radius: $border-radius;
+        padding: 10px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        transition: 150ms;
+
+        &:hover {
+            width: 150px;
+            box-shadow: 10px 0 23px -16px $blue;
+
+            ul {
+                align-items: flex-start;
+            }
+
+            a, div {
+                &:not(.person-round) {
+                    justify-content: flex-start;
+
+                    i {
+                        margin-right: 10px;
+                    }
+    
+                    span {
+                        left: 30%;
+                        visibility: visible;
+                        opacity: 0.7;
+                    }
+                }
+            }
+        }
+
+        .person-round {
+            height: 50px;
+            width: 50px;
+            background-color: $blue-dark;
+            border-radius: 100%;
+            padding: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: $grey;
+            transition: 150ms;
+
+            &:hover {
+                background-color: $blue-dark-hover;
+                color: $grey;
+            }
+        }
+
+        ul {
+            padding: 0;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 80%;
+            transition: align-items 300ms;
+
+            li {
+                list-style: none;
+                width: 100%;
+            }
+        }
+
+        a, div {
+            text-decoration: none;
+            color: white;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            i {
+                font-size: 25px;
+                opacity: 0.7;
+                transition: 150ms;
+            }
+
+            span {
+                font-size: 13px;
+                position: absolute;
+                align-self: center;
+                opacity: 0;
+                right: -100%;
+                visibility: hidden;
+                transition: 150ms;
+            }
+
+            &:hover {
+                i, span {
+                    opacity: 1!important;
+                }
+            }
+        }
+
+        div {
+            cursor: pointer;
+        }
+    }
+}
