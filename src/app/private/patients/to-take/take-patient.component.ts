@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { QueryService } from 'src/app/shared/services/query/query.service';
 
 @Component({
@@ -10,7 +11,10 @@ export class TakePatientComponent implements OnInit {
   showSpinner = true;
   detectionTests: any[];
 
-  constructor(private queryService: QueryService) { }
+  constructor(
+    private queryService: QueryService,
+    private router: Router
+  ) { }
 
   ngOnInit(): void {
     this.getPatientsToTake();
@@ -33,5 +37,11 @@ export class TakePatientComponent implements OnInit {
         console.log(error);
       }
     );
+  }
+
+  onClick(detectionTest: any): void {
+    if (!detectionTest.isUpdating) {
+      this.router.navigate(['/take-patient/' + detectionTest.id]);
+    }
   }
 }

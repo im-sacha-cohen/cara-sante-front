@@ -28,6 +28,12 @@ html {
                 color: $black;
             }
 
+            .disabled {
+                
+                    cursor: not-allowed;
+                
+            }
+
             &.public {
                 padding-top: 5%;
 

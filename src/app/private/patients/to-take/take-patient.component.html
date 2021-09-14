@@ -9,15 +9,33 @@
               <th scope="col">Date de naissance</th>
               <th scope="col">Téléphone</th>
               <th scope="col">Mail</th>
+              <th scope="col">Status</th>
             </tr>
         </thead>
         <tbody>
-            <tr *ngFor="let detectionTest of detectionTests" routerLink="/take-patient/{{ detectionTest.id }}">
+                <tr
+                    (click)="onClick(detectionTest)"
+                    [ngClass]="detectionTest.isUpdating ? 'disabled' : ''"
+                    *ngFor="let detectionTest of detectionTests"
+                >
                 <th scope="row">{{ detectionTest.patient.firstName }}</th>
                 <td>{{ detectionTest.patient.lastName }}</td>
                 <td>{{ detectionTest.patient.birth }}</td>
                 <td>{{ detectionTest.patient.phone }}</td>
                 <td>{{ detectionTest.patient.mail }}</td>
+                <td>
+                    <ng-container *ngIf="detectionTest.isUpdating">
+                        <span class="badge rounded-pill bg-danger text-light">
+                            Modification en cours par 
+                            <small>
+                                {{ detectionTest.updatingBy.firstName + ' ' + detectionTest.updatingBy.lastName }}
+                            </small>
+                        </span>
+                    </ng-container>
+                    <ng-container *ngIf="!detectionTest.isUpdating">
+                        <span class="badge rounded-pill bg-success">Disponbile</span>
+                    </ng-container>
+                </td>
             </tr>
         </tbody>
     </table>
