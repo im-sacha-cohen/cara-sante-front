@@ -38,6 +38,11 @@ export class AuthService {
     return this.localStorageService.getMail();
   }
 
+  getRef(): string {
+    const token = this.getDecodedToken(this.localStorageService.getToken());
+    return token['ref'];
+  }
+
   isConnected(): boolean {
     const token = this.localStorageService.getToken();
 

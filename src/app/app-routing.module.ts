@@ -58,7 +58,7 @@ const routes: Routes = [
         component: TakePatientComponent
       },
       {
-        path: 'take-patient/:id',
+        path: 'take-patient/:ref',
         component: DetailToTakePatientComponent
       },
       {
@@ -78,7 +78,7 @@ const routes: Routes = [
             component: UsersListComponent
           },
           {
-            path: ':id',
+            path: ':ref',
             component: UsersDetailComponent
           }
         ]

@@ -1,4 +1,7 @@
-<h1>Patients à saisir</h1>
+<div class="d-flex align-items-center justify-content-between w-100">
+    <h1>Patients à saisir</h1>
+    <span class="info">Actualisation dans {{ countBeforeReloadPatient }} secondes</span>
+</div>
 <div class="section-card w-100">
     <div *ngIf="showSpinner" class="spinner-border relative"></div>
     <table *ngIf="!showSpinner" class="table table-striped table-hover">
@@ -15,7 +18,7 @@
         <tbody>
                 <tr
                     (click)="onClick(detectionTest)"
-                    [ngClass]="detectionTest.isUpdating ? 'disabled' : ''"
+                    [ngClass]="detectionTest.isUpdating && detectionTest.updatingBy.ref !== userTokenRef ? 'disabled' : ''"
                     *ngFor="let detectionTest of detectionTests"
                 >
                 <th scope="row">{{ detectionTest.patient.firstName }}</th>
@@ -27,8 +30,15 @@
                     <ng-container *ngIf="detectionTest.isUpdating">
                         <span class="badge rounded-pill bg-danger text-light">
                             Modification en cours par 
-                            <small>
+                            <small
+                                *ngIf="detectionTest.updatingBy.ref !== userTokenRef"
+                            >
                                 {{ detectionTest.updatingBy.firstName + ' ' + detectionTest.updatingBy.lastName }}
+                            </small>
+                            <small
+                                *ngIf="detectionTest.updatingBy.ref === userTokenRef"
+                            >
+                                vous
                             </small>
                         </span>
                     </ng-container>

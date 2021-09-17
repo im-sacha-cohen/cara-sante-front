@@ -9,7 +9,7 @@ import { ToastService } from 'src/app/shared/services/toast/toast.service';
   styleUrls: ['./detail.component.scss']
 })
 export class UsersDetailComponent implements OnInit {
-  id: any;
+  ref: any;
   user: any;
   detectionTests: any;
   showSpinner = true;
@@ -22,7 +22,7 @@ export class UsersDetailComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.id = this.route.snapshot.paramMap.get('id');
+    this.ref = this.route.snapshot.paramMap.get('ref');
     this.getUser();
   }
 
@@ -31,7 +31,7 @@ export class UsersDetailComponent implements OnInit {
 
     this.queryService.query(
       'GET',
-      '/api/user/' + this.id
+      '/api/user/' + this.ref
     ).subscribe(
       user => {
         this.user = user[0];
@@ -49,7 +49,7 @@ export class UsersDetailComponent implements OnInit {
 
     this.queryService.query(
       'GET',
-      '/api/user/resend-confirmation/' + this.id
+      '/api/user/resend-confirmation/' + this.ref
     ).subscribe(
       user => {
         this.showSpinnerResendConfirmation = false;

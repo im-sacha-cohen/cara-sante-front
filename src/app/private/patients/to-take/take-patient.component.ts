@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { AuthService } from 'src/app/shared/services/auth/service/auth-service.service';
 import { QueryService } from 'src/app/shared/services/query/query.service';
 
 @Component({
@@ -10,18 +11,39 @@ import { QueryService } from 'src/app/shared/services/query/query.service';
 export class TakePatientComponent implements OnInit {
   showSpinner = true;
   detectionTests: any[];
+  userTokenRef: string;
+  intervalCount = 15000;
+  countBeforeReloadPatient = 15;
+  intervalCountBeforeReload: any;
 
   constructor(
     private queryService: QueryService,
-    private router: Router
+    private router: Router,
+    private authService: AuthService
   ) { }
 
   ngOnInit(): void {
     this.getPatientsToTake();
+    this.setIntervalGetPatient();
+    this.userTokenRef = this.authService.getRef();
+  }
+
+  setIntervalGetPatient(): void {
+    setInterval(() => {
+      this.getPatientsToTake();
+    }, this.intervalCount);
+  }
+
+  setIntervalCountBeforeReload(): void {
+    this.intervalCountBeforeReload = setInterval(() => {
+      this.countBeforeReloadPatient = this.countBeforeReloadPatient - 1;
+    }, 1000);
   }
 
   getPatientsToTake(): void {
     this.showSpinner = true;
+    this.countBeforeReloadPatient = 15;
+    clearInterval(this.intervalCountBeforeReload);
 
     this.queryService.query(
       'GET',
@@ -29,8 +51,8 @@ export class TakePatientComponent implements OnInit {
     ).subscribe(
       (resp: any[]) => {
         this.showSpinner = false;
-        console.log(resp);
         this.detectionTests = resp;
+        this.setIntervalCountBeforeReload();
       },
       error => {
         this.showSpinner = false;
@@ -40,8 +62,11 @@ export class TakePatientComponent implements OnInit {
   }
 
   onClick(detectionTest: any): void {
-    if (!detectionTest.isUpdating) {
-      this.router.navigate(['/take-patient/' + detectionTest.id]);
+    if (
+      !detectionTest.isUpdating ||
+      detectionTest.updatingBy.ref === this.userTokenRef
+    ) {
+      this.router.navigate(['/take-patient/' + detectionTest.ref]);
     }
   }
 }

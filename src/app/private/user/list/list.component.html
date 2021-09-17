@@ -1,5 +1,8 @@
 <div class="d-flex justify-content-between">
-    <h1>Utilisateurs</h1>
+    <div class="title-container">
+        <h1>Utilisateurs</h1>
+        <span> - {{ users.length }} trouvés</span>
+    </div>
     <a routerLink="/users/add">
         <button class="green">
             <i class="bi bi-person-plus"></i>
@@ -22,7 +25,7 @@
             </tr>
         </thead>
         <tbody>
-            <tr *ngFor="let user of users" routerLink="/users/{{ user.id }}">
+            <tr *ngFor="let user of users" routerLink="/users/{{ user.ref }}">
                 <th scope="row">{{ user.firstName }}</th>
                 <td>{{ user.lastName }}</td>
                 <td>{{ user.mail }}</td>
