@@ -5,6 +5,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { environment } from 'src/environments/environment';
 import { faUnlockAlt } from '@fortawesome/free-solid-svg-icons'
 import { ToastService } from 'src/app/shared/services/toast/toast.service';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-set-password',
@@ -34,8 +35,11 @@ export class SetPasswordComponent implements OnInit {
     private httpClient: HttpClient,
     private router: ActivatedRoute,
     private formBuilder: FormBuilder,
-    private toastService: ToastService
-  ) { }
+    private toastService: ToastService,
+    private title: Title
+  ) {
+    this.title.setTitle('Liora | Cara Santé - Création mot de passe');
+  }
 
   ngOnInit(): void {
     this.token = this.router.snapshot.paramMap.get('token');

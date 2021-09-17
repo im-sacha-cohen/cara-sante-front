@@ -28,11 +28,39 @@ html {
                 color: $black;
             }
 
+            .disabled {
+                
+                    cursor: not-allowed;
+                
+            }
+
             &.public {
                 padding-top: 5%;
 
                 img {
                     height: 250px;
+                }
+            }
+
+            span {
+                &.info {
+                    color: $grey-light;
+                    font-weight: 400;
+                    font-size: 11px;
+                }
+            }
+            
+            .title-container {
+                display: flex;
+                align-items: center;
+
+                h1 {
+                    margin-right: 5px;
+                }
+
+                span {
+                    color: $grey-light;
+                    font-weight: 400;
                 }
             }
 

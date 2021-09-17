@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Title } from '@angular/platform-browser';
 import { ActivatedRoute } from '@angular/router';
 import { QueryService } from 'src/app/shared/services/query/query.service';
 import { ToastService } from 'src/app/shared/services/toast/toast.service';
@@ -18,8 +19,11 @@ export class UsersDetailComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private queryService: QueryService,
-    private toastService: ToastService
-  ) { }
+    private toastService: ToastService,
+    private title: Title
+  ) {
+    this.title.setTitle('Liora | Cara Santé - Utilisateur');
+  }
 
   ngOnInit(): void {
     this.ref = this.route.snapshot.paramMap.get('ref');

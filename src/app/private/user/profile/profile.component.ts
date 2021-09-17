@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { QueryService } from 'src/app/shared/services/query/query.service';
 import { faUserEdit, faLock } from '@fortawesome/free-solid-svg-icons';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-profile',
@@ -19,8 +20,11 @@ export class ProfileComponent implements OnInit {
 
   constructor(
     private queryService: QueryService,
-    private formBuilder: FormBuilder
-  ) { }
+    private formBuilder: FormBuilder,
+    private title: Title
+  ) {
+    this.title.setTitle('Liora | Cara Santé - Mon profile');
+  }
 
   ngOnInit(): void {
     this.getProfile();

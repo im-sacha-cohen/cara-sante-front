@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Title } from '@angular/platform-browser';
 import { QueryService } from 'src/app/shared/services/query/query.service';
 import { ToastService } from 'src/app/shared/services/toast/toast.service';
 
@@ -18,8 +19,11 @@ export class AddUserComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private queryService: QueryService,
-    private toastService: ToastService
-  ) { }
+    private toastService: ToastService,
+    private title: Title
+  ) {
+    this.title.setTitle('Liora | Cara Santé - Ajout utilisateur');
+  }
 
   ngOnInit(): void {
     this.buildForm();

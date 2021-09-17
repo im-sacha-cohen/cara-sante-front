@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Title } from '@angular/platform-browser';
 import { LocalStorageService } from 'src/app/shared/services/local-storage/local-storage.service';
 import { ToastService } from 'src/app/shared/services/toast/toast.service';
 import { environment } from 'src/environments/environment';
@@ -21,8 +22,11 @@ export class ForgotPasswordComponent implements OnInit {
     private formBuilder: FormBuilder,
     private localStorageService: LocalStorageService,
     private httpClient: HttpClient,
-    private toast: ToastService
-  ) { }
+    private toast: ToastService,
+    private title: Title
+  ) {
+    this.title.setTitle('Liora | Cara Santé - Mot de passe oublié');
+  }
 
   ngOnInit(): void {
     this.buildForm();

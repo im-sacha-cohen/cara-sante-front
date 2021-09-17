@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Title } from '@angular/platform-browser';
 import { QueryService } from 'src/app/shared/services/query/query.service';
 
 @Component({
@@ -11,8 +12,11 @@ export class UsersListComponent implements OnInit {
   users: any;
 
   constructor(
-    private queryService: QueryService
-  ) { }
+    private queryService: QueryService,
+    private title: Title
+  ) {
+    this.title.setTitle('Liora | Cara Santé - Liste utilisateurs');
+  }
 
   ngOnInit(): void {
     this.getUsers();

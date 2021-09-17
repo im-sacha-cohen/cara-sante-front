@@ -8,6 +8,7 @@ import { QueryService } from 'src/app/shared/services/query/query.service';
 import { faVirusSlash, faNotesMedical } from '@fortawesome/free-solid-svg-icons';
 import { AuthService } from 'src/app/shared/services/auth/service/auth-service.service';
 import { LocalStorageService } from 'src/app/shared/services/local-storage/local-storage.service';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-detail-to-take-patient',
@@ -33,8 +34,11 @@ export class DetailToTakePatientComponent implements OnInit, OnDestroy {
     private formBuilder: FormBuilder,
     private localeService: BsLocaleService,
     private router: Router,
-    private authService: AuthService
-  ) {}
+    private authService: AuthService,
+    private title: Title
+  ) {
+    this.title.setTitle('Liora | Cara Santé - Saisit patient');
+  }
 
   ngOnInit(): void {
     this.ref = this.route.snapshot.paramMap.get('ref');

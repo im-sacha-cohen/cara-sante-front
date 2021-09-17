@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Title } from '@angular/platform-browser';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/shared/services/auth/service/auth-service.service';
 import { QueryService } from 'src/app/shared/services/query/query.service';
@@ -19,8 +20,11 @@ export class TakePatientComponent implements OnInit {
   constructor(
     private queryService: QueryService,
     private router: Router,
-    private authService: AuthService
-  ) { }
+    private authService: AuthService,
+    private titleService: Title
+  ) {
+    this.titleService.setTitle('Liora | Cara Santé - Liste patients');
+  }
 
   ngOnInit(): void {
     this.getPatientsToTake();

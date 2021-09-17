@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Title } from '@angular/platform-browser';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/shared/services/auth/service/auth-service.service';
 import { ToastService } from 'src/app/shared/services/toast/toast.service';
@@ -22,8 +23,11 @@ export class LoginComponent implements OnInit {
     private httpClient: HttpClient,
     private authService: AuthService,
     private router: Router,
-    private toastrService: ToastService
-  ) { }
+    private toastrService: ToastService,
+    private title: Title
+  ) {
+    this.title.setTitle('Liora | Cara Santé - Connexion');
+  }
 
   ngOnInit(): void {
     this.formLogin = this.buildForm();
