@@ -3,6 +3,9 @@ import { QueryService } from 'src/app/shared/services/query/query.service';
 import { faUserEdit, faLock } from '@fortawesome/free-solid-svg-icons';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Title } from '@angular/platform-browser';
+import { AuthService } from 'src/app/shared/services/auth/service/auth-service.service';
+import { ToastService } from 'src/app/shared/services/toast/toast.service';
+import { LocalStorageService } from 'src/app/shared/services/local-storage/local-storage.service';
 
 @Component({
   selector: 'app-profile',
@@ -21,7 +24,10 @@ export class ProfileComponent implements OnInit {
   constructor(
     private queryService: QueryService,
     private formBuilder: FormBuilder,
-    private title: Title
+    private title: Title,
+    private authService: AuthService,
+    private toastService: ToastService,
+    private localStorageService: LocalStorageService
   ) {
     this.title.setTitle('Liora | Cara Santé - Mon profile');
   }
@@ -51,6 +57,12 @@ export class ProfileComponent implements OnInit {
       resp => {
         this.showProfileButtonSpinner = false;
         this.user = resp;
+
+        if (this.profileForm.value.mail.length > 0) {
+          this.localStorageService.setMail(this.profileForm.value.mail);
+          this.toastService.set('success', 'Votre adresse mail a bien été modifiée ! Veuillez vous reconnecter');
+          this.authService.logout();
+        }
       },
       error => {
         this.showProfileButtonSpinner = false;
