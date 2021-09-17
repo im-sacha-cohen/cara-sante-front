@@ -43,6 +43,16 @@ export class AuthService {
     return token['ref'];
   }
 
+  getFirstName(): string {
+    const token = this.getDecodedToken(this.localStorageService.getToken());
+    return token['firstName'];
+  }
+
+  getLastName(): string {
+    const token = this.getDecodedToken(this.localStorageService.getToken());
+    return token['lastName'];
+  }
+
   isConnected(): boolean {
     const token = this.localStorageService.getToken();
 

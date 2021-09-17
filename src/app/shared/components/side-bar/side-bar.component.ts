@@ -8,6 +8,8 @@ import { MainToggleService } from '../../services/main-toggle/main-toggle.servic
   styleUrls: ['./side-bar.component.scss']
 })
 export class SideBarComponent implements OnInit {
+  firstName: string;
+  lastName: string;
 
   constructor(
     private authService: AuthService,
@@ -15,6 +17,8 @@ export class SideBarComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    this.firstName = this.authService.getFirstName();
+    this.lastName = this.authService.getLastName();
   }
 
   logout(): void {

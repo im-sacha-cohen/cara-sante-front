@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ChartDataset, ChartType } from 'chart.js';
-
+import { AuthService } from 'src/app/shared/services/auth/service/auth-service.service';
 
 @Component({
   selector: 'app-index',
@@ -12,14 +12,15 @@ export class IndexComponent implements OnInit {
   public barChartType: ChartType = 'bar';
   public barChartLegend = true;
   public barChartPlugins = [];
+  firstName = '';
 
   public barChartData: ChartDataset[] = [
     { data: [65, 59, 80, 81, 56, 55, 40], label: 'Nombre de patients saisis' }
   ];
 
-  constructor() { }
+  constructor(private authService: AuthService) { }
 
   ngOnInit(): void {
+    this.firstName = this.authService.getFirstName();
   }
-
 }
