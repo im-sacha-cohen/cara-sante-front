@@ -17,6 +17,8 @@ export class ProfileComponent implements OnInit {
   user: any;
   update = faUserEdit;
   password = faLock;
+  errorMessage: string;
+  isError = false;
 
   profileForm: FormGroup;
   showProfileButtonSpinner = false;
@@ -48,6 +50,7 @@ export class ProfileComponent implements OnInit {
 
   onSubmitProfile(): void {
     this.showProfileButtonSpinner = true;
+    this.isError = false;
 
     this.queryService.query(
       'PUT',
@@ -58,14 +61,18 @@ export class ProfileComponent implements OnInit {
         this.showProfileButtonSpinner = false;
         this.user = resp;
 
+        this.toastService.set('success', 'Votre profile a bien été modifié ! Veuillez vous reconnecter');
+        this.authService.logout();
+
         if (this.profileForm.value.mail.length > 0) {
           this.localStorageService.setMail(this.profileForm.value.mail);
-          this.toastService.set('success', 'Votre adresse mail a bien été modifiée ! Veuillez vous reconnecter');
-          this.authService.logout();
         }
       },
       error => {
         this.showProfileButtonSpinner = false;
+        this.errorMessage = error.error.message;
+        console.log(error);
+        this.isError = true;
       }
     );
   }

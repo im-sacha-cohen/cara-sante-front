@@ -46,7 +46,24 @@
                     <input formControlName="lastName" type="text" class="w-50 ms-2" placeholder="Nom (facultatif)">
                 </div>
                 <input formControlName="phone" type="phone" class="w-50" placeholder="Téléphone (facultatif)">
+                <div class="d-flex box-info mb-2">
+                    <i class="bi bi-info-circle"></i>
+                    <span>Format type attendu : 0701020304</span>
+                </div>
                 <input formControlName="mail" type="mail" placeholder="Adresse mail (facultatif)">
+                <div class="d-flex box-info mb-2">
+                    <i class="bi bi-info-circle"></i>
+                    <span>Format type attendu : mail@domaine.com, mail@domaine.fr...</span>
+                </div>
+                <div class="section-card theme w-100 mb-2">
+                    <div class="d-flex box-info">
+                        <i class="bi bi-info-circle"></i>
+                        <span>Une mise à jour du profile entraînera une déconnexion afin d'actualiser vos informations.</span>
+                    </div>
+                </div>
+                <alert class="mt-2" *ngIf="isError" type="danger">
+                    {{ errorMessage }}
+                </alert>
                 <button
                     [disabled]="showProfileButtonSpinner || profileForm.invalid"
                     (click)="onSubmitProfile()"
