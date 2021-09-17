@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { Router } from '@angular/router';
+import { TimeInterval } from 'rxjs';
 import { AuthService } from 'src/app/shared/services/auth/service/auth-service.service';
 import { QueryService } from 'src/app/shared/services/query/query.service';
 
@@ -9,13 +10,15 @@ import { QueryService } from 'src/app/shared/services/query/query.service';
   templateUrl: './take-patient.component.html',
   styleUrls: ['./take-patient.component.scss']
 })
-export class TakePatientComponent implements OnInit {
+export class TakePatientComponent implements OnInit, OnDestroy {
   showSpinner = true;
   detectionTests: any[];
   userTokenRef: string;
-  intervalCount = 15000;
-  countBeforeReloadPatient = 15;
+  intervalCount = 10000;
+  countBeforeReloadPatient = 10;
   intervalCountBeforeReload: any;
+  detectionTestsLength = 0;
+  intervalGetPatient: any;
 
   constructor(
     private queryService: QueryService,
@@ -32,13 +35,17 @@ export class TakePatientComponent implements OnInit {
     this.userTokenRef = this.authService.getRef();
   }
 
+  ngOnDestroy(): void {
+    clearInterval(this.intervalGetPatient);
+  }
+
   setIntervalGetPatient(): void {
-    setInterval(() => {
+    this.intervalGetPatient = setInterval(() => {
       this.getPatientsToTake();
     }, this.intervalCount);
   }
 
-  setIntervalCountBeforeReload(): void {
+  setIntervalCountBeforeReload(): any {
     this.intervalCountBeforeReload = setInterval(() => {
       this.countBeforeReloadPatient = this.countBeforeReloadPatient - 1;
     }, 1000);
@@ -46,7 +53,7 @@ export class TakePatientComponent implements OnInit {
 
   getPatientsToTake(): void {
     this.showSpinner = true;
-    this.countBeforeReloadPatient = 15;
+    this.countBeforeReloadPatient = 10;
     clearInterval(this.intervalCountBeforeReload);
 
     this.queryService.query(
@@ -56,6 +63,7 @@ export class TakePatientComponent implements OnInit {
       (resp: any[]) => {
         this.showSpinner = false;
         this.detectionTests = resp;
+        this.detectionTestsLength = resp.length;
         this.setIntervalCountBeforeReload();
       },
       error => {

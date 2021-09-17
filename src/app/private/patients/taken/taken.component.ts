@@ -10,6 +10,7 @@ import { QueryService } from 'src/app/shared/services/query/query.service';
 export class TakenPatientComponent implements OnInit {
   showSpinner = true;
   patients: any;
+  patientsLength = 0;
 
   constructor(
     private queryService: QueryService,
@@ -29,7 +30,7 @@ export class TakenPatientComponent implements OnInit {
     ).subscribe(
       patients => {
         this.patients = patients;
-        console.log(this.patients);
+        this.patientsLength = patients.length;
         this.showSpinner = false;
       },
       error => {

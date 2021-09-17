@@ -1,7 +1,15 @@
 <div class="d-flex justify-content-between">
     <div class="title-container">
         <h1>Utilisateurs</h1>
-        <span> - {{ users.length }} trouvés</span>
+        <span>
+            - {{ usersLength }} 
+            <span *ngIf="usersLength > 0">
+                trouvés
+            </span>
+            <span *ngIf="usersLength === 0">
+                trouvé
+            </span>
+        </span>
     </div>
     <a routerLink="/users/add">
         <button class="green">

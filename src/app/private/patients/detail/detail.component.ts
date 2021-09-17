@@ -9,6 +9,7 @@ import { faVirusSlash, faNotesMedical } from '@fortawesome/free-solid-svg-icons'
 import { AuthService } from 'src/app/shared/services/auth/service/auth-service.service';
 import { LocalStorageService } from 'src/app/shared/services/local-storage/local-storage.service';
 import { Title } from '@angular/platform-browser';
+import { ToastService } from 'src/app/shared/services/toast/toast.service';
 
 @Component({
   selector: 'app-detail-to-take-patient',
@@ -35,7 +36,8 @@ export class DetailToTakePatientComponent implements OnInit, OnDestroy {
     private localeService: BsLocaleService,
     private router: Router,
     private authService: AuthService,
-    private title: Title
+    private title: Title,
+    private toastService: ToastService
   ) {
     this.title.setTitle('Liora | Cara Santé - Saisit patient');
   }
@@ -128,6 +130,7 @@ export class DetailToTakePatientComponent implements OnInit, OnDestroy {
       this.dateForm.value
     ).subscribe(
       () => {
+        this.toastService.set('success', 'Le patient a bien été saisit !');
         this.router.navigate(['/take-patient']);
         this.showButtonSpinner = false;
       },

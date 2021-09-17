@@ -10,6 +10,7 @@ import { QueryService } from 'src/app/shared/services/query/query.service';
 export class UsersListComponent implements OnInit {
   showSpinner = true;
   users: any;
+  usersLength = 0;
 
   constructor(
     private queryService: QueryService,
@@ -31,6 +32,7 @@ export class UsersListComponent implements OnInit {
     ).subscribe(
       users => {
         this.users = users;
+        this.usersLength = users.length;
         this.showSpinner = false;
       },
       error => {

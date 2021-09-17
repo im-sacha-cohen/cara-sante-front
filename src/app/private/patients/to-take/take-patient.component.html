@@ -1,5 +1,16 @@
 <div class="d-flex align-items-center justify-content-between w-100">
-    <h1>Patients à saisir</h1>
+    <div class="title-container">
+        <h1>Patients à saisir</h1>
+        <span>
+            - {{ detectionTestsLength }} 
+            <span *ngIf="detectionTestsLength > 0">
+                trouvés
+            </span>
+            <span *ngIf="detectionTestsLength === 0">
+                trouvé
+            </span>
+        </span>
+    </div>
     <span class="info">Actualisation dans {{ countBeforeReloadPatient }} secondes</span>
 </div>
 <div class="section-card w-100">
