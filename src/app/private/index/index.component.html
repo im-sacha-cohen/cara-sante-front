@@ -1,7 +1,35 @@
 <h1>Bonjour {{ firstName }} !👋🏼</h1>
-<div class="section-card algin-self-start">
-  <h2>Statistiques saisit patients</h2>
-  <canvas baseChart [datasets]="barChartData" [labels]="barChartLabels" [plugins]="barChartPlugins"
-    [legend]="barChartLegend">
-  </canvas>
+<div class="d-flex">
+  <div class="section-card algin-self-start stats-detection-filled w-50 m-0 me-2">
+    <h2>Vos statistiques saisit patients</h2>
+    <div *ngIf="showUserStatSpinner" class="spinner-border relative"></div>
+    <canvas
+      *ngIf="!showUserStatSpinner"
+      baseChart
+      [datasets]="barChartData"
+      [labels]="barChartLabels"
+      [plugins]="barChartPlugins"
+      [legend]="barChartLegend"
+    >
+    </canvas>
+  </div>
+  <!--<div class="section-card algin-self-start stats-detection-filled w-50 m-0 ms-2">
+    <h2>Les statistiques saisit patients de l'équipe</h2>
+    <div *ngIf="showUserStatSpinner" class="spinner-border relative"></div>
+    <canvas
+      *ngIf="!showUserStatSpinner"
+      baseChart
+      [datasets]="barChartData"
+      [labels]="barChartLabels"
+      [plugins]="barChartPlugins"
+      [legend]="barChartLegend"
+    >
+    </canvas>
+  </div>
+</div>
+<!--<div class="section-card blue-medium w-50 mt-2 d-flex algin-self-start m-0">
+  <div class="d-flex flex-column">
+    <h3>Il reste 3 test à saisir !</h3>
+    <span>Bravo l'équipe !</span>
+  </div>-->
 </div>

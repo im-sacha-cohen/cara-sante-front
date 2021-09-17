@@ -28,6 +28,7 @@
     "bootstrap": "^5.1.0",
     "bootstrap-icons": "^1.5.0",
     "chart.js": "^3.5.0",
+    "lodash": "^4.17.21",
     "ng2-charts": "^3.0.0-rc.5",
     "ngx-bootstrap": "^7.0.0",
     "rxjs": "~6.6.0",
