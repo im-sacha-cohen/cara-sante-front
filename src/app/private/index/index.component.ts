@@ -21,6 +21,8 @@ export class IndexComponent implements OnInit {
 
   showUserStatSpinner = false;
   showTeamStatSpinner = false;
+  showDetectionTestRemainingSpinner = false;
+  detectionTestRemaining: any;
   firstName = '';
 
   constructor(
@@ -32,6 +34,21 @@ export class IndexComponent implements OnInit {
     this.firstName = this.authService.getFirstName();
     this.getUserStats();
     this.getTeamStats();
+    this.getDetectionTestRemaining();
+  }
+
+  getDetectionTestRemaining(): void {
+    this.showDetectionTestRemainingSpinner = true;
+
+    this.queryService.query(
+      'GET',
+      '/api/detection-test/remaining'
+    ).subscribe(
+      resp => {
+        this.showDetectionTestRemainingSpinner = false;
+        this.detectionTestRemaining = resp;
+      }
+    );
   }
 
   getUserStats(): void {
