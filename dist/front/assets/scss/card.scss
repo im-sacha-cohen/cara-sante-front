@@ -36,3 +36,10 @@
         }
     }
 }
+
+@media (max-width: $mobile) {
+    .section-card {
+        width: 90%;
+        min-width: unset;
+    }
+}

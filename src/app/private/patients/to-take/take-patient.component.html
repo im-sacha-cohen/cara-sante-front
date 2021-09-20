@@ -1,4 +1,4 @@
-<div class="d-flex align-items-center justify-content-between w-100">
+<div class="title-container-elements">
     <div class="title-container">
         <h1>Patients à saisir</h1>
         <span>
@@ -21,7 +21,7 @@
               <th scope="col">Prénom</th>
               <th scope="col">Nom</th>
               <th scope="col">Date de naissance</th>
-              <th scope="col">Téléphone</th>
+              <th scope="col phone">Téléphone</th>
               <th scope="col">Mail</th>
               <th scope="col">Status</th>
             </tr>
@@ -35,7 +35,7 @@
                 <th scope="row">{{ detectionTest.patient.firstName }}</th>
                 <td>{{ detectionTest.patient.lastName }}</td>
                 <td>{{ detectionTest.patient.birth }}</td>
-                <td>{{ detectionTest.patient.phone }}</td>
+                <td class="phone">{{ detectionTest.patient.phone }}</td>
                 <td>{{ detectionTest.patient.mail }}</td>
                 <td>
                     <ng-container *ngIf="detectionTest.isUpdating">

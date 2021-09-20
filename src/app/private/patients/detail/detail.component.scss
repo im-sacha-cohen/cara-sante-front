@@ -42,3 +42,12 @@
         }
     }
 }
+
+@media (max-width: $mobile) {
+    .center {
+        .person-round {
+            height: 100px;
+            width: 100px;
+        }
+    }
+}

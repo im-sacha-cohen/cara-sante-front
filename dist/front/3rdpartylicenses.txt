@@ -364,6 +364,10 @@ SOFTWARE.
 
 ngx-bootstrap/datepicker
 
+ngx-bootstrap/focus-trap
+
+ngx-bootstrap/modal
+
 rxjs
 Apache-2.0
                                Apache License
