@@ -26,6 +26,8 @@ import { AddUserComponent } from './private/user/add/add.component';
 import { SetPasswordComponent } from './public/password/set-password/set-password.component';
 import { ToastComponent } from './shared/components/toast/toast.component';
 import { ForgotPasswordComponent } from './public/password/forgot-password/forgot-password.component';
+import { ModalModule } from 'ngx-bootstrap/modal';
+import { ErrorMobileComponent } from './shared/components/modal/error-mobile/error-mobile.component';
 
 @NgModule({
   declarations: [
@@ -44,7 +46,8 @@ import { ForgotPasswordComponent } from './public/password/forgot-password/forgo
     AddUserComponent,
     SetPasswordComponent,
     ToastComponent,
-    ForgotPasswordComponent
+    ForgotPasswordComponent,
+    ErrorMobileComponent
   ],
   imports: [
     BrowserModule,
@@ -58,7 +61,8 @@ import { ForgotPasswordComponent } from './public/password/forgot-password/forgo
     AlertModule.forRoot(),
     NgChartsModule,
     BsDatepickerModule.forRoot(),
-    FontAwesomeModule
+    FontAwesomeModule,
+    ModalModule.forRoot()
   ],
   providers: [{ provide: LocationStrategy, useClass: HashLocationStrategy }],
   bootstrap: [AppComponent]
