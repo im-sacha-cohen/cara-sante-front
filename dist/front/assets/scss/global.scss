@@ -50,17 +50,24 @@ html {
                 }
             }
             
-            .title-container {
+            .title-container-elements {
                 display: flex;
                 align-items: center;
-
-                h1 {
-                    margin-right: 5px;
-                }
-
-                span {
-                    color: $grey-light;
-                    font-weight: 400;
+                justify-content: space-between;
+                width: 100%;
+                
+                .title-container {
+                    display: flex;
+                    align-items: center;
+    
+                    h1 {
+                        margin-right: 5px;
+                    }
+    
+                    span {
+                        color: $grey-light;
+                        font-weight: 400;
+                    }
                 }
             }
 
@@ -76,6 +83,28 @@ html {
                     background-color: $background-color-dark;
                     padding-left: 180px;
                     transition-delay: 100ms;
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: $mobile) {
+    html {
+        body {
+            main {
+                &.private {
+                    padding: 2%;
+
+                    .title-container-elements {
+                        flex-direction: column;
+                        align-items: flex-start;
+                        margin-bottom: .5rem;
+
+                        .title-container {
+                            width: 100%;
+                        }
+                    }
                 }
             }
         }

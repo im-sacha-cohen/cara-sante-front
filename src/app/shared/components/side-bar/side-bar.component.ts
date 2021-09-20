@@ -26,7 +26,9 @@ export class SideBarComponent implements OnInit {
   }
 
   enter(): void {
-    this.mainToggleService.isDark.next(true);
+    if (window.innerWidth > 800) {
+      this.mainToggleService.isDark.next(true);
+    }
   }
 
   leave(): void {

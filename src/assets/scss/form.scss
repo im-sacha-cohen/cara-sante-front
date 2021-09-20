@@ -70,3 +70,13 @@ form {
         }
     }
 }
+
+@media (max-width: $mobile) {
+    form {
+        width: 100%!important;
+
+        button {
+            width: 40%;
+        }
+    }
+}
