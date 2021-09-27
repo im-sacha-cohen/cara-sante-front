@@ -1,14 +1,16 @@
-<div class="title-container">
-    <h1>Patients saisit par vous-même</h1>
-    <span>
-        - {{ patientsLength }} 
-        <span *ngIf="patientsLength > 0">
-            trouvés
+<div class="title-container-elements">
+    <div class="title-container">
+        <h1>Patients saisit par vous-même</h1>
+        <span>
+            - {{ patientsLength }} 
+            <span *ngIf="patientsLength > 0">
+                trouvés
+            </span>
+            <span *ngIf="patientsLength === 0">
+                trouvé
+            </span>
         </span>
-        <span *ngIf="patientsLength === 0">
-            trouvé
-        </span>
-    </span>
+    </div>
 </div>
 <div class="section-card w-100">
     <div *ngIf="showSpinner" class="spinner-border relative"></div>

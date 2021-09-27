@@ -41,6 +41,17 @@
             <fa-icon [icon]="faVirusSlash"></fa-icon>
             <span>Testé le {{ patient['frenchTestedAt'] }}</span>
         </div>
+        <div *ngIf="patient['isNegative'] !== null">
+            <fa-icon [icon]="faHandHoldingMedical"></fa-icon>
+            <span>Résultat
+                <ng-container *ngIf="patient['isNegative']">
+                    <span class="badge rounded-pill bg-light text-dark">Négatif</span>
+                </ng-container>
+                <ng-container *ngIf="!patient['isNegative']">
+                    <span class="badge rounded-pill bg-danger">Positif</span>
+                </ng-container>
+            </span>
+        </div>
     </div>
     <div class="mt-5 col-6 d-flex flex-column section-card blue m-0 align-self-start">
         <form [formGroup]="dateForm">
