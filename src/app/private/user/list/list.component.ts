@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { QueryService } from 'src/app/shared/services/query/query.service';
+import * as _ from 'lodash';
 
 @Component({
   selector: 'app-users-list',
@@ -28,9 +29,10 @@ export class UsersListComponent implements OnInit {
 
     this.queryService.query(
       'GET',
-      '/api/user'
+      '/api/user/all'
     ).subscribe(
-      users => {
+      (resp: any[]) => {
+        const users = _.values(resp);
         this.users = users;
         this.usersLength = users.length;
         this.showSpinner = false;
