@@ -17,6 +17,7 @@ import { ToastService } from 'src/app/shared/services/toast/toast.service';
   styleUrls: ['./detail.component.scss']
 })
 export class DetailToTakePatientComponent implements OnInit, OnDestroy {
+  patientRef: any;
   ref: any;
   showSpinner = true;
   showButtonSpinner = false;
@@ -44,7 +45,9 @@ export class DetailToTakePatientComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
+    this.patientRef = this.route.snapshot.paramMap.get('patientRef');
     this.ref = this.route.snapshot.paramMap.get('ref');
+
     this.getDetailToTakePatient();
     this.buildForm();
     defineLocale('fr', frLocale);
@@ -66,7 +69,7 @@ export class DetailToTakePatientComponent implements OnInit, OnDestroy {
 
     this.queryService.query(
       'GET',
-      '/api/detection-test/' + this.ref
+      '/api/patient/' + this.patientRef
     ).subscribe(
       resp => {
         this.showSpinner = false;

@@ -10,50 +10,59 @@
     </div>
 </div>
 <div *ngIf="!showSpinner && !errorUpdatingBy" class="center">
-    <div class="person-round">{{ patient['patient']['firstName'][0] + patient['patient']['lastName'][0] }}</div>
+    <div class="person-round">{{ patient['firstName'][0] + patient['lastName'][0] }}</div>
     <div class="section-card blue-medium w-100 m-0">
         <div>
             <i class="bi bi-person-fill"></i>
-            <span>{{ patient['patient']['firstName'] }} </span>
-            <span>{{ patient['patient']['lastName'] }}</span>
+            <span>{{ patient['firstName'] }} </span>
+            <span>{{ patient['lastName'] }}</span>
         </div>
         <div>
             <i class="bi bi-calendar-day-fill"></i>
-            <span>{{ patient['patient']['birth'] }}</span>
+            <span>{{ patient['birth'] }}</span>
         </div>
         <div>
             <i class="bi bi-envelope-fill"></i>
-            <span>{{ patient['patient']['mail'] }}</span>
+            <span>{{ patient['mail'] }}</span>
         </div>
         <div>
             <i class="bi bi-telephone-fill"></i>
-            <span>{{ patient['patient']['phone'] }}</span>
+            <span>{{ patient['phone'] }}</span>
         </div>
         <div>
             <i class="bi bi-house-fill"></i>
-            <span>{{ patient['patient']['street'] }} {{ patient['patient']['zip'] }} {{ patient['patient']['city'] }}</span>
+            <span>{{ patient['street'] }} {{ patient['zip'] }} {{ patient['city'] }}</span>
         </div>
         <div>
             <fa-icon [icon]="nir"></fa-icon>
-            <span>{{ patient['patient']['nir'] }}</span>
-        </div>
-        <div>
-            <fa-icon [icon]="faVirusSlash"></fa-icon>
-            <span>Testé le {{ patient['frenchTestedAt'] }}</span>
-        </div>
-        <div *ngIf="patient['isNegative'] !== null">
-            <fa-icon [icon]="faHandHoldingMedical"></fa-icon>
-            <span>Résultat
-                <ng-container *ngIf="patient['isNegative']">
-                    <span class="badge rounded-pill bg-light text-dark">Négatif</span>
-                </ng-container>
-                <ng-container *ngIf="!patient['isNegative']">
-                    <span class="badge rounded-pill bg-danger">Positif</span>
-                </ng-container>
-            </span>
+            <span>{{ patient['nir'] }}</span>
         </div>
     </div>
-    <div class="mt-5 col-6 d-flex flex-column section-card blue m-0 align-self-start">
+    <ng-container *ngFor="let test of patient['detectionTest']">
+        <div class="section-card white hover w-100 detection-test d-flex align-items-center justify-content-between">
+            <div class="d-flex flex-column justify-content-center">
+                <h5>Testé le {{ test['frenchTestedAt'] }}</h5>
+                <div *ngIf="test['isNegative'] !== null">
+                    <fa-icon [icon]="faHandHoldingMedical"></fa-icon>
+                    <span class="result">Résultat
+                        <ng-container *ngIf="test['isNegative']">
+                            <span class="badge rounded-pill bg-light text-dark">Négatif</span>
+                        </ng-container>
+                        <ng-container *ngIf="!test['isNegative']">
+                            <span class="badge rounded-pill bg-danger">Positif</span>
+                        </ng-container>
+                    </span>
+                </div>
+            </div>
+            <div>
+                <button *ngIf="!test['isInvoiced']" class="blue-medium">
+                    <i class="bi bi-pen"></i>
+                    Saisir ce test
+                </button>
+            </div>
+        </div>
+    </ng-container>
+    <!--<div class="mt-5 col-6 d-flex flex-column section-card blue m-0 align-self-start">
         <form [formGroup]="dateForm">
             <h2>Ce patient a-t-il été facturé ?</h2>
             <div class="d-flex align-items-center justify-content-between col-6">
@@ -74,5 +83,5 @@
                 </div>
             </div>
         </form>
-    </div>
+    </div>-->
 </div>
