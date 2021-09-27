@@ -41,10 +41,13 @@
                 <td>{{ user.roles }}</td>
                 <td>{{ user.createdAtFrench }}</td>
                 <td>
+                    <ng-container *ngIf="user.isDesactivated">
+                        <span class="badge rounded-pill bg-danger">Désactivé</span>
+                    </ng-container>
                     <ng-container *ngIf="user.isFirstConnection">
                         <span class="badge rounded-pill bg-warning text-dark">En attente de confirmation</span>
                     </ng-container>
-                    <ng-container *ngIf="!user.isFirstConnection">
+                    <ng-container *ngIf="!user.isFirstConnection && !user.isDesactivated">
                         <span class="badge rounded-pill bg-success">Actif</span>
                     </ng-container>
                 </td>
