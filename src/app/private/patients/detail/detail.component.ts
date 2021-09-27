@@ -5,7 +5,7 @@ import { BsDatepickerConfig, BsLocaleService } from 'ngx-bootstrap/datepicker';
 import { defineLocale } from 'ngx-bootstrap/chronos';
 import { frLocale } from 'ngx-bootstrap/locale';
 import { QueryService } from 'src/app/shared/services/query/query.service';
-import { faVirusSlash, faNotesMedical } from '@fortawesome/free-solid-svg-icons';
+import { faVirusSlash, faNotesMedical, faHandHoldingMedical } from '@fortawesome/free-solid-svg-icons';
 import { AuthService } from 'src/app/shared/services/auth/service/auth-service.service';
 import { LocalStorageService } from 'src/app/shared/services/local-storage/local-storage.service';
 import { Title } from '@angular/platform-browser';
@@ -26,6 +26,7 @@ export class DetailToTakePatientComponent implements OnInit, OnDestroy {
   bsConfig: Partial<BsDatepickerConfig> = { containerClass: 'blue' };
   today = new Date().toISOString();
   faVirusSlash = faVirusSlash;
+  faHandHoldingMedical = faHandHoldingMedical;
   nir = faNotesMedical;
   errorUpdatingBy = false;
 
