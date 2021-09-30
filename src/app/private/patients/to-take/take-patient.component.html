@@ -22,7 +22,6 @@
                   <th scope="col">Prénom</th>
                   <th scope="col">Nom</th>
                   <th scope="col">N° sécurité sociale</th>
-                  <th scope="col">Test(s) à saisir</th>
                   <th scope="col">Status</th>
                 </tr>
             </thead>
@@ -35,9 +34,6 @@
                     <th scope="row">{{ detectionTest.patient.firstName }}</th>
                     <td>{{ detectionTest.patient.lastName }}</td>
                     <td>{{ detectionTest.patient.nir }}</td>
-                    <td>
-                        <span class="badge bg-secondary">4</span>
-                    </td>
                     <td>
                         <ng-container *ngIf="detectionTest.isUpdating">
                             <span class="badge rounded-pill bg-danger text-light">
