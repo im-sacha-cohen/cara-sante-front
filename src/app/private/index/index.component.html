@@ -28,7 +28,8 @@
   </div>
 </div>
 <div class="section-card blue-medium detection-remaining mt-2 d-flex algin-self-start m-0">
-  <div class="d-flex flex-column">
+  <div *ngIf="!detectionTestRemaining" class="spinner-border relative"></div>
+  <div *ngIf="detectionTestRemaining" class="d-flex flex-column">
     <h3>Il reste {{ detectionTestRemaining.countText }} tests à saisir !</h3>
     <span>
       {{ detectionTestRemaining.message }}

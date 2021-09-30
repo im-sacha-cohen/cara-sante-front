@@ -87,7 +87,7 @@ export class UsersDetailComponent implements OnInit {
     ).subscribe(
       response => {
         this.showSpinnerDesactivate = false;
-        this.toastService.set('success', 'L\'utilisateur a bien été supprimé !');
+        this.toastService.set('success', 'L\'utilisateur a bien été désactivé !');
         this.modalService.hide();
 
         this.router.navigate(['/users']);
