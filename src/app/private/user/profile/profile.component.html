@@ -28,6 +28,10 @@
                 <i class="bi bi-pen"></i>
                 <span>Inscrit le {{ user['createdAt'] }}</span>
             </div>
+            <div *ngIf="user['lastLoginFrench']">
+                <i class="bi bi-box-arrow-in-right"></i>
+                <span>Dernière connexion le {{ user['lastLoginFrench'] }}</span>
+            </div>
         </div>
         <div class="section-card blue m-2 me-0">
             <h3>Statistiques</h3>
