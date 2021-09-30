@@ -3,10 +3,13 @@ button {
 
     &:disabled {
         opacity: 0.3;
-        cursor: not-allowed;
     }
 
-    &:not(:disabled) {
+    &.not-allowed, &:disabled {
+        cursor: not-allowed!important;
+    }
+
+    &:not(:disabled), &:not(.not-allowed) {
         cursor: pointer;
     }
 

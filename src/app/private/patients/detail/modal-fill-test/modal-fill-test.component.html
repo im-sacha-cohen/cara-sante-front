@@ -8,7 +8,7 @@
             <hr/>
             <span (click)="onClick('yes')" [ngClass]="yesClicked ? 'clicked' : ''">Oui</span>
         </div>
-        <div [ngClass]="isDateActive ? 'is-active' : ''" class="date-section mt-3">
+        <div [ngClass]="isDateActive ? 'is-active' : ''" class="date-section mt-3 flex-column align-items-center">
             <span>Quand a-t-il été facturé ?<small>(Optionel)</small></span>
             <input
                 type="text"

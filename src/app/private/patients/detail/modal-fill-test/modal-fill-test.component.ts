@@ -86,7 +86,7 @@ export class ModalFillTestComponent implements OnInit {
         this.dateForm.value
       ).subscribe(
         () => {
-          this.toastService.set('success', 'Le patient a bien été saisit !');
+          this.toastService.set('success', 'Le test a bien été saisit !');
           this.showSpinner = false;
           this.onClose();
         },

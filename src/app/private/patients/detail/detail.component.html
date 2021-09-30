@@ -82,12 +82,13 @@
                     <i class="bi bi-pen"></i>
                     Facturer ce test
                 </button>
-                <span
+                <button
                     *ngIf="test['isInvoiced']"
-                    class="badge rounded-pill bg-success"
+                    class="green not-allowed"
                 >
-                    Déjà saisit <small>par {{ test['user']['firstName'] + ' ' + test['user']['lastName'] }}</small>
-                </span>
+                    <i class="bi bi-check2-circle"></i>
+                    Déjà saisit
+                </button>
             </div>
         </div>
     </ng-container>
