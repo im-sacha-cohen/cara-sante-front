@@ -44,8 +44,9 @@
                     <i class="bi bi-x-circle"></i>
                     Désactiver ce compte
                 </button>
-                <button class="orange">
-                    <i class="bi bi-reply"></i>
+                <button class="orange" (click)="forgotPassword()">
+                    <i *ngIf="!showForgotPasswordSpinner" class="bi bi-reply"></i>
+                    <div *ngIf="showForgotPasswordSpinner" class="spinner-border"></div>
                     Réénitialiser le mot de passe
                 </button>
             </div>

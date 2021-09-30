@@ -2,6 +2,7 @@ import { Component, OnInit, TemplateRef } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { ActivatedRoute, Router } from '@angular/router';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
+import { ForgotPasswordService } from 'src/app/shared/services/forgot-password/forgot-password.service';
 import { QueryService } from 'src/app/shared/services/query/query.service';
 import { ToastService } from 'src/app/shared/services/toast/toast.service';
 
@@ -18,6 +19,7 @@ export class UsersDetailComponent implements OnInit {
   showSpinnerResendConfirmation = false;
   modalRef?: BsModalRef;
   showSpinnerDesactivate = false;
+  showForgotPasswordSpinner = false;
 
   constructor(
     private route: ActivatedRoute,
@@ -25,7 +27,8 @@ export class UsersDetailComponent implements OnInit {
     private toastService: ToastService,
     private title: Title,
     private modalService: BsModalService,
-    private router: Router
+    private router: Router,
+    private forgotPasswordService: ForgotPasswordService
   ) {
     this.title.setTitle('Liora | Cara Santé - Utilisateur');
   }
@@ -93,5 +96,11 @@ export class UsersDetailComponent implements OnInit {
         this.router.navigate(['/users']);
       }
     );
+  }
+
+  async forgotPassword(): Promise<any> {
+    this.showForgotPasswordSpinner = true;
+    await this.forgotPasswordService.forgotPassword(this.user.mail);
+    this.showForgotPasswordSpinner = false;
   }
 }

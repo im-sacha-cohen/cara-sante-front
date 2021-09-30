@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Title } from '@angular/platform-browser';
+import { ForgotPasswordService } from 'src/app/shared/services/forgot-password/forgot-password.service';
 import { LocalStorageService } from 'src/app/shared/services/local-storage/local-storage.service';
 import { ToastService } from 'src/app/shared/services/toast/toast.service';
 import { environment } from 'src/environments/environment';
@@ -23,7 +24,8 @@ export class ForgotPasswordComponent implements OnInit {
     private localStorageService: LocalStorageService,
     private httpClient: HttpClient,
     private toast: ToastService,
-    private title: Title
+    private title: Title,
+    private forgotPasswordService: ForgotPasswordService
   ) {
     this.title.setTitle('Liora | Cara Santé - Mot de passe oublié');
   }
@@ -42,24 +44,14 @@ export class ForgotPasswordComponent implements OnInit {
     return this.localStorageService.getMail();
   }
 
-  onSubmit(): void {
+  async onSubmit(): Promise<any> {
     this.showSpinner = true;
+    await this.forgotPasswordService.forgotPassword(this.formForgotPassword.value.email);
 
-    this.httpClient.post(
-      environment.apiUrl + '/user/forgot-password',
-      this.formForgotPassword.value
-    ).subscribe(
-      resp => {
-        this.showSpinner = false;
-        this.showAlert = true;
-        this.alertType = 'info';
-        this.alertMessage = 'Si un compte existe à cette adresse, un lien de réinitialisation sera envoyé. Pensez à vérifier les spams !';
-        this.formForgotPassword.setValue({ email: '' });
-      },
-      err => {
-        this.showSpinner = false;
-        this.toast.set('error', 'Une erreur s\'est produite');
-      }
-    );
+    this.showSpinner = false;
+    this.showAlert = true;
+    this.alertType = 'info';
+    this.alertMessage = 'Si un compte existe à cette adresse, un lien de réinitialisation sera envoyé. Pensez à vérifier les spams !';
+    this.formForgotPassword.setValue({ email: '' });
   }
 }
