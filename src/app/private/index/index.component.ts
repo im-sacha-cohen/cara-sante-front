@@ -3,6 +3,7 @@ import { ChartDataset, ChartType } from 'chart.js';
 import { AuthService } from 'src/app/shared/services/auth/service/auth-service.service';
 import { QueryService } from 'src/app/shared/services/query/query.service';
 import * as _ from 'lodash';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-index',
@@ -27,8 +28,11 @@ export class IndexComponent implements OnInit {
 
   constructor(
     private authService: AuthService,
-    private queryService: QueryService
-  ) { }
+    private queryService: QueryService,
+    private title: Title
+  ) {
+    this.title.setTitle('Liora | Cara Santé - Accueil');
+  }
 
   ngOnInit(): void {
     this.firstName = this.authService.getFirstName();

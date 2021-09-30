@@ -3,10 +3,13 @@ button {
 
     &:disabled {
         opacity: 0.3;
-        cursor: not-allowed;
     }
 
-    &:not(:disabled) {
+    &.not-allowed, &:disabled {
+        cursor: not-allowed!important;
+    }
+
+    &:not(:disabled), &:not(.not-allowed) {
         cursor: pointer;
     }
 
@@ -17,8 +20,8 @@ button {
 
         &:not(:disabled) {
             &:hover {
-                background-color: $grey!important;
-                border: 1px solid $grey!important;
+                background-color: $white-hover!important;
+                border: 1px solid $white-hover!important;
                 box-shadow: 0 10px 30px -13px $grey!important;
             }
         }
@@ -34,6 +37,20 @@ button {
                 background-color: $blue-dark-hover!important;
                 border: 1px solid $blue-dark-hover!important;
                 box-shadow: 0 10px 30px -13px $blue-dark-hover!important;
+            }
+        }
+    }
+
+    &.blue-medium {
+        background-color: $blue-medium!important;
+        border: 1px solid $blue-medium!important;
+        color: white!important;
+
+        &:not(:disabled) {
+            &:hover {
+                background-color: $blue-medium-hover!important;
+                border: 1px solid $blue-medium-hover!important;
+                box-shadow: 0 10px 30px -13px $blue-medium-hover!important;
             }
         }
     }

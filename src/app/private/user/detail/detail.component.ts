@@ -1,6 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, TemplateRef } from '@angular/core';
 import { Title } from '@angular/platform-browser';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
+import { ForgotPasswordService } from 'src/app/shared/services/forgot-password/forgot-password.service';
 import { QueryService } from 'src/app/shared/services/query/query.service';
 import { ToastService } from 'src/app/shared/services/toast/toast.service';
 
@@ -15,12 +17,18 @@ export class UsersDetailComponent implements OnInit {
   detectionTests: any;
   showSpinner = true;
   showSpinnerResendConfirmation = false;
+  modalRef?: BsModalRef;
+  showSpinnerDesactivate = false;
+  showForgotPasswordSpinner = false;
 
   constructor(
     private route: ActivatedRoute,
     private queryService: QueryService,
     private toastService: ToastService,
-    private title: Title
+    private title: Title,
+    private modalService: BsModalService,
+    private router: Router,
+    private forgotPasswordService: ForgotPasswordService
   ) {
     this.title.setTitle('Liora | Cara Santé - Utilisateur');
   }
@@ -63,5 +71,36 @@ export class UsersDetailComponent implements OnInit {
         this.showSpinnerResendConfirmation = false;
       }
     );
+  }
+
+  desactivate(template: TemplateRef<any>): void {
+    this.modalRef = this.modalService.show(template);
+  }
+
+  cancel(): void {
+    this.modalService.hide();
+  }
+
+  confirmDesactivate(): void {
+    this.showSpinnerDesactivate = true;
+
+    this.queryService.query(
+      'GET',
+      '/api/user/desactivate/' + this.ref
+    ).subscribe(
+      response => {
+        this.showSpinnerDesactivate = false;
+        this.toastService.set('success', 'L\'utilisateur a bien été désactivé !');
+        this.modalService.hide();
+
+        this.router.navigate(['/users']);
+      }
+    );
+  }
+
+  async forgotPassword(): Promise<any> {
+    this.showForgotPasswordSpinner = true;
+    await this.forgotPasswordService.forgotPassword(this.user.mail);
+    this.showForgotPasswordSpinner = false;
   }
 }

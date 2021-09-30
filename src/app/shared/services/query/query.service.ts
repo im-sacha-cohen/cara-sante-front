@@ -32,12 +32,17 @@ export class QueryService {
       tap(
         data => {},
         error => {
-          if (error.status && error?.status === 0 || error?.status[0] === 5) {
-            let message: string;
+          if (error.status) {
+            if (error?.status === 0 || error?.status[0] === 5) {
+              let message: string;
 
-            error.error?.message ? message = error.error.message : message = 'Une erreur s\'est produite';
+              error.error?.message ? message = error.error.message : message = 'Une erreur s\'est produite';
 
-            this.toastService.set('error', message);
+              this.toastService.set('error', message);
+            } else if (error?.status === 401) {
+              this.authService.logout();
+              this.toastService.set('error', 'Vous avez été déconnecté(e)');
+            }
           }
         }
       )

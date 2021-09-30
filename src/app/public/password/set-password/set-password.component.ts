@@ -1,11 +1,12 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 import { environment } from 'src/environments/environment';
-import { faUnlockAlt } from '@fortawesome/free-solid-svg-icons'
+import { faUnlockAlt } from '@fortawesome/free-solid-svg-icons';
 import { ToastService } from 'src/app/shared/services/toast/toast.service';
 import { Title } from '@angular/platform-browser';
+import { LocalStorageService } from '../../../shared/services/local-storage/local-storage.service';
 
 @Component({
   selector: 'app-set-password',
@@ -36,7 +37,8 @@ export class SetPasswordComponent implements OnInit {
     private router: ActivatedRoute,
     private formBuilder: FormBuilder,
     private toastService: ToastService,
-    private title: Title
+    private title: Title,
+    private localStorageService: LocalStorageService
   ) {
     this.title.setTitle('Liora | Cara Santé - Création mot de passe');
   }
@@ -138,6 +140,7 @@ export class SetPasswordComponent implements OnInit {
           this.passwordBiggerThan8 = false;
           this.passwordHas2Numeric = false;
           this.passwordHas1SpecialChar = false;
+          this.localStorageService.removeToken();
         },
         error => {
           this.showButtonSpinner = false;

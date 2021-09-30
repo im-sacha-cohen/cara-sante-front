@@ -5,7 +5,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
-    height: 98vh;
+    height: auto;
 
     .person-round {
         height: 150px;
@@ -20,6 +20,29 @@
     }
 
     .section-card {
+        &.detection-test {
+            border-radius: $border-radius;
+            margin: 10px 0;
+
+            .section-info {
+                h5 {
+                    font-size: 15px;
+                    font-weight: 800;
+                    color: $blue-dark;
+                    margin-bottom: 5px;
+                }
+    
+                fa-icon, i {
+                    color: $blue-medium;
+                }
+    
+                span {
+                    font-size: 14px;
+                    font-weight: 400;
+                }
+            }
+        }
+
         div {
             i, fa-icon {
                 margin-right: 10px;
@@ -27,17 +50,6 @@
 
             span {
                 font-weight: 500;
-            }
-        }
-    }
-
-    form {
-        .date-section {
-            opacity: 0;
-            transition: 150ms;
-
-            &.is-active {
-                opacity: 1;
             }
         }
     }

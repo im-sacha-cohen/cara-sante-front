@@ -6,6 +6,7 @@ import { Title } from '@angular/platform-browser';
 import { AuthService } from 'src/app/shared/services/auth/service/auth-service.service';
 import { ToastService } from 'src/app/shared/services/toast/toast.service';
 import { LocalStorageService } from 'src/app/shared/services/local-storage/local-storage.service';
+import { ForgotPasswordService } from 'src/app/shared/services/forgot-password/forgot-password.service';
 
 @Component({
   selector: 'app-profile',
@@ -19,6 +20,7 @@ export class ProfileComponent implements OnInit {
   password = faLock;
   errorMessage: string;
   isError = false;
+  showForgotPasswordSpinner = false;
 
   profileForm: FormGroup;
   showProfileButtonSpinner = false;
@@ -29,7 +31,8 @@ export class ProfileComponent implements OnInit {
     private title: Title,
     private authService: AuthService,
     private toastService: ToastService,
-    private localStorageService: LocalStorageService
+    private localStorageService: LocalStorageService,
+    private forgotPasswordService: ForgotPasswordService
   ) {
     this.title.setTitle('Liora | Cara Santé - Mon profile');
   }
@@ -96,7 +99,9 @@ export class ProfileComponent implements OnInit {
     );
   }
 
-  alert(): void {
-    alert('Cette fonctionnalité n\'est pour le moment pas disponible');
+  async forgotPassword(): Promise<any> {
+    this.showForgotPasswordSpinner = true;
+    await this.forgotPasswordService.forgotPassword(this.user.mail);
+    this.showForgotPasswordSpinner = false;
   }
 }

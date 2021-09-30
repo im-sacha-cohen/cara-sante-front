@@ -5,7 +5,14 @@
     padding: 20px;
     border-radius: $border-radius;
     box-shadow: 2px 2px 20px -19px $blue-dark;
-    min-width: 410px;
+    min-width: unset;
+    transition: 300ms;
+
+    &.white {
+        &:hover {
+            box-shadow: 0px 0px 27px -19px $blue-dark;
+        }
+    }
 
     &.blue-medium {
         background-color: $blue-medium;

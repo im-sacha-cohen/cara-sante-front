@@ -14,24 +14,26 @@
 </div>
 <div class="section-card w-100">
     <div *ngIf="showSpinner" class="spinner-border relative"></div>
-    <table *ngIf="!showSpinner" class="table table-striped table-hover">
-        <thead>
-            <tr>
-                <th scope="col">Prénom</th>
-                <th scope="col">Nom</th>
-                <th scope="col">Testé le</th>
-                <th scope="col">Facturé</th>
-                <th scope="col">Saisit le</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr *ngFor="let patient of patients">
-                <th scope="row">{{ patient.patient.firstName }}</th>
-                <td>{{ patient.patient.lastName }}</td>
-                <td>{{ patient.frenchTestedAt }}</td>
-                <td>{{ patient.isInvoiced ? 'Oui' : 'Non' }}</td>
-                <td>{{ patient.filledAtFrench }}</td>
-            </tr>
-        </tbody>
-    </table>
+    <div class="table-responsive">
+        <table *ngIf="!showSpinner" class="table table-striped table-hover">
+            <thead>
+                <tr>
+                    <th scope="col">Prénom</th>
+                    <th scope="col">Nom</th>
+                    <th scope="col">Testé le</th>
+                    <th scope="col">Facturé</th>
+                    <th scope="col">Saisit le</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let patient of patients">
+                    <th scope="row">{{ patient.patient.firstName }}</th>
+                    <td>{{ patient.patient.lastName }}</td>
+                    <td>{{ patient.frenchTestedAt }}</td>
+                    <td>{{ patient.isInvoiced ? 'Oui' : 'Non' }}</td>
+                    <td>{{ patient.filledAtFrench }}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
 </div>

@@ -8,11 +8,11 @@
             <span>{{ user['firstName'] }} </span>
             <span>{{ user['lastName'] }}</span>
         </div>
-        <div>
+        <div *ngIf="user['mail']">
             <i class="bi bi-envelope-fill"></i>
             <span>{{ user['mail'] }}</span>
         </div>
-        <div>
+        <div *ngIf="user['phone']">
             <i class="bi bi-telephone-fill"></i>
             <span>{{ user['phone'] }}</span>
         </div>
@@ -24,6 +24,10 @@
             <i class="bi bi-person-plus-fill"></i>
             <span>Créé le {{ user['createdAtFrench'] }}</span>
         </div>
+        <div *ngIf="user['lastLoginFrench']">
+            <i class="bi bi-box-arrow-in-right"></i>
+            <span>Dernière connexion le {{ user['lastLoginFrench'] }}</span>
+        </div>
     </div>
     <div class="d-flex w-100 justify-content-between align-items-start">
         <div class="section-card h-100 blue w-50 m-2 me-0 ms-0">
@@ -33,15 +37,16 @@
                 <span>{{ detectionTests.length }} patients saisit <small>(total)</small></span>
             </div>
         </div>
-        <div class="section-card h-100 w-50 blue m-2 me-0">
+        <div *ngIf="!user.isDesactivated" class="section-card h-100 w-50 blue m-2 me-0">
             <h3>Actions</h3>
             <div *ngIf="!user.isFirstConnection" class="d-flex">
-                <button class="red me-2">
+                <button class="red me-2" (click)="desactivate(template)">
                     <i class="bi bi-x-circle"></i>
                     Désactiver ce compte
                 </button>
-                <button class="orange">
-                    <i class="bi bi-reply"></i>
+                <button class="orange" (click)="forgotPassword()">
+                    <i *ngIf="!showForgotPasswordSpinner" class="bi bi-reply"></i>
+                    <div *ngIf="showForgotPasswordSpinner" class="spinner-border"></div>
                     Réénitialiser le mot de passe
                 </button>
             </div>
@@ -53,3 +58,25 @@
         </div>
     </div>
 </div>
+<ng-template #template>
+    <div class="modal-header">
+        <h4 class="modal-title pull-left">Êtes-vous sûr de vouloir désactiver le compte de cet utilisateur ?</h4>
+    </div>
+    <div class="modal-body">
+        Dès que vous cliquerez sur "Désactiver", <strong>l'utilisateur ne serra plus en mesure de se connecter à son espace personnel.</strong>
+        <br/>
+        <br/>
+        Une fois le compte désactivé, les données personnelles telles que : <strong>l'adresse mail et le numéro de téléphone seront anonymisée.</strong>
+    </div>
+    <div class="modal-footer">
+        <button class="white" (click)="cancel()">
+            <i class="bi bi-x-circle"></i>
+            Annuler
+        </button>
+        <button class="red" (click)="confirmDesactivate()">
+            <i *ngIf="!showSpinnerDesactivate" class="bi bi-person-x-fill"></i>
+            <div *ngIf="showSpinnerDesactivate" class="spinner-border"></div>
+            Désactiver
+        </button>
+    </div>
+</ng-template>

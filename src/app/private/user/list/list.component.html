@@ -20,35 +20,40 @@
 </div>
 <div class="section-card w-100">
     <div *ngIf="showSpinner" class="spinner-border"></div>
-    <table *ngIf="!showSpinner" class="table table-striped table-hover">
-        <thead>
-            <tr>
-                <th scope="col">Prénom</th>
-                <th scope="col">Nom</th>
-                <th scope="col">Mail</th>
-                <th scope="col">Téléphone</th>
-                <th scope="col">Rôles</th>
-                <th scope="col">Créé le</th>
-                <th scope="col">Status</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr *ngFor="let user of users" routerLink="/users/{{ user.ref }}">
-                <th scope="row">{{ user.firstName }}</th>
-                <td>{{ user.lastName }}</td>
-                <td>{{ user.mail }}</td>
-                <td>{{ user.phone }}</td>
-                <td>{{ user.roles }}</td>
-                <td>{{ user.createdAtFrench }}</td>
-                <td>
-                    <ng-container *ngIf="user.isFirstConnection">
-                        <span class="badge rounded-pill bg-warning text-dark">En attente de confirmation</span>
-                    </ng-container>
-                    <ng-container *ngIf="!user.isFirstConnection">
-                        <span class="badge rounded-pill bg-success">Actif</span>
-                    </ng-container>
-                </td>
-            </tr>
-        </tbody>
-    </table>
+    <div class="table-responsive">
+        <table *ngIf="!showSpinner" class="table table-striped table-hover">
+            <thead>
+                <tr>
+                    <th scope="col">Prénom</th>
+                    <th scope="col">Nom</th>
+                    <th scope="col">Mail</th>
+                    <th scope="col">Téléphone</th>
+                    <th scope="col">Rôles</th>
+                    <th scope="col">Créé le</th>
+                    <th scope="col">Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let user of users" routerLink="/users/{{ user.ref }}">
+                    <th scope="row">{{ user.firstName }}</th>
+                    <td>{{ user.lastName }}</td>
+                    <td>{{ user.mail }}</td>
+                    <td>{{ user.phone }}</td>
+                    <td>{{ user.roles }}</td>
+                    <td>{{ user.createdAtFrench }}</td>
+                    <td>
+                        <ng-container *ngIf="user.isDesactivated">
+                            <span class="badge rounded-pill bg-danger">Désactivé</span>
+                        </ng-container>
+                        <ng-container *ngIf="user.isFirstConnection">
+                            <span class="badge rounded-pill bg-warning text-dark">En attente de confirmation</span>
+                        </ng-container>
+                        <ng-container *ngIf="!user.isFirstConnection && !user.isDesactivated">
+                            <span class="badge rounded-pill bg-success">Actif</span>
+                        </ng-container>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
 </div>
