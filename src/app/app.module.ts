@@ -28,6 +28,7 @@ import { ToastComponent } from './shared/components/toast/toast.component';
 import { ForgotPasswordComponent } from './public/password/forgot-password/forgot-password.component';
 import { ModalModule } from 'ngx-bootstrap/modal';
 import { ErrorMobileComponent } from './shared/components/modal/error-mobile/error-mobile.component';
+import { ModalFillTestComponent } from './private/patients/detail/modal-fill-test/modal-fill-test.component';
 
 @NgModule({
   declarations: [
@@ -47,7 +48,8 @@ import { ErrorMobileComponent } from './shared/components/modal/error-mobile/err
     SetPasswordComponent,
     ToastComponent,
     ForgotPasswordComponent,
-    ErrorMobileComponent
+    ErrorMobileComponent,
+    ModalFillTestComponent
   ],
   imports: [
     BrowserModule,

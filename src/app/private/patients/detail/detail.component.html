@@ -40,11 +40,11 @@
     </div>
     <ng-container *ngFor="let test of patient['detectionTest']">
         <div class="section-card white hover w-100 detection-test d-flex align-items-center justify-content-between">
-            <div class="d-flex flex-column justify-content-center">
+            <div class="d-flex flex-column justify-content-center section-info">
                 <h5>Testé le {{ test['frenchTestedAt'] }}</h5>
                 <div *ngIf="test['isNegative'] !== null">
                     <fa-icon [icon]="faHandHoldingMedical"></fa-icon>
-                    <span class="result">Résultat
+                    <span class="test-info">Résultat
                         <ng-container *ngIf="test['isNegative']">
                             <span class="badge rounded-pill bg-light text-dark">Négatif</span>
                         </ng-container>
@@ -53,35 +53,42 @@
                         </ng-container>
                     </span>
                 </div>
+                <div>
+                    <i class="bi bi-file-post"></i>
+                    <span class="test-info" *ngIf="!test['isInvoiced'] && test['user'] === null">Jamais saisit</span>
+                    <span 
+                        class="test-info"
+                        *ngIf="!test['isInvoiced'] && test['user'] !== null"
+                    >
+                        Saisit mais non facturé, par {{ test['user']['firstName'] + ' ' + test['user']['lastName'] }}, le {{ test['filledAtFrench'] }}
+                    </span>
+                    <span class="test-info" *ngIf="test['isInvoiced']">Facturé le {{ test['filledAtFrench'] }}</span>
+                </div>
             </div>
             <div>
-                <button *ngIf="!test['isInvoiced']" class="blue-medium">
+                <button
+                    *ngIf="!test['isInvoiced'] && test['user'] === null"
+                    (click)="openModal(test)"
+                    class="blue-medium"
+                >
                     <i class="bi bi-pen"></i>
                     Saisir ce test
                 </button>
+                <button
+                    *ngIf="!test['isInvoiced'] && test['user'] !== null"
+                    (click)="openModal(test)"
+                    class="orange"
+                >
+                    <i class="bi bi-pen"></i>
+                    Facturer ce test
+                </button>
+                <span
+                    *ngIf="test['isInvoiced']"
+                    class="badge rounded-pill bg-success"
+                >
+                    Déjà saisit <small>par {{ test['user']['firstName'] + ' ' + test['user']['lastName'] }}</small>
+                </span>
             </div>
         </div>
     </ng-container>
-    <!--<div class="mt-5 col-6 d-flex flex-column section-card blue m-0 align-self-start">
-        <form [formGroup]="dateForm">
-            <h2>Ce patient a-t-il été facturé ?</h2>
-            <div class="d-flex align-items-center justify-content-between col-6">
-                <button class="white col-10 me-2 mb-0" (click)="onSubmit()">
-                    Non <small>puis enregistrer</small>
-                </button>
-                <button (click)="showDate()" class="blue-dark col-10">Oui</button>
-            </div>
-            <div [ngClass]="isDateActive ? 'is-active' : ''" class="date-section mt-3">
-                <h3>Quand a-t-il été facturé ?<small>(Optionel)</small></h3>
-                <input type="text" class="col-6" placeholder="Ajourd'hui" bsDatepicker formControlName="filledAt" placement="right" [bsConfig]="bsConfig" />
-                <div class="d-flex justify-content-end col-6">
-                    <button class="blue-dark col-12" (click)="onSubmit()">
-                        <i *ngIf="!showButtonSpinner" class="bi bi-save"></i>
-                        <div *ngIf="showButtonSpinner" class="spinner-border"></div>
-                        Enregistrer
-                    </button>
-                </div>
-            </div>
-        </form>
-    </div>-->
 </div>

@@ -1,0 +1,42 @@
+<div class="modal-header">
+    <h4 class="modal-title pull-left">Ce test a-t-il été facturé ?</h4>
+</div>
+<div class="modal-body">
+    <form [formGroup]="dateForm">
+        <div class="answer-container">
+            <span (click)="onClick('no')" [ngClass]="noClicked ? 'clicked' : ''">Non</span>
+            <hr/>
+            <span (click)="onClick('yes')" [ngClass]="yesClicked ? 'clicked' : ''">Oui</span>
+        </div>
+        <div [ngClass]="isDateActive ? 'is-active' : ''" class="date-section mt-3">
+            <span>Quand a-t-il été facturé ?<small>(Optionel)</small></span>
+            <input
+                type="text"
+                class="col-6"
+                placeholder="Ajourd'hui (par défaut)"
+                bsDatepicker
+                formControlName="filledAt"
+                placement="right"
+                [bsConfig]="bsConfig"
+                [maxDate]="maxDate"
+            />
+        </div>
+    </form>
+    <div class="mt-3">
+        <alert *ngIf="isError" type="danger">
+            {{ errorMessage }}
+        </alert>
+    </div>
+    
+</div>
+<div class="modal-footer">
+    <button class="white" (click)="onClose()">
+        <i class="bi bi-x-circle"></i>
+        Annuler
+    </button>
+    <button (click)="onSubmit()" class="blue-medium">
+        <i *ngIf="!showSpinner" class="bi bi-check-circle-fill"></i>
+        <div *ngIf="showSpinner" class="spinner-border"></div>
+        Enregister
+    </button>
+</div>
