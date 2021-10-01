@@ -1,27 +1,27 @@
-# Front
+# Liora
+#### _By Sacha COHEN, for Cara Santé_
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.0.4.
+I have made this web application as freelance for Cara Santé.
+This society needed this type of tool to manage the invoices of antigen test by each employee.
 
-## Development server
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+## Features
 
-## Code scaffolding
+- Import patient & antigen test from other platform (super-admin)
+- Add an employee on Liora (admin)
+- Invoice an antigen test
+- Follow employee stats (admin)
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
 
-## Build
+## Tech
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+Technologies used on this project
 
-## Running unit tests
+- [Angular] - For the front-end
+- [Symfony] - For the back-end as an API
+- [MySQL] - For the database
+- Other PHP scripts to automate backup, deployment...
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+## Use
+This application is hosted somewhere on the internet...
+This is an intern app for _Cara Santé_.
