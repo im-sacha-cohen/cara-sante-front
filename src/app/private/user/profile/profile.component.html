@@ -1,7 +1,7 @@
 <h1>Mon profile</h1>
 <div *ngIf="showSpinner" class="spinner-border"></div>
 <ng-container *ngIf="!showSpinner">
-    <div class="section-card blue-medium w-100 m-0">
+    <div class="section-card blue-medium w-100">
         <h2>Informations</h2>
         <div>
             <i class="bi bi-person-fill"></i>
@@ -17,8 +17,8 @@
             <span>{{ user['phone'] }}</span>
         </div>
     </div>
-    <div class="d-flex">
-        <div class="section-card blue m-2 ms-0">
+    <div class="card-container">
+        <div class="section-card blue hover">
             <h3>Informations complémentaires</h3>
             <div>
                 <i class="bi bi-people"></i>
@@ -33,7 +33,7 @@
                 <span>Dernière connexion le {{ user['lastLoginFrench'] }}</span>
             </div>
         </div>
-        <div class="section-card blue m-2 me-0">
+        <div class="section-card blue hover">
             <h3>Statistiques</h3>
             <div>
                 <i class="bi bi-laptop"></i>
@@ -41,8 +41,8 @@
             </div>
         </div>
     </div>
-    <div class="d-flex">
-        <div class="section-card m-2 ms-0">
+    <div class="card-container">
+        <div class="section-card white hover">
             <h4>Mettre à jour mes informations</h4>
             <form [formGroup]="profileForm">
                 <div class="d-flex">
@@ -79,7 +79,7 @@
                 </button>
             </form>
         </div>
-        <div class="section-card m-2 me-0">
+        <div class="section-card white hover">
             <h4>Mettre à jour mon mot de passe</h4>
             <button (click)="forgotPassword()" class="blue w-100 align-self-baseline">
                 <fa-icon *ngIf="!showForgotPasswordSpinner" [icon]="password"></fa-icon>

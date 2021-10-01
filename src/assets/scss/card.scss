@@ -17,6 +17,10 @@
     &.blue-medium {
         background-color: $blue-medium;
 
+        &:hover {
+            box-shadow: 0 0 20px -6px $blue-dark;
+        }
+
         div, span, h1, h2, h3 {
             color: white;
         }
@@ -24,6 +28,10 @@
 
     &.blue {
         background-color: $blue;
+
+        &:hover {
+            box-shadow: 0 0 20px -6px $blue-dark;
+        }
 
         div, span, h1, h2, h3 {
             color: white;
