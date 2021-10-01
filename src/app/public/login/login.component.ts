@@ -18,6 +18,9 @@ export class LoginComponent implements OnInit {
   isError = false;
   errorMessage: string;
 
+  isAlreadyConnected = false;
+  firstName: string;
+
   constructor(
     private formBuilder: FormBuilder,
     private httpClient: HttpClient,
@@ -30,7 +33,12 @@ export class LoginComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.formLogin = this.buildForm();
+    if (this.authService.isConnected()) {
+      this.isAlreadyConnected = true;
+      this.firstName = this.authService.getFirstName();
+    } else {
+      this.formLogin = this.buildForm();
+    }
   }
 
   buildForm(): FormGroup {

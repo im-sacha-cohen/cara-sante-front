@@ -1,4 +1,13 @@
-<div class="section-card white hover login">
+<div *ngIf="isAlreadyConnected" class="section-card white hover d-flex flex-column align-items-center">
+    <h5>{{ firstName }}, vous êtes déjà connecté(e) !</h5>
+    <a routerLink="/home" class="button">
+        <button class="blue">
+            <i class="bi bi-house-door"></i>
+            Aller à mon dashboard
+        </button>
+    </a>
+</div>
+<div *ngIf="!isAlreadyConnected" class="section-card white hover login">
     <form [formGroup]="formLogin">
         <h1>Connexion</h1>
         <input formControlName="username" type="mail" placeholder="Ex: mail@carasante.com">
