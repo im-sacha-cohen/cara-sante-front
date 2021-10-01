@@ -72,11 +72,22 @@ form {
 }
 
 @media (max-width: $mobile) {
+    button {
+        width: 100%!important;
+    }
+
+    input, textarea, select, button {
+        height: 40px!important;
+    }
+
     form {
         width: 100%!important;
 
-        button {
-            width: 40%;
+        .links {
+            a {
+                font-size: 15px;
+                margin-bottom: 5px;
+            }
         }
     }
 }

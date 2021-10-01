@@ -39,8 +39,8 @@
         </div>
     </div>
     <ng-container *ngFor="let test of patient['detectionTest']">
-        <div class="section-card white hover w-100 detection-test d-flex align-items-center justify-content-between">
-            <div class="d-flex flex-column justify-content-center section-info">
+        <div class="section-card white hover detection-test">
+            <div class="section-info">
                 <h5>Testé le {{ test['frenchTestedAt'] }}</h5>
                 <div *ngIf="test['isNegative'] !== null">
                     <fa-icon [icon]="faHandHoldingMedical"></fa-icon>
@@ -65,7 +65,7 @@
                     <span class="test-info" *ngIf="test['isInvoiced']">Facturé le {{ test['filledAtFrench'] }}</span>
                 </div>
             </div>
-            <div>
+            <div class="section-btn">
                 <button
                     *ngIf="!test['isInvoiced'] && test['user'] === null"
                     (click)="openModal(test)"

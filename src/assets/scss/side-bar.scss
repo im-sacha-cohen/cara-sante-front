@@ -125,6 +125,10 @@ aside {
             &:hover {
                 width: 96%;
                 box-shadow: 0 10px 24px -14px black;
+
+                ul {
+                    align-items: center;
+                }
     
                 a, div {
                     &:not(.person-round) {

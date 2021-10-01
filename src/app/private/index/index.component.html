@@ -1,6 +1,6 @@
 <h1>Bonjour {{ firstName }} !👋🏼</h1>
 <div class="d-flex card-stat-container">
-  <div class="section-card algin-self-start stats-detection-filled m-0 me-2">
+  <div class="section-card white hover algin-self-start stats-detection-filled m-0 me-2">
     <h2>Vos statistiques saisies patients</h2>
     <div *ngIf="showUserStatSpinner" class="spinner-border relative"></div>
     <canvas
@@ -13,7 +13,7 @@
     >
     </canvas>
   </div>
-  <div class="section-card algin-self-start stats-detection-filled m-0 ms-2">
+  <div class="section-card white hover algin-self-start stats-detection-filled m-0 ms-2">
     <h2>Les statistiques saisies patients de l'équipe</h2>
     <div *ngIf="showTeamStatSpinner" class="spinner-border relative"></div>
     <canvas
@@ -27,7 +27,7 @@
     </canvas>
   </div>
 </div>
-<div class="section-card blue-medium detection-remaining mt-2 d-flex algin-self-start m-0">
+<div class="section-card hover blue-medium detection-remaining mt-2 d-flex algin-self-start m-0">
   <div *ngIf="!detectionTestRemaining" class="spinner-border relative"></div>
   <div *ngIf="detectionTestRemaining" class="d-flex flex-column">
     <h3>Il reste {{ detectionTestRemaining.countText }} tests à saisir !</h3>

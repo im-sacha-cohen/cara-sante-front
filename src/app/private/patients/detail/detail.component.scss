@@ -23,8 +23,16 @@
         &.detection-test {
             border-radius: $border-radius;
             margin: 10px 0;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
 
             .section-info {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+
                 h5 {
                     font-size: 15px;
                     font-weight: 800;
@@ -60,6 +68,20 @@
         .person-round {
             height: 100px;
             width: 100px;
+        }
+
+        .section-card {
+            &.detection-test {
+                flex-direction: column;
+
+                .section-info {
+                    width: 100%;
+                }
+
+                .section-btn {
+                    width: 100%;
+                }
+            }
         }
     }
 }
