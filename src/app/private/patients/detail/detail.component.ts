@@ -67,14 +67,15 @@ export class DetailToTakePatientComponent implements OnInit, OnDestroy {
   }
 
   isAlreadyUpdating(): boolean {
-    if (
-      this.patient.isUpdating &&
-      this.patient.updatingBy.ref !== this.authService.getRef()
-    ) {
-      return true;
-    } else {
-      return false;
-    }
+    let isUpdating = false;
+
+    this.patient.detectionTest.forEach(detectionTest => {
+      if (detectionTest.isUpdating && detectionTest.updatingBy.ref !== this.authService.getRef()) {
+        isUpdating = true;
+      }
+    });
+
+    return isUpdating;
   }
 
   toggleUpdating(isAlreadyUpdating: boolean): void {
