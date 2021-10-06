@@ -29,6 +29,7 @@ import { ForgotPasswordComponent } from './public/password/forgot-password/forgo
 import { ModalModule } from 'ngx-bootstrap/modal';
 import { ErrorMobileComponent } from './shared/components/modal/error-mobile/error-mobile.component';
 import { ModalFillTestComponent } from './private/patients/detail/modal-fill-test/modal-fill-test.component';
+import { ContactComponent } from './private/contact/contact.component';
 
 @NgModule({
   declarations: [
@@ -49,7 +50,8 @@ import { ModalFillTestComponent } from './private/patients/detail/modal-fill-tes
     ToastComponent,
     ForgotPasswordComponent,
     ErrorMobileComponent,
-    ModalFillTestComponent
+    ModalFillTestComponent,
+    ContactComponent
   ],
   imports: [
     BrowserModule,
