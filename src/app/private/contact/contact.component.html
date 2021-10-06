@@ -1,0 +1,27 @@
+<h1>Demande de contact</h1>
+<div class="section-card white w-100">
+    <form [formGroup]="contactForm">
+        <div class="section-card theme mb-3 w-100">
+            <div class="d-flex flex-column box-info">
+                <span>Pour n'importe quelle demande type :</span>
+                <ul>
+                    <li>Utilisation de l'application</li>
+                    <li>Bug</li>
+                    <li>Nouvelle fonctionnalité</li>
+                </ul>
+                <span>Utilisez le formulaire ci-dessous pour faire vos demandes.</span>
+            </div>
+        </div>
+        <input formControlName="subject" type="text" placeholder="Sujet du message">
+        <textarea formControlName="message" placeholder="Votre message"></textarea>
+        <button
+            (click)="onClick()"
+            [disabled]="contactForm.invalid"
+            class="blue"
+        >
+            <i *ngIf="!showSpinner" class="bi bi-envelope"></i>
+            <div *ngIf="showSpinner" class="spinner-border"></div>
+            Envoyer le message
+        </button>
+    </form>
+</div>

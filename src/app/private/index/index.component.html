@@ -27,12 +27,23 @@
     </canvas>
   </div>
 </div>
-<div class="section-card hover blue-medium detection-remaining mt-2 d-flex algin-self-start m-0">
-  <div *ngIf="!detectionTestRemaining" class="spinner-border relative"></div>
-  <div *ngIf="detectionTestRemaining" class="d-flex flex-column">
-    <h3>Il reste {{ detectionTestRemaining.countText }} tests à saisir !</h3>
-    <span>
-      {{ detectionTestRemaining.message }}
-    </span>
+<div class="d-flex align-items-start card-stat-container mt-2">
+  <div class="section-card hover blue-medium detection-remaining d-flex algin-self-start m-0 me-1">
+    <div *ngIf="!detectionTestRemaining" class="spinner-border relative"></div>
+    <div *ngIf="detectionTestRemaining" class="d-flex flex-column">
+      <h3>Il reste {{ detectionTestRemaining.countText }} tests à saisir !</h3>
+      <span>
+        {{ detectionTestRemaining.message }}
+      </span>
+    </div>
+  </div>
+  <div class="section-card hover blue-medium m-0 ms-1">
+    <h3>Faites une demande de contact !</h3>
+    <a routerLink="/contact">
+      <button class="white">
+        <i class="bi bi-forward"></i>
+        Aller au formulaire
+      </button>
+    </a>
   </div>
 </div>

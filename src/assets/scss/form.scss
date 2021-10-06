@@ -37,13 +37,17 @@ form {
         }
     }
 
+    textarea {
+        height: 150px!important;
+    }
+
     button {
         width: 30%;
         align-self: flex-end;
     }
 
     .box-info {
-        i, span {
+        i, span, li {
             color: $grey-dark;
             font-weight: 100;
             font-size: 13px;
