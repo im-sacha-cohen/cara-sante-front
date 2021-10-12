@@ -30,6 +30,7 @@ import { ModalModule } from 'ngx-bootstrap/modal';
 import { ErrorMobileComponent } from './shared/components/modal/error-mobile/error-mobile.component';
 import { ModalFillTestComponent } from './private/patients/detail/modal-fill-test/modal-fill-test.component';
 import { ContactComponent } from './private/contact/contact.component';
+import { SearchComponent } from './private/search/search.component';
 
 @NgModule({
   declarations: [
@@ -51,7 +52,8 @@ import { ContactComponent } from './private/contact/contact.component';
     ForgotPasswordComponent,
     ErrorMobileComponent,
     ModalFillTestComponent,
-    ContactComponent
+    ContactComponent,
+    SearchComponent
   ],
   imports: [
     BrowserModule,

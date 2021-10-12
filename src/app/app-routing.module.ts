@@ -6,6 +6,7 @@ import { MainPrivateComponent } from './private/main/main.component';
 import { DetailToTakePatientComponent } from './private/patients/detail/detail.component';
 import { TakenPatientComponent } from './private/patients/taken/taken.component';
 import { TakePatientComponent } from './private/patients/to-take/take-patient.component';
+import { SearchComponent } from './private/search/search.component';
 import { AddUserComponent } from './private/user/add/add.component';
 import { UsersDetailComponent } from './private/user/detail/detail.component';
 import { UsersListComponent } from './private/user/list/list.component';
@@ -69,6 +70,10 @@ const routes: Routes = [
       {
         path: 'contact',
         component: ContactComponent
+      },
+      {
+        path: 'search',
+        component: SearchComponent
       },
       {
         path: 'users',

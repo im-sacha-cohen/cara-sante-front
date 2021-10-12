@@ -1,0 +1,40 @@
+<div class="title-container-elements">
+    <div class="title-container">
+        <h1>Recherche</h1>
+        <span>
+            - {{ countSearch }} 
+            <span *ngIf="countSearch > 0">
+                trouvés
+            </span>
+            <span *ngIf="countSearch === 0">
+                trouvé
+            </span>
+        </span>
+    </div>
+</div>
+<div class="section-card white w-100">
+    <form [formGroup]="searchForm">
+        <div class="section-card theme w-100 mb-3">
+            <div class="d-flex box-info">
+                <i class="bi bi-info-circle me-2"></i>
+                <span>
+                    Vous pouvre rechercher un patient par :
+                    <ul>
+                        <li>Prénom</li>
+                        <li>Nom</li>
+                        <li>Adresse mail</li>
+                        <li>Numéro de sécurité sociale</li>
+                        <li>Code postal</li>
+                        <li>Ville</li>
+                    </ul>
+                </span>
+            </div>
+        </div>
+        <input formControlName="search" type="text" placeholder="Votre recherche">
+        <button (click)="search()" class="blue-medium">
+            <i *ngIf="!showButtonSpinner" class="bi bi-search"></i>
+            <div *ngIf="showButtonSpinner" class="spinner-border"></div>
+            Rechercher
+        </button>
+    </form>
+</div>
