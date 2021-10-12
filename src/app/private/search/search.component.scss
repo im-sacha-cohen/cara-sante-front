@@ -1,0 +1,15 @@
+.section-card {
+    &.theme {
+        position: relative;
+
+        i {
+            &.close {
+                position: absolute;
+                right: 10px;
+                top: 10px;
+                font-size: 19px;
+                cursor: pointer;
+            }
+        }
+    }
+}

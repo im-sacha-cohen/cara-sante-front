@@ -14,7 +14,8 @@
 </div>
 <div class="section-card white w-100">
     <form [formGroup]="searchForm">
-        <div class="section-card theme w-100 mb-3">
+        <div [ngClass]="isCardInfoHidden ? 'd-none' : 'd-flex'" class="section-card theme w-100 mb-3">
+            <i (click)="closeCardInfo()" class="bi bi-x-circle close"></i>
             <div class="d-flex box-info">
                 <i class="bi bi-info-circle me-2"></i>
                 <span>
@@ -37,4 +38,33 @@
             Rechercher
         </button>
     </form>
+</div>
+<div class="section-card white hover w-100 mt-3">
+    <div *ngIf="showButtonSpinner" class="spinner-border relative"></div>
+    <div class="table-responsive">
+        <table *ngIf="!showButtonSpinner" class="table table-striped table-hover">
+            <thead>
+                <tr>
+                  <th scope="col">Prénom</th>
+                  <th scope="col">Nom</th>
+                  <th scope="col">N° de sécurité sociale</th>
+                </tr>
+            </thead>
+            <tbody>
+                <span *ngIf="searchResults && searchResults.length === 0">
+                    Aucun résultat
+                </span>
+                <ng-container *ngIf="searchResults && searchResults.length > 0">
+                    <tr
+                        *ngFor="let result of searchResults"
+                        (click)="onClick(result)"
+                    >
+                        <th scope="row">{{ result.firstName }}</th>
+                        <td>{{ result.lastName }}</td>
+                        <td>{{ result.nir }}</td>
+                    </tr>
+                </ng-container>
+            </tbody>
+        </table>
+    </div>
 </div>

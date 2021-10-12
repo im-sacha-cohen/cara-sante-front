@@ -78,7 +78,7 @@ export class TakePatientComponent implements OnInit, OnDestroy {
       !detectionTest.isUpdating ||
       detectionTest.updatingBy.ref === this.userTokenRef
     ) {
-      this.router.navigate(['/take-patient/' + detectionTest.patient.ref + '/' + detectionTest.ref]);
+      this.router.navigate(['/take-patient/' + detectionTest.patient.ref]);
     }
   }
 }

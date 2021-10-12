@@ -60,7 +60,7 @@ const routes: Routes = [
         component: TakePatientComponent
       },
       {
-        path: 'take-patient/:patientRef/:ref',
+        path: 'take-patient/:patientRef',
         component: DetailToTakePatientComponent
       },
       {
