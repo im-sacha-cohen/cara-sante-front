@@ -102,7 +102,7 @@ export class DetailToTakePatientComponent implements OnInit, OnDestroy {
       }
     ).subscribe(
       resp => {
-        console.log(resp);
+        //console.log(resp);
       },
       err => {
         console.log(err);

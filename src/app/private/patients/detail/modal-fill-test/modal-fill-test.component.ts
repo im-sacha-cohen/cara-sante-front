@@ -36,9 +36,7 @@ export class ModalFillTestComponent implements OnInit {
     this.localeService.use('fr');
   }
 
-  ngOnInit(): void {
-    console.log('detectionTest', this.detectionTest);
-  }
+  ngOnInit(): void { }
 
   buildForm(): void {
     this.dateForm = this.formBuilder.group({
@@ -76,7 +74,7 @@ export class ModalFillTestComponent implements OnInit {
 
   onSubmit(): void {
     this.isError = false;
-    console.log(this.dateForm.value);
+
     if (this.dateForm.value.isInvoiced !== '') {
       this.showSpinner = true;
 

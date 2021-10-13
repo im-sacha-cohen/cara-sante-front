@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Observable, Subscription } from 'rxjs';
@@ -21,11 +21,11 @@ export class SearchComponent implements OnInit {
     private queryService: QueryService,
     private router: Router,
     private activatedRoute: ActivatedRoute
-  ) { }
+  ) {
+    this.buildForm();
+  }
 
   ngOnInit(): void {
-    this.buildForm();
-
     this.activatedRoute.fragment.subscribe(fragment => {
       if (fragment) {
         this.searchForm.patchValue({ search: fragment });
