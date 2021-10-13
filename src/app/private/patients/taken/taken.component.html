@@ -21,8 +21,7 @@
                     <th scope="col">Prénom</th>
                     <th scope="col">Nom</th>
                     <th scope="col">Testé le</th>
-                    <th scope="col">Facturé</th>
-                    <th scope="col">Saisit le</th>
+                    <th scope="col">Facturé le</th>
                 </tr>
             </thead>
             <tbody>
@@ -33,7 +32,6 @@
                     <th scope="row">{{ patient.patient.firstName }}</th>
                     <td>{{ patient.patient.lastName }}</td>
                     <td>{{ patient.frenchTestedAt }}</td>
-                    <td>{{ patient.isInvoiced ? 'Oui' : 'Non' }}</td>
                     <td>{{ patient.filledAtFrench }}</td>
                 </tr>
             </tbody>
