@@ -29,9 +29,7 @@ html {
             }
 
             .disabled {
-                
-                    cursor: not-allowed;
-                
+                cursor: not-allowed;
             }
 
             &.public {
@@ -60,13 +58,18 @@ html {
                     display: flex;
                     align-items: center;
     
-                    h1 {
+                    h1, h2 {
                         margin-right: 5px;
                     }
-    
-                    span {
-                        color: $grey-light;
-                        font-weight: 400;
+                }
+
+                span, a {
+                    color: $grey-light;
+                    font-weight: 400;
+                    text-decoration: none;
+
+                    &:hover {
+                        text-decoration: underline;
                     }
                 }
             }

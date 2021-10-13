@@ -1,0 +1,41 @@
+@import '../../../../assets/scss/variables.scss';
+
+.title-container-elements {
+    span {
+        cursor: pointer;
+    }
+}
+
+.section-card {
+    position: relative;
+
+    i {
+        &.cross {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            color: $grey;
+            font-size: 13px;
+            cursor: pointer;
+            transition: 300ms;
+
+            &:hover {
+                color: $grey-dark;
+            }
+        }
+    }
+
+    .result {
+        display: flex;
+        flex-direction: column;
+
+        span {
+            &.date {
+                font-size: 15px;
+                font-weight: 800;
+                color: $blue-medium;
+                margin-bottom: 5px;
+            }
+        }
+    }
+}

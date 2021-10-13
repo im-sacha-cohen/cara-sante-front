@@ -37,8 +37,6 @@ export class DetailToTakePatientComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.patientRef = this.route.snapshot.paramMap.get('patientRef');
-    this.ref = this.route.snapshot.paramMap.get('ref');
-
     this.getDetailToTakePatient();
   }
 
@@ -87,6 +85,14 @@ export class DetailToTakePatientComponent implements OnInit, OnDestroy {
   }
 
   editUpdating(updating: boolean): void {
+    this.patient.detectionTest.forEach((detectionTest, index) => {
+      if (!detectionTest.isUpdating && !detectionTest.isInvoiced) {
+        this.ref = detectionTest.ref;
+      } else if ((this.patient.detectionTest.length - 1) === index) {
+        this.ref = detectionTest.ref;
+      }
+    });
+
     this.queryService.query(
       'PUT',
       '/api/detection-test/updating',
@@ -96,7 +102,7 @@ export class DetailToTakePatientComponent implements OnInit, OnDestroy {
       }
     ).subscribe(
       resp => {
-        console.log(resp);
+        //console.log(resp);
       },
       err => {
         console.log(err);

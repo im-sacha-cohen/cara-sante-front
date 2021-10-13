@@ -34,7 +34,9 @@
             <h3>Nombre de patients saisis</h3>
             <div>
                 <i class="bi bi-pencil"></i>
-                <span>{{ detectionTests.length }} patients saisit <small>(total)</small></span>
+                <span>
+                    {{ detectionTests.length }} patients saisit <small>(total), dont {{ user.totalInvoiced }} facturé(s)
+                    </small></span>
             </div>
         </div>
         <div *ngIf="!user.isDesactivated" class="section-card h-100 w-50 blue m-2 me-0">

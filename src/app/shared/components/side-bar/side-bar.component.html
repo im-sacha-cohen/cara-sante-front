@@ -15,14 +15,20 @@
         </li>
         <li>
             <a routerLink="/taken-patient">
-                <i class="bi bi-people"></i>
-                <span>Patients saisis</span>
+                <i class="bi bi-receipt-cutoff"></i>
+                <span>Tests facturés</span>
             </a>
         </li>
         <li *ngIf="isAdmin()">
             <a routerLink="/users">
                 <i class="bi bi-person-lines-fill"></i>
                 <span>Utilisateurs</span>
+            </a>
+        </li>
+        <li>
+            <a routerLink="/search">
+                <i class="bi bi-search"></i>
+                <span>Recherche</span>
             </a>
         </li>
         <li>
