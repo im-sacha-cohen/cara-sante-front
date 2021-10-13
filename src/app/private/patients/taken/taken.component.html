@@ -1,6 +1,6 @@
 <div class="title-container-elements">
     <div class="title-container">
-        <h1>Patients saisit par vous-même</h1>
+        <h1>Tests antigéniques facturés <small>(par vous-même)</small></h1>
         <span>
             - {{ patientsLength }} 
             <span *ngIf="patientsLength > 0">
@@ -26,7 +26,10 @@
                 </tr>
             </thead>
             <tbody>
-                <tr *ngFor="let patient of patients">
+                <tr
+                    *ngFor="let patient of patients"
+                    routerLink="/take-patient/{{ patient.patient.ref }}"
+                >
                     <th scope="row">{{ patient.patient.firstName }}</th>
                     <td>{{ patient.patient.lastName }}</td>
                     <td>{{ patient.frenchTestedAt }}</td>

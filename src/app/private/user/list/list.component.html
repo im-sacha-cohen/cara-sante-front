@@ -27,9 +27,8 @@
                     <th scope="col">Prénom</th>
                     <th scope="col">Nom</th>
                     <th scope="col">Mail</th>
-                    <th scope="col">Téléphone</th>
-                    <th scope="col">Rôles</th>
-                    <th scope="col">Créé le</th>
+                    <th scope="col">Dernière connexion</th>
+                    <th scope="col">Patients facturés</th>
                     <th scope="col">Status</th>
                 </tr>
             </thead>
@@ -38,9 +37,8 @@
                     <th scope="row">{{ user.firstName }}</th>
                     <td>{{ user.lastName }}</td>
                     <td>{{ user.mail }}</td>
-                    <td>{{ user.phone }}</td>
-                    <td>{{ user.roles }}</td>
-                    <td>{{ user.createdAtFrench }}</td>
+                    <td>{{ user.lastLoginFrench }}</td>
+                    <td>{{ user.totalInvoiced }}</td>
                     <td>
                         <ng-container *ngIf="user.isDesactivated">
                             <span class="badge rounded-pill bg-danger">Désactivé</span>
