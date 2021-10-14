@@ -10,6 +10,7 @@ import { MainToggleService } from '../../services/main-toggle/main-toggle.servic
 export class SideBarComponent implements OnInit {
   firstName: string;
   lastName: string;
+  isActive = false;
 
   constructor(
     private authService: AuthService,
@@ -26,9 +27,7 @@ export class SideBarComponent implements OnInit {
   }
 
   enter(): void {
-    if (window.innerWidth > 800) {
-      this.mainToggleService.isDark.next(true);
-    }
+    this.mainToggleService.isDark.next(true);
   }
 
   leave(): void {
@@ -37,5 +36,15 @@ export class SideBarComponent implements OnInit {
 
   isAdmin(): boolean {
     return this.authService.isAdmin();
+  }
+
+  toggleActive(): void {
+    if (window.innerWidth <= 800) {
+      this.isActive = !this.isActive;
+
+      if (!this.isActive) {
+        this.leave();
+      }
+    }
   }
 }

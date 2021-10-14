@@ -49,8 +49,13 @@
         }
     }
 
-    .detection-remaining {
+    .detection-remaining, .contact {
         width: 100%;
         min-width: unset;
+    }
+
+    .contact {
+        margin-top: 5px;
+        margin-left: 0!important;
     }
 }

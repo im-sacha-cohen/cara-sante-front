@@ -100,6 +100,11 @@ html {
                     padding: 2%;
                     margin-bottom: 10%;
 
+                    &.is-dark {
+                        padding-left: 0;
+                        overflow: hidden;
+                    }
+
                     .title-container-elements {
                         flex-direction: column;
                         align-items: flex-start;
@@ -107,6 +112,13 @@ html {
 
                         .title-container {
                             width: 100%;
+                            flex-direction: column;
+                            align-items: flex-start;
+                            margin-bottom: 5px;
+
+                            h1, h2 {
+                                margin-bottom: 2px!important;
+                            }
                         }
                     }
                 }
