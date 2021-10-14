@@ -6,22 +6,9 @@
 </div>
 <div class="section-card white w-100">
     <form [formGroup]="searchForm">
-        <div [ngClass]="isCardInfoHidden ? 'd-none' : 'd-flex'" class="section-card theme w-100 mb-3">
-            <i (click)="closeCardInfo()" class="bi bi-x-circle close"></i>
-            <div class="d-flex box-info">
-                <i class="bi bi-info-circle me-2"></i>
-                <span>
-                    Vous pouvre rechercher un patient par :
-                    <ul>
-                        <li>Prénom</li>
-                        <li>Nom</li>
-                        <li>Adresse mail</li>
-                        <li>Numéro de sécurité sociale</li>
-                        <li>Code postal</li>
-                        <li>Ville</li>
-                    </ul>
-                </span>
-            </div>
+        <div (click)="showModal(template)" class="d-flex box-info link mb-2">
+            <i class="bi bi-question-circle me-1"></i>
+            <span>Que rechercher ?</span>
         </div>
         <input formControlName="search" type="text" placeholder="Votre recherche">
         <button (click)="search()" class="blue-medium">
@@ -74,3 +61,24 @@
         </table>
     </div>
 </div>
+<ng-template #template>
+    <div class="modal-header">
+        <h4 class="modal-title pull-left">Vous pouvez rechercher un patient par :</h4>
+    </div>
+    <div class="modal-body">
+        <ul>
+            <li>Prénom</li>
+            <li>Nom</li>
+            <li>Adresse mail</li>
+            <li>Numéro de sécurité sociale</li>
+            <li>Code postal</li>
+            <li>Ville</li>
+        </ul>
+    </div>
+    <div class="modal-footer">
+        <button class="blue-medium" (click)="hideModal()">
+            <i class="bi bi-check2-circle"></i>
+            C'est compris, merci !
+        </button>
+    </div>
+</ng-template>
