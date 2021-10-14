@@ -29,7 +29,7 @@
             <span>Dernière connexion le {{ user['lastLoginFrench'] }}</span>
         </div>
     </div>
-    <div class="d-flex w-100 justify-content-between align-items-start">
+    <div class="d-flex w-100 justify-content-between align-items-start card-container">
         <div class="section-card h-100 blue w-50 m-2 me-0 ms-0">
             <h3>Nombre de patients saisis</h3>
             <div>
@@ -41,7 +41,7 @@
         </div>
         <div *ngIf="!user.isDesactivated" class="section-card h-100 w-50 blue m-2 me-0">
             <h3>Actions</h3>
-            <div *ngIf="!user.isFirstConnection" class="d-flex">
+            <div *ngIf="!user.isFirstConnection" class="d-flex btn-container">
                 <button class="red me-2" (click)="desactivate(template)">
                     <i class="bi bi-x-circle"></i>
                     Désactiver ce compte
