@@ -1,6 +1,7 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy, TemplateRef } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { Observable, Subscription } from 'rxjs';
 import { QueryService } from 'src/app/shared/services/query/query.service';
 
@@ -14,13 +15,14 @@ export class SearchComponent implements OnInit {
   showButtonSpinner = false;
   countSearch = 0;
   searchResults: any;
-  isCardInfoHidden = false;
+  modalRef: BsModalRef;
 
   constructor(
     private formBuilder: FormBuilder,
     private queryService: QueryService,
     private router: Router,
-    private activatedRoute: ActivatedRoute
+    private activatedRoute: ActivatedRoute,
+    private modalService: BsModalService
   ) {
     this.buildForm();
   }
@@ -60,11 +62,15 @@ export class SearchComponent implements OnInit {
     );
   }
 
-  closeCardInfo(): void {
-    this.isCardInfoHidden = true;
-  }
-
   onClick(result: any[]): void {
     this.router.navigate(['/take-patient/' + result['ref']]);
+  }
+
+  showModal(template: TemplateRef<any>): void {
+    this.modalRef = this.modalService.show(template);
+  }
+
+  hideModal(): void {
+    this.modalService.hide();
   }
 }

@@ -13,6 +13,7 @@
     box-shadow: 0 0 30px -27px black;
     align-items: center;
     padding: 0 10px;
+    z-index: 999;
     transition: 300ms;
 
     &.is-active {

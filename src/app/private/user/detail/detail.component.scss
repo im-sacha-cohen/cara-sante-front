@@ -33,3 +33,21 @@
         }
     }
 }
+
+@media (max-width: $mobile) {
+    .center {
+        .card-container {
+            flex-direction: column;
+    
+            .section-card {
+                width: 100%!important;
+                margin: 0!important;
+                margin-top: 5px!important;
+    
+                .btn-container {
+                    flex-direction: column!important;
+                }
+            }
+        }
+    }
+}

@@ -59,6 +59,14 @@ form {
                 font-weight: 400;
             }
         }
+
+        &.link {
+            cursor: pointer;
+
+            &:hover {
+                text-decoration: underline;
+            }
+        }
     }
 
     .links {
