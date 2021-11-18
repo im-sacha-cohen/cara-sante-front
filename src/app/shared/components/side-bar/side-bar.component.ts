@@ -11,6 +11,7 @@ export class SideBarComponent implements OnInit {
   firstName: string;
   lastName: string;
   isActive = false;
+  center = 'Non identifié';
 
   constructor(
     private authService: AuthService,
@@ -20,6 +21,19 @@ export class SideBarComponent implements OnInit {
   ngOnInit(): void {
     this.firstName = this.authService.getFirstName();
     this.lastName = this.authService.getLastName();
+    this.checkCenterLocation();
+  }
+
+  checkCenterLocation(): void {
+    const host = window.location.host;
+    console.log(host, host.indexOf('belsunce') > -1);
+    if (host.indexOf('canebiere') > -1) {
+      this.center = 'Centre Canebière';
+    } else if (host.indexOf('belsunce') > -1) {
+      this.center = 'Centre Belsunce';
+    } else {
+      this.center = 'Non identifié';
+    }
   }
 
   logout(): void {
