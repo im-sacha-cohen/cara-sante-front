@@ -93,21 +93,16 @@ export class DetailToTakePatientComponent implements OnInit, OnDestroy {
       }
     });
 
+    // Send PUT request
     this.queryService.query(
       'PUT',
       '/api/detection-test/updating',
       {
         isUpdating: updating,
-        ref: this.ref
+        ref: this.ref,
+        patientId: this.patient.id
       }
-    ).subscribe(
-      resp => {
-        //console.log(resp);
-      },
-      err => {
-        console.log(err);
-      }
-    );
+    ).subscribe();
   }
 
   openModal(test: any[]): void {
