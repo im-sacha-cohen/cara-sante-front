@@ -37,6 +37,17 @@
             <fa-icon [icon]="nir"></fa-icon>
             <span>{{ patient['nir'] }}</span>
         </div>
+        <div>
+            <i class="bi bi-person-square"></i>
+            <span>Médecin : 
+                <span *ngIf="patient.detectionTest[0].doctorFirstName">
+                    {{ patient.detectionTest[0].doctorFirstName }} {{ patient.detectionTest[0].doctorLastName }}
+                </span>
+                <span *ngIf="!patient.detectionTest[0].doctorFirstName">
+                    Non renseigné
+                </span>
+            </span>
+        </div>
     </div>
     <ng-container *ngFor="let test of patient['detectionTest']">
         <div class="section-card white hover detection-test">

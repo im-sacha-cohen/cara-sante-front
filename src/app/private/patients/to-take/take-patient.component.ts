@@ -63,6 +63,7 @@ export class TakePatientComponent implements OnInit, OnDestroy {
       (resp: any[]) => {
         this.showSpinner = false;
         this.detectionTests = resp;
+        console.log('test', resp);
         this.detectionTestsLength = resp.length;
         this.setIntervalCountBeforeReload();
       },
