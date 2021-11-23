@@ -93,8 +93,6 @@ export class DetailToTakePatientComponent implements OnInit, OnDestroy {
       }
     });
 
-    console.log('updating', updating);
-
     // Send PUT request
     this.queryService.query(
       'PUT',
