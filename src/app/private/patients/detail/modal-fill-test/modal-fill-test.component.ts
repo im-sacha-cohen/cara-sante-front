@@ -21,6 +21,7 @@ export class ModalFillTestComponent implements OnInit {
   isError = false;
   errorMessage: string;
   maxDate = new Date();
+  validateAll = false;
 
   yesClicked = false;
   noClicked = false;
@@ -41,8 +42,14 @@ export class ModalFillTestComponent implements OnInit {
   buildForm(): void {
     this.dateForm = this.formBuilder.group({
       isInvoiced: [''],
-      filledAt: ['']
+      filledAt: [''],
+      validateAll: [false]
     });
+  }
+
+  updateValidateAll(): void {
+    this.validateAll = !this.validateAll;
+    this.dateForm.patchValue({ validateAll: this.validateAll });
   }
 
   // onClose function into patient detail component
