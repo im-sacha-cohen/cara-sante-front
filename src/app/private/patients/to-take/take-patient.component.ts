@@ -14,11 +14,11 @@ export class TakePatientComponent implements OnInit, OnDestroy {
   showSpinner = true;
   detectionTests: any[];
   userTokenRef: string;
-  intervalCount = 10000;
+  //intervalCount = 10000;
   countBeforeReloadPatient = 10;
   intervalCountBeforeReload: any;
   detectionTestsLength = 0;
-  intervalGetPatient: any;
+  //intervalGetPatient: any;
 
   constructor(
     private queryService: QueryService,
@@ -31,22 +31,29 @@ export class TakePatientComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.getPatientsToTake();
-    this.setIntervalGetPatient();
+    //this.setIntervalGetPatient();
     this.userTokenRef = this.authService.getRef();
   }
 
   ngOnDestroy(): void {
-    clearInterval(this.intervalGetPatient);
+    //clearInterval(this.intervalGetPatient);
+    clearInterval(this.intervalCountBeforeReload);
   }
 
-  setIntervalGetPatient(): void {
+  /*setIntervalGetPatient(): void {
     this.intervalGetPatient = setInterval(() => {
-      this.getPatientsToTake();
+      if (this.countBeforeReloadPatient === 0) {
+        this.getPatientsToTake();
+      }
     }, this.intervalCount);
-  }
+  }*/
 
   setIntervalCountBeforeReload(): any {
     this.intervalCountBeforeReload = setInterval(() => {
+      if (this.countBeforeReloadPatient === 0) {
+        this.getPatientsToTake();
+      }
+
       this.countBeforeReloadPatient = this.countBeforeReloadPatient - 1;
     }, 1000);
   }
