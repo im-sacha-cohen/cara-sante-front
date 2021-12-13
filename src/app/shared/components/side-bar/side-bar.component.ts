@@ -29,7 +29,7 @@ export class SideBarComponent implements OnInit {
     console.log(host, host.indexOf('belsunce') > -1);
     if (host.indexOf('canebiere') > -1) {
       this.center = 'Centre Canebière';
-    } else if (host.indexOf('belsunce') > -1) {
+    } else if (host.indexOf('belsunce') > -1 || host.indexOf('liora.carasante.io') > -1) {
       this.center = 'Centre Belsunce';
     } else {
       this.center = 'Non identifié';
