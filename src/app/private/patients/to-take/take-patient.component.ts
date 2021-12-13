@@ -41,7 +41,9 @@ export class TakePatientComponent implements OnInit, OnDestroy {
 
   setIntervalGetPatient(): void {
     this.intervalGetPatient = setInterval(() => {
-      this.getPatientsToTake();
+      if (this.countBeforeReloadPatient <= 1) {
+        this.getPatientsToTake();
+      }
     }, this.intervalCount);
   }
 
@@ -55,7 +57,6 @@ export class TakePatientComponent implements OnInit, OnDestroy {
     this.showSpinner = true;
     this.countBeforeReloadPatient = 10;
     clearInterval(this.intervalCountBeforeReload);
-    clearInterval(this.intervalGetPatient);
 
     this.queryService.query(
       'GET',
@@ -67,7 +68,6 @@ export class TakePatientComponent implements OnInit, OnDestroy {
 
         this.detectionTestsLength = resp.length;
         this.setIntervalCountBeforeReload();
-        this.setIntervalGetPatient();
       },
       error => {
         this.showSpinner = false;
