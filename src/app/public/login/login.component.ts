@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 import { Title } from '@angular/platform-browser';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/shared/services/auth/service/auth-service.service';
@@ -13,7 +13,7 @@ import { environment } from 'src/environments/environment';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
-  formLogin: FormGroup;
+  formLogin: UntypedFormGroup;
   showSpinner = false;
   isError = false;
   errorMessage: string;
@@ -22,7 +22,7 @@ export class LoginComponent implements OnInit {
   firstName: string;
 
   constructor(
-    private formBuilder: FormBuilder,
+    private formBuilder: UntypedFormBuilder,
     private httpClient: HttpClient,
     private authService: AuthService,
     private router: Router,
@@ -41,7 +41,7 @@ export class LoginComponent implements OnInit {
     }
   }
 
-  buildForm(): FormGroup {
+  buildForm(): UntypedFormGroup {
     return this.formBuilder.group({
       username: [this.authService.getMail(), Validators.required],
       password: ['', Validators.required]

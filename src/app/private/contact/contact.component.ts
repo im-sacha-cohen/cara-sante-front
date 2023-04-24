@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 import { QueryService } from 'src/app/shared/services/query/query.service';
 import { ToastService } from 'src/app/shared/services/toast/toast.service';
 
@@ -10,11 +10,11 @@ import { ToastService } from 'src/app/shared/services/toast/toast.service';
 })
 export class ContactComponent implements OnInit {
   showSpinner = false;
-  contactForm: FormGroup;
+  contactForm: UntypedFormGroup;
 
   constructor(
     private queryService: QueryService,
-    private formBuilder: FormBuilder,
+    private formBuilder: UntypedFormBuilder,
     private toastr: ToastService
   ) { }
 

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormGroup } from '@angular/forms';
 import { defineLocale, frLocale } from 'ngx-bootstrap/chronos';
 import { BsDatepickerConfig, BsLocaleService } from 'ngx-bootstrap/datepicker';
 import { BsModalRef } from 'ngx-bootstrap/modal';
@@ -14,7 +14,7 @@ import { ToastService } from 'src/app/shared/services/toast/toast.service';
 export class ModalFillTestComponent implements OnInit {
   detectionTest: any;
   bsModalRef: BsModalRef;
-  dateForm: FormGroup;
+  dateForm: UntypedFormGroup;
   bsConfig: Partial<BsDatepickerConfig> = { containerClass: 'blue' };
   showSpinner = false;
   isDateActive = false;
@@ -27,7 +27,7 @@ export class ModalFillTestComponent implements OnInit {
   noClicked = false;
 
   constructor(
-    private formBuilder: FormBuilder,
+    private formBuilder: UntypedFormBuilder,
     private localeService: BsLocaleService,
     private queryService: QueryService,
     private toastService: ToastService

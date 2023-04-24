@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 import { Title } from '@angular/platform-browser';
 import { QueryService } from 'src/app/shared/services/query/query.service';
 import { ToastService } from 'src/app/shared/services/toast/toast.service';
@@ -10,14 +10,14 @@ import { ToastService } from 'src/app/shared/services/toast/toast.service';
   styleUrls: ['./add.component.scss']
 })
 export class AddUserComponent implements OnInit {
-  addUserForm: FormGroup;
+  addUserForm: UntypedFormGroup;
   showSpinner = false;
   isError = false;
   errorMessage: string;
   errorType: string;
 
   constructor(
-    private formBuilder: FormBuilder,
+    private formBuilder: UntypedFormBuilder,
     private queryService: QueryService,
     private toastService: ToastService,
     private title: Title

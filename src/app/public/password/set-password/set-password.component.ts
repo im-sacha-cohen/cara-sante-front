@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { environment } from 'src/environments/environment';
 import { faUnlockAlt } from '@fortawesome/free-solid-svg-icons';
@@ -21,7 +21,7 @@ export class SetPasswordComponent implements OnInit {
   showAlert: boolean;
   alertMessage: string;
   showForm = false;
-  setPasswordForm: FormGroup;
+  setPasswordForm: UntypedFormGroup;
   password = faUnlockAlt;
   alertType: string;
 
@@ -35,7 +35,7 @@ export class SetPasswordComponent implements OnInit {
   constructor(
     private httpClient: HttpClient,
     private router: ActivatedRoute,
-    private formBuilder: FormBuilder,
+    private formBuilder: UntypedFormBuilder,
     private toastService: ToastService,
     private title: Title,
     private localStorageService: LocalStorageService

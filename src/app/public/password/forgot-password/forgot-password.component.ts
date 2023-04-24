@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 import { Title } from '@angular/platform-browser';
 import { ForgotPasswordService } from 'src/app/shared/services/forgot-password/forgot-password.service';
 import { LocalStorageService } from 'src/app/shared/services/local-storage/local-storage.service';
@@ -13,14 +13,14 @@ import { environment } from 'src/environments/environment';
   styleUrls: ['./forgot-password.component.scss']
 })
 export class ForgotPasswordComponent implements OnInit {
-  formForgotPassword: FormGroup;
+  formForgotPassword: UntypedFormGroup;
   showAlert = false;
   showSpinner = false;
   alertMessage: string;
   alertType: string;
 
   constructor(
-    private formBuilder: FormBuilder,
+    private formBuilder: UntypedFormBuilder,
     private localStorageService: LocalStorageService,
     private httpClient: HttpClient,
     private toast: ToastService,

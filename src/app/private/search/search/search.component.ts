@@ -1,5 +1,5 @@
 import { Component, OnInit, OnDestroy, TemplateRef } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { Observable, Subscription } from 'rxjs';
@@ -11,14 +11,14 @@ import { QueryService } from 'src/app/shared/services/query/query.service';
   styleUrls: ['./search.component.scss']
 })
 export class SearchComponent implements OnInit {
-  searchForm: FormGroup;
+  searchForm: UntypedFormGroup;
   showButtonSpinner = false;
   countSearch = 0;
   searchResults: any;
   modalRef: BsModalRef;
 
   constructor(
-    private formBuilder: FormBuilder,
+    private formBuilder: UntypedFormBuilder,
     private queryService: QueryService,
     private router: Router,
     private activatedRoute: ActivatedRoute,

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { QueryService } from 'src/app/shared/services/query/query.service';
 import { faUserEdit, faLock } from '@fortawesome/free-solid-svg-icons';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 import { Title } from '@angular/platform-browser';
 import { AuthService } from 'src/app/shared/services/auth/service/auth-service.service';
 import { ToastService } from 'src/app/shared/services/toast/toast.service';
@@ -22,12 +22,12 @@ export class ProfileComponent implements OnInit {
   isError = false;
   showForgotPasswordSpinner = false;
 
-  profileForm: FormGroup;
+  profileForm: UntypedFormGroup;
   showProfileButtonSpinner = false;
 
   constructor(
     private queryService: QueryService,
-    private formBuilder: FormBuilder,
+    private formBuilder: UntypedFormBuilder,
     private title: Title,
     private authService: AuthService,
     private toastService: ToastService,
