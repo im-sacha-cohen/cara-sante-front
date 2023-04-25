@@ -22,11 +22,11 @@
         </div>
         <div>
             <i class="bi bi-person-plus-fill"></i>
-            <span>Créé le {{ user['createdAtFrench'] }}</span>
+            <span>Créé {{ user['createdAtFrench'] }}</span>
         </div>
         <div *ngIf="user['lastLoginFrench']">
             <i class="bi bi-box-arrow-in-right"></i>
-            <span>Dernière connexion le {{ user['lastLoginFrench'] }}</span>
+            <span>Dernière connexion {{ user['lastLoginFrench'] }}</span>
         </div>
     </div>
     <div class="d-flex w-100 justify-content-between align-items-start card-container">
