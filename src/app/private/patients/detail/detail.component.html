@@ -71,9 +71,9 @@
                         class="test-info"
                         *ngIf="!test['isInvoiced'] && test['user'] !== null"
                     >
-                        Saisit mais non facturé, par {{ test['user']['firstName'] + ' ' + test['user']['lastName'] }}, le {{ test['filledAtFrench'] }}
+                        Saisit mais non facturé, par {{ test['user']['firstName'] + ' ' + test['user']['lastName'] }}, {{ test['filledAtFrench'] }}
                     </span>
-                    <span class="test-info" *ngIf="test['isInvoiced']">Facturé le {{ test['filledAtFrench'] }} par {{ test['user']['firstName'] + ' ' + test['user']['lastName'] }}</span>
+                    <span class="test-info" *ngIf="test['isInvoiced']">Facturé {{ test['filledAtFrench'] }} par {{ test['user']['firstName'] + ' ' + test['user']['lastName'] }}</span>
                 </div>
             </div>
             <div class="section-btn">
