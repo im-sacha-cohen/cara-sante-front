@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { QueryService } from 'src/app/shared/services/query/query.service';
 import * as _ from 'lodash';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-users-list',
@@ -15,13 +16,19 @@ export class UsersListComponent implements OnInit {
 
   constructor(
     private queryService: QueryService,
-    private title: Title
+    private title: Title,
+    private router: Router
   ) {
     this.title.setTitle('Liora | Cara Santé - Liste utilisateurs');
   }
 
   ngOnInit(): void {
     this.getUsers();
+  }
+
+  navigateToDetail(userRef: string): void {
+    console.log('click', userRef)
+    this.router.navigate(['/users/', userRef]);
   }
 
   getUsers(): void {

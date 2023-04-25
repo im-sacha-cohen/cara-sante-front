@@ -33,7 +33,7 @@
                 </tr>
             </thead>
             <tbody>
-                <tr *ngFor="let user of users" routerLink="/users/{{ user.ref }}">
+                <tr *ngFor="let user of users" (click)="navigateToDetail(user.ref)">
                     <th scope="row">{{ user.firstName }}</th>
                     <td>{{ user.lastName }}</td>
                     <td>{{ user.mail }}</td>
