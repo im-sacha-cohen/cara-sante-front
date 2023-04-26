@@ -90,6 +90,12 @@
                         </ng-container>
                     </span>
                 </div>
+                <div class="support">
+                    <i class="bi bi-info-circle me-2"></i>
+                    <span>Besoin de modifier ce test ? 
+                        <a [routerLink]="['/support']" [queryParams]="{subject: 'Demande à propos du test', ref: test.ref}">Le support répond en quelques minutes.</a>
+                    </span>
+                </div>
             </div>
             <div class="section-btn">
                 <button

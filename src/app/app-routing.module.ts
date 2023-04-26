@@ -69,7 +69,7 @@ const routes: Routes = [
         component: TakenPatientComponent
       },
       {
-        path: 'contact',
+        path: 'support',
         component: ContactComponent
       },
       {
