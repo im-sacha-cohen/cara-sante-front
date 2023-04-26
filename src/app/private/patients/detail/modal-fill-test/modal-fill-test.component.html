@@ -37,7 +37,7 @@
                 id="validateAll"
             />
         </div>
-        <div [ngClass]="!isDateActive ? 'd-none' : ''" class="mt-3 d-flex flex-row-reverse">
+        <div [ngClass]="!isDateActive || dateForm.value.isAlreadyInvoicedBy ? 'd-none' : ''" class="mt-3 d-flex flex-row-reverse">
             <label for="isInvoicedOnAmelipro">
                 Ce test a déjà été facturé via AmeliPro <small>(Optionel)</small>
             </label>
@@ -48,6 +48,25 @@
                 [attr.checked]="dateForm.value.isInvoicedOnAmelipro"
                 id="isInvoicedOnAmelipro"
             />
+        </div>
+        <div [ngClass]="!isDateActive || dateForm.value.isInvoicedOnAmelipro ? 'd-none' : ''" class="mt-3 w-100">
+            <label for="alreadyInvoicedBy">
+                Facturé par <small>(Optionel) </small>
+                <i
+                    class="bi bi-question-circle-fill"
+                    tooltip="Vous pouvez indiquez qu'un autre utilisateur a facturé ce test, mais votre nom apparaîtra en tant que saisie."
+                ></i>
+            </label>
+            <ng-select
+                [items]="users" 
+                bindLabel="fullName" 
+                bindValue="id"
+                formControlName="alreadyInvoicedBy"
+                class="me-1"
+                id="alreadyInvoicedBy"
+                placeholder="Sélectionnez un utilisateur"
+            >
+        </ng-select>
         </div>
     </form>
     <div class="mt-3">

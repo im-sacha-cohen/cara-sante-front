@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { UntypedFormBuilder, UntypedFormGroup } from '@angular/forms';
+import { NgSelectConfig } from '@ng-select/ng-select';
 import { defineLocale, frLocale } from 'ngx-bootstrap/chronos';
 import { BsDatepickerConfig, BsLocaleService } from 'ngx-bootstrap/datepicker';
 import { BsModalRef } from 'ngx-bootstrap/modal';
@@ -26,13 +27,18 @@ export class ModalFillTestComponent implements OnInit {
   yesClicked = false;
   noClicked = false;
 
+  selectedUser: number;
+  users = [];
+
   constructor(
     private formBuilder: UntypedFormBuilder,
     private localeService: BsLocaleService,
     private queryService: QueryService,
-    private toastService: ToastService
+    private toastService: ToastService,
+    private config: NgSelectConfig
   ) {
     this.buildForm();
+    this.getUsers();
     defineLocale('fr', frLocale);
     this.localeService.use('fr');
   }
@@ -44,7 +50,8 @@ export class ModalFillTestComponent implements OnInit {
       isInvoiced: [''],
       filledAt: [''],
       validateAll: [false],
-      isInvoicedOnAmelipro: [false]
+      isInvoicedOnAmelipro: [false],
+      alreadyInvoicedBy: [null],
     });
   }
 
@@ -85,6 +92,14 @@ export class ModalFillTestComponent implements OnInit {
 
     if (this.dateForm.value.isInvoiced !== '') {
       this.showSpinner = true;
+      
+      // set null isInvoicedOnAmelipro if alreadyInvoicedBy not null and set null alreadyInvoicedBy if isInvoicedOnAmelipro not null
+      if (this.dateForm.value.isInvoicedOnAmelipro) {
+        this.dateForm.patchValue({ alreadyInvoicedBy: null });
+      }
+      if (this.dateForm.value.alreadyInvoicedBy !== null) {
+        this.dateForm.patchValue({ isInvoicedOnAmelipro: false });
+      }
 
       this.queryService.query(
         'PUT',
@@ -104,5 +119,16 @@ export class ModalFillTestComponent implements OnInit {
       this.errorMessage = 'Vous devez indiquer si ce test a été facturé';
       this.isError = true;
     }
+  }
+
+  getUsers(): void {
+    this.queryService.query(
+      'GET',
+      '/api/user/all/light'
+    ).subscribe(
+      response => {
+        this.users = response;
+      }
+    );
   }
 }

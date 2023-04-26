@@ -27,6 +27,11 @@ form {
         padding: 10px;
         font-weight: 300;
         color: $blue-dark;
+        width: 100%;
+
+        &[type=checkbox] {
+            width: auto;
+        }
 
         &::placeholder {
             color: $grey-light;

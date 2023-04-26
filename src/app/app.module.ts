@@ -32,6 +32,7 @@ import { ModalFillTestComponent } from './private/patients/detail/modal-fill-tes
 import { ContactComponent } from './private/contact/contact.component';
 import { SearchComponent } from './private/search/search/search.component';
 import { SearchHistoryComponent } from './private/search/search-history/search-history.component';
+import { NgSelectModule } from '@ng-select/ng-select';
 
 @NgModule({
   declarations: [
@@ -70,7 +71,8 @@ import { SearchHistoryComponent } from './private/search/search-history/search-h
     NgChartsModule,
     BsDatepickerModule.forRoot(),
     FontAwesomeModule,
-    ModalModule.forRoot()
+    ModalModule.forRoot(),
+    NgSelectModule
   ],
   providers: [{ provide: LocationStrategy, useClass: HashLocationStrategy }],
   bootstrap: [AppComponent]

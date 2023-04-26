@@ -73,11 +73,22 @@
                     >
                         Saisit mais non facturé, par {{ test['user']['firstName'] + ' ' + test['user']['lastName'] }}, {{ test['filledAtFrench'] }}
                     </span>
-                    <span class="test-info" *ngIf="test['isInvoiced']">Facturé {{ test['filledAtFrench'] }}
+                    <span class="test-info" *ngIf="test['isInvoiced']">
+                        <ng-container *ngIf="test['alreadyInvoicedBy']">
+                            Saisit
+                        </ng-container>
+                        <ng-container *ngIf="test['alreadyInvoicedBy'] === null">
+                            Facturé
+                        </ng-container> 
+                         {{ test['filledAtFrench'] }}
                         <ng-container *ngIf="test['isInvoicedOnAmelipro']">
                             <strong>via AmeliPro</strong>
                         </ng-container>
-                        par {{ test['user']['firstName'] + ' ' + test['user']['lastName'] }}</span>
+                        par {{ test['user']['firstName'] + ' ' + test['user']['lastName'] }}
+                        <ng-container *ngIf="test['alreadyInvoicedBy']">
+                            et facturé par {{ test['alreadyInvoicedBy']['fullName'] }}
+                        </ng-container>
+                    </span>
                 </div>
             </div>
             <div class="section-btn">

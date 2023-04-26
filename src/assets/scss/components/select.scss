@@ -1,0 +1,22 @@
+ng-select {
+    width: 100%;
+
+    .ng-value-container {
+        .ng-value {
+            top: 5px;
+            position: relative;
+        }
+
+        .ng-input {
+            opacity: 0!important;
+
+            input {
+                border: none!important;
+            }
+        }
+    }
+
+    .ng-clear-wrapper, .ng-arrow-wrapper {
+        top: 5px;
+    }
+}
