@@ -110,7 +110,8 @@ export class DetailToTakePatientComponent implements OnInit, OnDestroy {
       initialState: {
         detectionTest: test
       },
-      animated: true
+      animated: true,
+      class: 'modal-lg'
     });
     this.bsModalRef.content.onClose = () => {
       this.getDetailToTakePatient();

@@ -2,7 +2,7 @@
 
 form {
     .answer-container {
-        width: 70%;
+        width: 100%;
         background-color: $grey;
         border-radius: $border-radius;
         color: white;
@@ -54,9 +54,14 @@ form {
     
     .date-section {
         display: none;
+        width: 100%;
 
         &.is-active {
             display: flex;
         }
+    }
+
+    .flex-row-reverse {
+        align-items: center;
     }
 }

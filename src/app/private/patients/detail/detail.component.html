@@ -73,7 +73,11 @@
                     >
                         Saisit mais non facturé, par {{ test['user']['firstName'] + ' ' + test['user']['lastName'] }}, {{ test['filledAtFrench'] }}
                     </span>
-                    <span class="test-info" *ngIf="test['isInvoiced']">Facturé {{ test['filledAtFrench'] }} par {{ test['user']['firstName'] + ' ' + test['user']['lastName'] }}</span>
+                    <span class="test-info" *ngIf="test['isInvoiced']">Facturé {{ test['filledAtFrench'] }}
+                        <ng-container *ngIf="test['isInvoicedOnAmelipro']">
+                            <strong>via AmeliPro</strong>
+                        </ng-container>
+                        par {{ test['user']['firstName'] + ' ' + test['user']['lastName'] }}</span>
                 </div>
             </div>
             <div class="section-btn">

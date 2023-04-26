@@ -43,7 +43,8 @@ export class ModalFillTestComponent implements OnInit {
     this.dateForm = this.formBuilder.group({
       isInvoiced: [''],
       filledAt: [''],
-      validateAll: [false]
+      validateAll: [false],
+      isInvoicedOnAmelipro: [false]
     });
   }
 

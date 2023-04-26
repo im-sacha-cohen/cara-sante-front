@@ -8,7 +8,7 @@
             <hr/>
             <span (click)="onClick('yes')" [ngClass]="yesClicked ? 'clicked' : ''">Oui</span>
         </div>
-        <div [ngClass]="isDateActive ? 'is-active' : ''" class="date-section mt-3 flex-column align-items-center">
+        <div [ngClass]="isDateActive ? 'is-active' : ''" class="date-section mt-3 flex-column">
             <span>Quand a-t-il été facturé ?<small>(Optionel)</small></span>
             <input
                 type="text"
@@ -21,9 +21,9 @@
                 [maxDate]="maxDate"
             />
         </div>
-        <div [ngClass]="!isDateActive ? 'd-none' : ''" class="mt-3 d-flex flex-row-reverse align-items-center">
+        <div [ngClass]="!isDateActive ? 'd-none' : ''" class="mt-3 d-flex flex-row-reverse">
             <label for="validateAll">
-                Facturer tous les tests de {{ detectionTest.patient.firstName + ' ' + detectionTest.patient.lastName }} du même jour
+                Facturer tous les tests de {{ detectionTest.patient.firstName + ' ' + detectionTest.patient.lastName }} du même jour <small>(Optionel) </small>
                 <i
                     class="bi bi-question-circle-fill"
                     tooltip="Tous les tests du même jour que le {{ detectionTest.frenchTestedAt }} pour {{ detectionTest.patient.firstName + ' ' + detectionTest.patient.lastName }} seront automatiquement facturés avec les informations que vous renseignerez."
@@ -35,6 +35,18 @@
                 class="me-1"
                 [attr.checked]="validateAll"
                 id="validateAll"
+            />
+        </div>
+        <div [ngClass]="!isDateActive ? 'd-none' : ''" class="mt-3 d-flex flex-row-reverse">
+            <label for="isInvoicedOnAmelipro">
+                Ce test a déjà été facturé via AmeliPro <small>(Optionel)</small>
+            </label>
+            <input
+                type="checkbox"
+                formControlName="isInvoicedOnAmelipro"
+                class="me-1"
+                [attr.checked]="dateForm.value.isInvoicedOnAmelipro"
+                id="isInvoicedOnAmelipro"
             />
         </div>
     </form>
