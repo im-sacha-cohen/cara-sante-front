@@ -1,6 +1,6 @@
 <h1>Bonjour {{ firstName }} !👋🏼</h1>
 <div class="d-flex card-stat-container">
-  <div class="section-card white hover algin-self-start stats-detection-filled m-0 me-2">
+  <div class="section-card white hover align-self-start stats-detection-filled m-0 me-2">
     <h2>Vos statistiques saisies patients</h2>
     <div *ngIf="showUserStatSpinner" class="spinner-border relative"></div>
     <canvas
@@ -28,21 +28,28 @@
   </div>
 </div>
 <div class="d-flex align-items-start card-stat-container mt-2">
-  <div class="section-card hover blue-medium detection-remaining d-flex algin-self-start m-0 me-1">
+  <div class="section-card hover blue-medium detection-remaining d-flex algin-self-start m-0 me-1 col-3">
     <div *ngIf="!detectionTestRemaining" class="spinner-border relative"></div>
     <div *ngIf="detectionTestRemaining" class="d-flex flex-column">
       <h3>Il reste {{ detectionTestRemaining.countText }} tests à saisir !</h3>
       <span>
         {{ detectionTestRemaining.message }}
       </span>
+      <a routerLink="/take-patient">
+        <button class="white">
+          <i class="bi bi-forward"></i>
+          Liste des patients à facturer
+        </button>
+      </a>
     </div>
   </div>
-  <div class="section-card hover blue-medium ms-1 contact">
+  <div class="d-flex flex-column section-card hover blue-medium ms-1 contact">
     <h3>Le support est disponible en quelques minutes !</h3>
+    <span>Nous répondons par mail pour une demande d'assistance.</span>
     <a routerLink="/support">
       <button class="white">
         <i class="bi bi-forward"></i>
-        Envoyer une demande
+        Demande de support
       </button>
     </a>
   </div>
