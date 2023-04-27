@@ -37,7 +37,8 @@
                     <th scope="row">{{ user.firstName }}</th>
                     <td>{{ user.lastName }}</td>
                     <td>{{ user.mail }}</td>
-                    <td>{{ user.lastLoginFrench }}</td>
+                    <td *ngIf="user.lastLoginFrench !== true">{{ user.lastLoginFrench }}</td>
+                    <td *ngIf="user.lastLoginFrench === true"><em>Aucune connection enregistrée</em></td>
                     <td>{{ user.totalInvoiced }}</td>
                     <td>
                         <ng-container *ngIf="user.isDesactivated">
