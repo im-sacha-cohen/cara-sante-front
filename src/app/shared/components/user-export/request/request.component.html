@@ -1,0 +1,27 @@
+<div class="section-card blue-medium">
+    <h4>Créer un export de mes tests facturés</h4>
+    <div class="mb-2 w-100">
+        <label for="alreadyInvoicedBy">Pour la période</label>
+        <ng-select
+            *ngIf="availableMonths"
+            [items]="availableMonths" 
+            bindLabel="text" 
+            bindValue="month"
+            formControlName="alreadyInvoicedBy"
+            class="me-1"
+            id="alreadyInvoicedBy"
+            placeholder="Sélectionnez un mois"
+            (change)="toggleMonthValue($event)"
+        >
+    </ng-select>
+    </div>
+    <button
+        (click)="requestExport()"
+        class="white small float-end"
+        [disabled]="selectedPeriod === null"
+    >
+        <i *ngIf="!showRequestExportSpinner" class="fa-solid fa-file-export"></i>
+        <div *ngIf="showRequestExportSpinner" class="spinner-border blue-medium"></div>
+        Créer un export de mes tests facturés
+    </button>
+</div>

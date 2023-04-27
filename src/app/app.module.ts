@@ -33,6 +33,8 @@ import { ContactComponent } from './private/contact/contact.component';
 import { SearchComponent } from './private/search/search/search.component';
 import { SearchHistoryComponent } from './private/search/search-history/search-history.component';
 import { NgSelectModule } from '@ng-select/ng-select';
+import { UserExportRequestComponent } from './shared/components/user-export/request/request.component';
+import { UserExportListComponent } from './shared/components/user-export/list/list.component';
 
 @NgModule({
   declarations: [
@@ -56,7 +58,9 @@ import { NgSelectModule } from '@ng-select/ng-select';
     ModalFillTestComponent,
     ContactComponent,
     SearchComponent,
-    SearchHistoryComponent
+    SearchHistoryComponent,
+    UserExportRequestComponent,
+    UserExportListComponent
   ],
   imports: [
     BrowserModule,

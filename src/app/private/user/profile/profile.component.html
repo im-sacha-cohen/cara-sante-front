@@ -101,72 +101,13 @@
                 Changer mon mot de passe
             </button>
         </div>
-        <div class="section-card blue-medium">
-            <h4>Créer un export de mes tests facturés</h4>
-            <div class="mb-2 w-100">
-                <label for="alreadyInvoicedBy">Pour la période</label>
-                <ng-select
-                    *ngIf="availableMonths"
-                    [items]="availableMonths" 
-                    bindLabel="text" 
-                    bindValue="month"
-                    formControlName="alreadyInvoicedBy"
-                    class="me-1"
-                    id="alreadyInvoicedBy"
-                    placeholder="Sélectionnez un mois"
-                    (change)="toggleMonthValue($event)"
-                >
-            </ng-select>
-            </div>
-            <button
-                (click)="requestExport()"
-                class="white small float-end"
-                [disabled]="selectedPeriod === null"
-            >
-                <i *ngIf="!showRequestExportSpinner" class="fa-solid fa-file-export"></i>
-                <div *ngIf="showRequestExportSpinner" class="spinner-border blue-medium"></div>
-                Créer un export de mes tests facturés
-            </button>
-        </div>
+        <app-user-export-request
+            (exportsEvent)="exports = $event"
+            (showExportListVariable)="showExportListVariable = $event"
+        />
     </div>
 </div>
-<div class="section-card blue-medium w-100">
-    <h4>Mes exports</h4>
-    <div class="table-responsive">
-        <div *ngIf="showExportSpinner" class="spinner-border"></div>
-        <table *ngIf="!showExportSpinner" class="table">
-            <thead>
-                <tr>
-                    <th scope="col">Demandé par</th>
-                    <th scope="col">Tests facturés par</th>
-                    <th scope="col">Demandé le</th>
-                    <th scope="col">Pour la période</th>
-                    <th scope="col">Fichier</th>
-                    <th scope="col">Action</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr *ngFor="let export of exports; let i = index">
-                    <td>{{ export.requestedBy.fullName }}</td>
-                    <td>{{ export.dataFrom.fullName }}</td>
-                    <td>{{ export.requestedAt }}</td>
-                    <td>{{ export.requestedPeriod }}</td>
-                    <td>
-                        <button (click)="downloadExport(export.ref, i)" class="white small">
-                            <i *ngIf="!export.showDownloadSpinner" class="fa-solid fa-download"></i>
-                            <div *ngIf="export.showDownloadSpinner" class="spinner-border blue-medium"></div>
-                            Télécharger
-                        </button>
-                    </td>
-                    <td>
-                        <button (click)="deleteExport(export.ref, i)" class="blue-medium small">
-                            <i *ngIf="!export.showDeleteSpinner" class="fa-solid fa-trash"></i>
-                            <div *ngIf="export.showDeleteSpinner" class="spinner-border"></div>
-                            Supprimer
-                        </button>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
-</div>
+<app-user-export-list
+    [exports]="exports"
+    [showExportListVariable]="showExportListVariable"
+/>
