@@ -21,12 +21,16 @@ html {
             }
 
             .spinner-border {
-                position: absolute;
+                //position: absolute;
                 top: 50%;
                 left: 50%;
 
                 &.relative {
                     position: relative;
+                }
+
+                &.blue-medium {
+                    color: $blue-medium;
                 }
             }
 

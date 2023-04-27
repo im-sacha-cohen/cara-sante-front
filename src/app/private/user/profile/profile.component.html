@@ -1,8 +1,9 @@
 <h1>Mon profile</h1>
-<div *ngIf="showSpinner" class="spinner-border"></div>
-<ng-container *ngIf="!showSpinner">
-    <div class="section-card blue-medium w-100">
-        <h2>Informations</h2>
+
+<div class="section-card blue-medium w-100">
+    <h2>Informations</h2>
+    <div *ngIf="showSpinner" class="spinner-border"></div>
+    <ng-container *ngIf="!showSpinner">
         <div>
             <i class="bi bi-person-fill"></i>
             <span>{{ user['firstName'] }} </span>
@@ -16,10 +17,14 @@
             <i class="bi bi-telephone-fill"></i>
             <span>{{ user['phone'] }}</span>
         </div>
-    </div>
-    <div class="card-container">
-        <div class="section-card blue hover">
-            <h3>Informations complémentaires</h3>
+    </ng-container>
+</div>
+
+<div class="card-container">
+    <div class="section-card blue hover">
+        <h3>Informations complémentaires</h3>
+        <div *ngIf="showSpinner" class="spinner-border"></div>
+        <ng-container *ngIf="!showSpinner">
             <div>
                 <i class="bi bi-people"></i>
                 <span>{{ user['roles'] }} </span>
@@ -32,62 +37,136 @@
                 <i class="bi bi-box-arrow-in-right"></i>
                 <span>Dernière connexion : {{ user['lastLoginFrench'] }}</span>
             </div>
-        </div>
-        <div class="section-card blue hover">
-            <h3>Statistiques</h3>
+        </ng-container>
+    </div>
+
+    <div class="section-card blue hover">
+        <h3>Statistiques</h3>
+        <div *ngIf="showSpinner" class="spinner-border"></div>
+        <ng-container *ngIf="!showSpinner">
             <div>
                 <i class="bi bi-laptop"></i>
                 <span>
                     {{ user.detectionTests.length }} patients saisit <small>(total), dont {{ user.totalInvoiced }} facturé(s)</small>
                 </span>
             </div>
-        </div>
+        </ng-container>
     </div>
-    <div class="card-container">
-        <div class="section-card white hover">
-            <h4>Mettre à jour mes informations</h4>
-            <form [formGroup]="profileForm">
-                <div class="d-flex">
-                    <input formControlName="firstName" type="text" class="w-50 me-2" placeholder="Prénom (facultatif)">
-                    <input formControlName="lastName" type="text" class="w-50 ms-2" placeholder="Nom (facultatif)">
-                </div>
-                <input formControlName="phone" type="phone" class="w-50" placeholder="Téléphone (facultatif)">
-                <div class="d-flex box-info mb-2">
+</div>
+
+<div class="card-container">
+    <div class="section-card white hover">
+        <h4>Mettre à jour mes informations</h4>
+        <form [formGroup]="profileForm">
+            <div class="d-flex">
+                <input formControlName="firstName" type="text" class="w-50 me-2" placeholder="Prénom (facultatif)">
+                <input formControlName="lastName" type="text" class="w-50 ms-2" placeholder="Nom (facultatif)">
+            </div>
+            <input formControlName="phone" type="phone" class="w-50" placeholder="Téléphone (facultatif)">
+            <div class="d-flex box-info mb-2">
+                <i class="bi bi-info-circle"></i>
+                <span>Format type attendu : 0701020304</span>
+            </div>
+            <input formControlName="mail" type="mail" placeholder="Adresse mail (facultatif)">
+            <div class="d-flex box-info mb-2">
+                <i class="bi bi-info-circle"></i>
+                <span>Format type attendu : mail@domaine.com, mail@domaine.fr...</span>
+            </div>
+            <div class="section-card theme w-100 mb-2">
+                <div class="d-flex box-info">
                     <i class="bi bi-info-circle"></i>
-                    <span>Format type attendu : 0701020304</span>
+                    <span>Une mise à jour du profile entraînera une déconnexion afin d'actualiser vos informations.</span>
                 </div>
-                <input formControlName="mail" type="mail" placeholder="Adresse mail (facultatif)">
-                <div class="d-flex box-info mb-2">
-                    <i class="bi bi-info-circle"></i>
-                    <span>Format type attendu : mail@domaine.com, mail@domaine.fr...</span>
-                </div>
-                <div class="section-card theme w-100 mb-2">
-                    <div class="d-flex box-info">
-                        <i class="bi bi-info-circle"></i>
-                        <span>Une mise à jour du profile entraînera une déconnexion afin d'actualiser vos informations.</span>
-                    </div>
-                </div>
-                <alert class="mt-2" *ngIf="isError" type="danger">
-                    {{ errorMessage }}
-                </alert>
-                <button
-                    [disabled]="showProfileButtonSpinner || profileForm.invalid"
-                    (click)="onSubmitProfile()"
-                    class="blue w-100 align-self-baseline"
+            </div>
+            <alert class="mt-2" *ngIf="isError" type="danger">
+                {{ errorMessage }}
+            </alert>
+            <button
+                [disabled]="showProfileButtonSpinner || profileForm.invalid"
+                (click)="onSubmitProfile()"
+                class="blue float-end w-auto"
                 >
-                    <fa-icon *ngIf="!showProfileButtonSpinner" [icon]="update"></fa-icon>
-                    <div *ngIf="showProfileButtonSpinner" class="spinner-border"></div>
-                    Mettre à jour mes informations
-                </button>
-            </form>
-        </div>
-        <div class="section-card white hover">
+                <fa-icon *ngIf="!showProfileButtonSpinner" [icon]="update"></fa-icon>
+                <div *ngIf="showProfileButtonSpinner" class="spinner-border"></div>
+                Mettre à jour mes informations
+            </button>
+        </form>
+    </div>
+    <div class="card-container d-flex flex-column">
+        <div class="section-card blue-medium hover">
             <h4>Mettre à jour mon mot de passe</h4>
-            <button (click)="forgotPassword()" class="blue w-100 align-self-baseline">
+            <button (click)="forgotPassword()" class="white align-self-baseline">
                 <fa-icon *ngIf="!showForgotPasswordSpinner" [icon]="password"></fa-icon>
                 <div *ngIf="showForgotPasswordSpinner" class="spinner-border"></div>
                 Changer mon mot de passe
             </button>
         </div>
+        <div class="section-card blue-medium">
+            <h4>Créer un export de mes tests facturés</h4>
+            <div class="mb-2 w-100">
+                <label for="alreadyInvoicedBy">Pour la période</label>
+                <ng-select
+                    *ngIf="availableMonths"
+                    [items]="availableMonths" 
+                    bindLabel="text" 
+                    bindValue="month"
+                    formControlName="alreadyInvoicedBy"
+                    class="me-1"
+                    id="alreadyInvoicedBy"
+                    placeholder="Sélectionnez un mois"
+                    (change)="toggleMonthValue($event)"
+                >
+            </ng-select>
+            </div>
+            <button
+                (click)="requestExport()"
+                class="white small float-end"
+                [disabled]="selectedPeriod === null"
+            >
+                <i *ngIf="!showRequestExportSpinner" class="fa-solid fa-file-export"></i>
+                <div *ngIf="showRequestExportSpinner" class="spinner-border blue-medium"></div>
+                Créer un export de mes tests facturés
+            </button>
+        </div>
     </div>
-</ng-container>
+</div>
+<div class="section-card blue-medium w-100">
+    <h4>Mes exports</h4>
+    <div class="table-responsive">
+        <div *ngIf="showExportSpinner" class="spinner-border"></div>
+        <table *ngIf="!showExportSpinner" class="table">
+            <thead>
+                <tr>
+                    <th scope="col">Demandé par</th>
+                    <th scope="col">Tests facturés par</th>
+                    <th scope="col">Demandé le</th>
+                    <th scope="col">Pour la période</th>
+                    <th scope="col">Fichier</th>
+                    <th scope="col">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let export of exports; let i = index">
+                    <td>{{ export.requestedBy.fullName }}</td>
+                    <td>{{ export.dataFrom.fullName }}</td>
+                    <td>{{ export.requestedAt }}</td>
+                    <td>{{ export.requestedPeriod }}</td>
+                    <td>
+                        <button (click)="downloadExport(export.ref, i)" class="white small">
+                            <i *ngIf="!export.showDownloadSpinner" class="fa-solid fa-download"></i>
+                            <div *ngIf="export.showDownloadSpinner" class="spinner-border blue-medium"></div>
+                            Télécharger
+                        </button>
+                    </td>
+                    <td>
+                        <button (click)="deleteExport(export.ref, i)" class="blue-medium small">
+                            <i *ngIf="!export.showDeleteSpinner" class="fa-solid fa-trash"></i>
+                            <div *ngIf="export.showDeleteSpinner" class="spinner-border"></div>
+                            Supprimer
+                        </button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

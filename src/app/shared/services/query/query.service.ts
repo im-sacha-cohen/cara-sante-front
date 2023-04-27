@@ -17,23 +17,24 @@ export class QueryService {
     private toastService: ToastService
   ) { }
 
-  public query(method: string, url: string, payload?: {}): Observable<any> {
+  public query(method: string, url: string, payload?: {}, contentType?: string, responseTypeValue?: "json" | "arraybuffer" | "blob" | "text"): Observable<any> {
     return this.httpClient.request(
       method,
       environment.apiUrl + url,
       {
         body: payload,
         headers: ({
-          'Content-Type': 'application/json',
+          'Content-Type': contentType ? contentType : 'application/json',
           Authorization: 'Bearer ' + this.authService.getToken()
-        })
+        }),
+        responseType: responseTypeValue ? responseTypeValue : 'json',
       }
     ).pipe(
       tap(
         data => {},
         error => {
           if (error.status) {
-            if (error?.status === 0 || error?.status[0] === 5) {
+            if (error?.status === 0 || error?.status[0] === 4 || error?.status[0] === 5) {
               let message: string;
 
               error.error?.message ? message = error.error.message : message = 'Une erreur s\'est produite';

@@ -15,6 +15,8 @@ import { ForgotPasswordService } from 'src/app/shared/services/forgot-password/f
 })
 export class ProfileComponent implements OnInit {
   showSpinner = true;
+  showExportSpinner = true;
+  showRequestExportSpinner = false;
   user: any;
   update = faUserEdit;
   password = faLock;
@@ -24,6 +26,10 @@ export class ProfileComponent implements OnInit {
 
   profileForm: UntypedFormGroup;
   showProfileButtonSpinner = false;
+  exports: any;
+
+  availableMonths = [];
+  selectedPeriod = null;
 
   constructor(
     private queryService: QueryService,
@@ -39,6 +45,8 @@ export class ProfileComponent implements OnInit {
 
   ngOnInit(): void {
     this.getProfile();
+    this.getExports();
+    this.getAvailableMonths();
     this.buildProfileForm();
   }
 
@@ -49,6 +57,10 @@ export class ProfileComponent implements OnInit {
       phone: [''],
       mail: ['']
     });
+  }
+
+  toggleMonthValue($event): void {
+    this.selectedPeriod = $event;
   }
 
   onSubmitProfile(): void {
@@ -103,5 +115,92 @@ export class ProfileComponent implements OnInit {
     this.showForgotPasswordSpinner = true;
     await this.forgotPasswordService.forgotPassword(this.user.mail);
     this.showForgotPasswordSpinner = false;
+  }
+
+  private getExports(triggerSpinner?: boolean): void {
+    this.showExportSpinner = triggerSpinner ? true : false;
+
+    this.queryService.query(
+      'GET',
+      '/api/user-export'
+    ).subscribe(
+      resp => {
+        this.showExportSpinner = false;
+        this.exports = resp.object;
+      },
+      error => {
+        this.showExportSpinner = false;
+      }
+    );
+  }
+
+  public requestExport(): void {
+    this.showRequestExportSpinner = true;
+
+    this.queryService.query(
+      'POST',
+      '/api/user-export/request',
+      {
+        month: this.selectedPeriod.month,
+        year: this.selectedPeriod.year
+      }
+    ).subscribe(
+      resp => {
+        this.showRequestExportSpinner = false;
+        this.getExports();
+      },
+      error => {
+        this.showRequestExportSpinner = false;
+      }
+    );
+  }
+
+  public deleteExport(ref: string, index: number): void {
+    this.exports[index].showDeleteSpinner = true;
+
+    this.queryService.query(
+      'DELETE',
+      '/api/user-export/' + ref
+    ).subscribe(
+      resp => {
+        this.exports[index].showDeleteSpinner = false;
+        this.exports.splice(index, 1);
+        this.getExports(false);
+      },
+      error => {
+        this.exports[index].showDeleteSpinner = false;
+      }
+    );
+  }
+
+  public downloadExport(ref: string, index: number): void {
+    this.exports[index].showDownloadSpinner = true;
+
+    this.queryService.query(
+      'GET',
+      '/api/user-export/download/' + ref,
+      {}, 'text/csv', 'text'
+    ).subscribe(
+      resp => {
+        const blob = new Blob([resp], { type: 'text/csv' });
+        const url = window.URL.createObjectURL(blob);
+        window.open(url);
+        this.exports[index].showDownloadSpinner = false;
+      },
+      () => {
+        this.exports[index].showDownloadSpinner = false;
+      }
+    );
+  }
+
+  public getAvailableMonths(): void {
+    this.queryService.query(
+      'GET',
+      '/api/user-export/available-months'
+    ).subscribe(
+      resp => {
+        this.availableMonths = resp.object;
+      }
+    );
   }
 }

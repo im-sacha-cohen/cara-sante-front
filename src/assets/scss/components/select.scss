@@ -5,6 +5,11 @@ ng-select {
         .ng-value {
             top: 5px;
             position: relative;
+
+            span {
+                color: $blue-medium!important;
+                font-weight: 400;
+            }
         }
 
         .ng-input {
@@ -13,6 +18,13 @@ ng-select {
             input {
                 border: none!important;
             }
+        }
+    }
+    
+    span {
+        &.ng-option-label {
+            color: $blue-medium!important;
+            font-weight: 400;
         }
     }
 
