@@ -1,5 +1,7 @@
 button {
     font-weight: 500;
+    height: auto!important;
+    min-height: 35px;
 
     &:disabled {
         opacity: 0.3;

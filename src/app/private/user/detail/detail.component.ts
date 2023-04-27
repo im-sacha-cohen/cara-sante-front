@@ -21,6 +21,9 @@ export class UsersDetailComponent implements OnInit {
   showSpinnerDesactivate = false;
   showForgotPasswordSpinner = false;
 
+  exports: any;
+  showExportListVariable = true;
+
   constructor(
     private route: ActivatedRoute,
     private queryService: QueryService,

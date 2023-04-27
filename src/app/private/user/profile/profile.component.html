@@ -97,17 +97,19 @@
             <h4>Mettre à jour mon mot de passe</h4>
             <button (click)="forgotPassword()" class="white align-self-baseline">
                 <fa-icon *ngIf="!showForgotPasswordSpinner" [icon]="password"></fa-icon>
-                <div *ngIf="showForgotPasswordSpinner" class="spinner-border"></div>
+                <div *ngIf="showForgotPasswordSpinner" class="spinner-border blue-medium"></div>
                 Changer mon mot de passe
             </button>
         </div>
         <app-user-export-request
             (exportsEvent)="exports = $event"
             (showExportListVariable)="showExportListVariable = $event"
+            [title]="'Créer un export de mes tests facturés'"
         />
     </div>
 </div>
 <app-user-export-list
     [exports]="exports"
     [showExportListVariable]="showExportListVariable"
+    [title]="'Mes exports'"
 />

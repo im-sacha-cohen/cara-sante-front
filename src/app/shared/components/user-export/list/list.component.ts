@@ -8,16 +8,9 @@ import { QueryService } from 'src/app/shared/services/query/query.service';
 })
 export class UserExportListComponent {
   showExportSpinner = true;
+  @Input() title: string;
   @Input() exports = [];
   @Input() showExportListVariable = true;
-
-  ngOnInit(): void {
-    console.log('on init exports', this.exports);
-  }
-
-  ngOnChanges(): void {
-    console.log('received exports', this.exports);
-  }
 
   constructor(
     private queryService: QueryService

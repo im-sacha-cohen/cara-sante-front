@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { QueryService } from 'src/app/shared/services/query/query.service';
 
 @Component({
@@ -8,6 +8,9 @@ import { QueryService } from 'src/app/shared/services/query/query.service';
 })
 export class UserExportRequestComponent {
   exports: any;
+  @Input() title: string;
+  // User ref
+  @Input() requestFor: string;
   @Output() exportsEvent = new EventEmitter<any>();
   @Output() showExportListVariable = new EventEmitter<any>();
 
@@ -29,9 +32,12 @@ export class UserExportRequestComponent {
     this.showExportSpinner = triggerSpinner ? true : false;
     this.showExportListVariable.emit(true);
 
+    let endpoint = '/api/user-export';
+    endpoint = this.requestFor ? endpoint + '/' + this.requestFor : endpoint;
+
     this.queryService.query(
       'GET',
-      '/api/user-export'
+      endpoint,
     ).subscribe(
       resp => {
         this.showExportSpinner = false;
@@ -49,9 +55,12 @@ export class UserExportRequestComponent {
   public requestExport(): void {
     this.showRequestExportSpinner = true;
 
+    let endpoint = '/api/user-export/request';
+    endpoint = this.requestFor ? endpoint + '/' + this.requestFor : endpoint;
+
     this.queryService.query(
       'POST',
-      '/api/user-export/request',
+      endpoint,
       {
         month: this.selectedPeriod.month,
         year: this.selectedPeriod.year
@@ -68,9 +77,12 @@ export class UserExportRequestComponent {
   }
 
   public getAvailableMonths(): void {
+    let endpoint = '/api/user-export/available-months';
+    endpoint = this.requestFor ? endpoint + '/' + this.requestFor : endpoint;
+
     this.queryService.query(
       'GET',
-      '/api/user-export/available-months'
+      endpoint
     ).subscribe(
       resp => {
         this.availableMonths = resp.object;

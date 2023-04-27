@@ -1,5 +1,5 @@
-<div class="section-card blue-medium">
-    <h4>Créer un export de mes tests facturés</h4>
+<div class="section-card blue-medium d-flex flex-column">
+    <h4>{{ title }}</h4>
     <div class="mb-2 w-100">
         <label for="alreadyInvoicedBy">Pour la période</label>
         <ng-select
@@ -17,11 +17,11 @@
     </div>
     <button
         (click)="requestExport()"
-        class="white small float-end"
+        class="white small align-self-end"
         [disabled]="selectedPeriod === null"
     >
         <i *ngIf="!showRequestExportSpinner" class="fa-solid fa-file-export"></i>
         <div *ngIf="showRequestExportSpinner" class="spinner-border blue-medium"></div>
-        Créer un export de mes tests facturés
+        Créer l'export
     </button>
 </div>
