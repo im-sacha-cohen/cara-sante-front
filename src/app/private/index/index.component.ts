@@ -99,7 +99,7 @@ export class IndexComponent implements OnInit {
 
     this.barChartUserData = [{
       data: chartData,
-      label: 'Nombre de patients saisit par vous-même' }
+      label: 'Nombre de patients saisis par vous' }
     ];
 
     this.barChartUserLabels = chartLabels;
@@ -121,7 +121,7 @@ export class IndexComponent implements OnInit {
 
     this.barChartTeamData = [{
       data: chartData,
-      label: 'Nombre de patients saisit par toute l\'équipe' }
+      label: 'Nombre de patients saisis par l\'équipe' }
     ];
 
     this.barChartTeamLabels = chartLabels;

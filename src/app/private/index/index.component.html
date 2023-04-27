@@ -1,7 +1,7 @@
 <h1>Bonjour {{ firstName }} !👋🏼</h1>
 <div class="d-flex card-stat-container">
   <div class="section-card white hover align-self-start stats-detection-filled m-0 me-2">
-    <h2>Vos statistiques saisies patients</h2>
+    <h2>Vos statistiques</h2>
     <div *ngIf="showUserStatSpinner" class="spinner-border relative"></div>
     <canvas
       *ngIf="!showUserStatSpinner"
@@ -14,7 +14,7 @@
     </canvas>
   </div>
   <div class="section-card white hover algin-self-start stats-detection-filled m-0 ms-2">
-    <h2>Les statistiques saisies patients de l'équipe</h2>
+    <h2>Les statistiques de l'équipe</h2>
     <div *ngIf="showTeamStatSpinner" class="spinner-border relative"></div>
     <canvas
       *ngIf="!showTeamStatSpinner"
