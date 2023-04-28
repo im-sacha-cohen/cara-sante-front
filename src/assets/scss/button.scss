@@ -1,7 +1,17 @@
+a:has(button) {
+    text-decoration: none !important;
+}
+
 button {
     font-weight: 500;
     height: auto!important;
     min-height: 35px;
+    display: flex;
+    align-items: center;
+
+    i {
+        margin-right: 5px;
+    }
 
     &:disabled {
         opacity: 0.3;

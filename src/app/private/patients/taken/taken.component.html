@@ -1,6 +1,6 @@
 <div class="title-container-elements">
     <div class="title-container">
-        <h1>Tests antigéniques facturés <small>(par vous-même)</small></h1>
+        <h1>Mes tests facturés</h1>
         <span>
             - {{ patientsLength }} 
             <span *ngIf="patientsLength > 0">
@@ -11,6 +11,12 @@
             </span>
         </span>
     </div>
+    <a routerLink="/profile">
+        <button class="blue-medium">
+            <i class="fa-solid fa-file-export"></i>
+            Exporter mes tests
+        </button>
+    </a>
 </div>
 <div class="section-card w-100">
     <div *ngIf="showSpinner" class="spinner-border relative"></div>
@@ -21,18 +27,28 @@
                     <th scope="col">Prénom</th>
                     <th scope="col">Nom</th>
                     <th scope="col">Testé le</th>
-                    <th scope="col">Facturé le</th>
+                    <th scope="col">Saisit le</th>
+                    <th scope="col">Via AmeliPro</th>
+                    <th scope="col">Précédemment facturé par</th>
                 </tr>
             </thead>
             <tbody>
                 <tr
                     *ngFor="let patient of patients"
                     routerLink="/take-patient/{{ patient.patient.ref }}"
+                    [ngClass]="patient.isInvoicedOnAmelipro ? 'background-blue-medium' : ''"
                 >
-                    <th scope="row">{{ patient.patient.firstName }}</th>
+                    <td>{{ patient.patient.firstName }}</td>
                     <td>{{ patient.patient.lastName }}</td>
                     <td>{{ patient.frenchTestedAt }}</td>
                     <td>{{ patient.filledAtFrench }}</td>
+                    <td>{{ patient.isInvoicedOnAmelipro ? 'Oui' : 'Non' }}</td>
+                    <td *ngIf="patient.alreadyInvoicedBy === null">
+                        <em>Aucun</em>
+                    </td>
+                    <td *ngIf="patient.alreadyInvoicedBy !== null">
+                        {{ patient.alreadyInvoicedBy.fullName }}
+                    </td>
                 </tr>
             </tbody>
         </table>

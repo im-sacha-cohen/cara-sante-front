@@ -25,6 +25,7 @@ export class IndexComponent implements OnInit {
   showDetectionTestRemainingSpinner = false;
   detectionTestRemaining: any;
   firstName = '';
+  isAdmin = false;
 
   constructor(
     private authService: AuthService,
@@ -39,6 +40,7 @@ export class IndexComponent implements OnInit {
     this.getUserStats();
     this.getTeamStats();
     this.getDetectionTestRemaining();
+    this.isAdmin = this.authService.isAdmin();
   }
 
   getDetectionTestRemaining(): void {

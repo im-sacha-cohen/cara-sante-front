@@ -37,20 +37,50 @@
       </span>
       <a routerLink="/take-patient">
         <button class="white">
-          <i class="bi bi-forward"></i>
+          <i class="fa-solid fa-list-ul"></i>
           Liste des patients à facturer
         </button>
       </a>
     </div>
   </div>
   <div class="d-flex flex-column section-card hover blue-medium ms-1 contact">
-    <h3>Le support est disponible en quelques minutes !</h3>
-    <span>Nous répondons par mail pour une demande d'assistance.</span>
+    <h3>Le support est disponible !</h3>
+    <span>Nous répondons par mail en quelques minutes pour une demande d'assistance.</span>
     <a routerLink="/support">
       <button class="white">
-        <i class="bi bi-forward"></i>
+        <i class="fa-solid fa-message"></i>
         Demande de support
       </button>
     </a>
+  </div>
+</div>
+<div class="d-flex align-items-start card-stat-container mt-2">
+  <div class="section-card hover blue-medium detection-remaining d-flex algin-self-start m-0 me-1 col-3">
+    <div class="d-flex flex-column">
+      <h3>Nouveau !</h3>
+      <span>
+        Vous pouvez désormais créer des exports des tests que vous avez facturés !
+      </span>
+      <a routerLink="/profile">
+        <button class="white">
+          <i class="fa-solid fa-user"></i>
+          Aller sur mon profil
+        </button>
+      </a>
+    </div>
+  </div>
+  <div *ngIf="isAdmin" class="section-card hover blue-medium detection-remaining d-flex algin-self-start m-0 me-1 col-3">
+    <div class="d-flex flex-column">
+      <h3>{{ firstName }},</h3>
+      <span>
+        En tant qu'administrateur, vous pouvez créer des exports pour l'utilisateur de votre choix.
+      </span>
+      <a routerLink="/users">
+        <button class="white">
+          <i class="fa-solid fa-users"></i>
+          Liste des utilisateurs
+        </button>
+      </a>
+    </div>
   </div>
 </div>

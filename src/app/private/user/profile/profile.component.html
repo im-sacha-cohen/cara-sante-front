@@ -86,7 +86,7 @@
                 (click)="onSubmitProfile()"
                 class="blue float-end w-auto"
                 >
-                <fa-icon *ngIf="!showProfileButtonSpinner" [icon]="update"></fa-icon>
+                <i *ngIf="!showProfileButtonSpinner" class="fa-solid fa-user-check"></i>
                 <div *ngIf="showProfileButtonSpinner" class="spinner-border"></div>
                 Mettre à jour mes informations
             </button>
@@ -96,7 +96,7 @@
         <div class="section-card blue-medium hover">
             <h4>Mettre à jour mon mot de passe</h4>
             <button (click)="forgotPassword()" class="white align-self-baseline">
-                <fa-icon *ngIf="!showForgotPasswordSpinner" [icon]="password"></fa-icon>
+                <i *ngIf="!showForgotPasswordSpinner" class="fa-solid fa-lock"></i>
                 <div *ngIf="showForgotPasswordSpinner" class="spinner-border blue-medium"></div>
                 Changer mon mot de passe
             </button>
