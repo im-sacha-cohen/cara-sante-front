@@ -19,7 +19,7 @@
     </a>
 </div>
 <div class="section-card w-100">
-    <div *ngIf="showSpinner" class="spinner-border relative"></div>
+    <app-spinner *ngIf="showSpinner"/>
     <div class="table-responsive">
         <table *ngIf="!showSpinner" class="table table-striped table-hover">
             <thead>

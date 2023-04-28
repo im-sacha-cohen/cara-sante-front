@@ -2,7 +2,7 @@
 
 <div class="section-card blue-medium w-100">
     <h2>Informations</h2>
-    <div *ngIf="showSpinner" class="spinner-border"></div>
+    <app-spinner *ngIf="showSpinner"/>
     <ng-container *ngIf="!showSpinner">
         <div>
             <i class="bi bi-person-fill"></i>
@@ -23,7 +23,7 @@
 <div class="card-container">
     <div class="section-card blue hover">
         <h3>Informations complémentaires</h3>
-        <div *ngIf="showSpinner" class="spinner-border"></div>
+        <app-spinner *ngIf="showSpinner"/>
         <ng-container *ngIf="!showSpinner">
             <div>
                 <i class="bi bi-people"></i>
@@ -42,7 +42,7 @@
 
     <div class="section-card blue hover">
         <h3>Statistiques</h3>
-        <div *ngIf="showSpinner" class="spinner-border"></div>
+        <app-spinner *ngIf="showSpinner"/>
         <ng-container *ngIf="!showSpinner">
             <div>
                 <i class="bi bi-laptop"></i>
@@ -87,7 +87,7 @@
                 class="blue float-end w-auto"
                 >
                 <i *ngIf="!showProfileButtonSpinner" class="fa-solid fa-user-check"></i>
-                <div *ngIf="showProfileButtonSpinner" class="spinner-border"></div>
+                <app-spinner *ngIf="showProfileButtonSpinner"/>
                 Mettre à jour mes informations
             </button>
         </form>
@@ -95,9 +95,9 @@
     <div class="card-container d-flex flex-column">
         <div class="section-card blue-medium hover">
             <h4>Mettre à jour mon mot de passe</h4>
-            <button (click)="forgotPassword()" class="white align-self-baseline">
+            <button (click)="forgotPassword()" class="blue align-self-baseline">
                 <i *ngIf="!showForgotPasswordSpinner" class="fa-solid fa-lock"></i>
-                <div *ngIf="showForgotPasswordSpinner" class="spinner-border blue-medium"></div>
+                <app-spinner *ngIf="showForgotPasswordSpinner" [blueMedium]="true"/>
                 Changer mon mot de passe
             </button>
         </div>

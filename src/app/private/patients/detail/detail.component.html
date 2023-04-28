@@ -1,5 +1,5 @@
 <h1>Informations patient</h1>
-<div *ngIf="showSpinner" class="spinner-border"></div>
+<app-spinner *ngIf="showSpinner"/>
 <div class="section-card blue-medium w-100" *ngIf="!showSpinner && errorUpdatingBy">
     <div class="d-flex flex-column">
         <h2>Aïe !</h2>

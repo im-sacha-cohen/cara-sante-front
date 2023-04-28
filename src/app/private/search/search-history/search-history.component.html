@@ -4,7 +4,7 @@
     </div>
     <span (click)="onClick('all')">Tout supprimer</span>
 </div>
-<div *ngIf="showSpinner" class="spinner-border"></div>
+<app-spinner *ngIf="showSpinner"/>
 <span *ngIf="!showSpinner && !hasResult">Aucun résultat</span>
 <ng-container *ngIf="!showSpinner && hasResult">
     <div *ngFor="let el of history" class="section-card w-100 hover mb-2">

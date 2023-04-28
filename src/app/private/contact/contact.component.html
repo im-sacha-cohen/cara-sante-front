@@ -24,7 +24,7 @@
             class="blue"
         >
             <i *ngIf="!showSpinner" class="bi bi-envelope"></i>
-            <div *ngIf="showSpinner" class="spinner-border"></div>
+            <app-spinner *ngIf="showSpinner"/>
             Envoyer le message
         </button>
     </form>

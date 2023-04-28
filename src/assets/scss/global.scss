@@ -20,7 +20,13 @@ html {
                 color: $black;
             }
 
-            .spinner-border {
+            fa-circle-notch {
+                &.blue-medium {
+                    color: $blue-medium;
+                }
+            }
+
+            /*.spinner-border {
                 //position: absolute;
                 top: 50%;
                 left: 50%;
@@ -32,7 +38,7 @@ html {
                 &.blue-medium {
                     color: $blue-medium;
                 }
-            }
+            }*/
 
             a {
                 color: $black;

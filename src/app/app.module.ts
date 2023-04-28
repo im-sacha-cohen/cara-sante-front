@@ -35,6 +35,7 @@ import { SearchHistoryComponent } from './private/search/search-history/search-h
 import { NgSelectModule } from '@ng-select/ng-select';
 import { UserExportRequestComponent } from './shared/components/user-export/request/request.component';
 import { UserExportListComponent } from './shared/components/user-export/list/list.component';
+import { SpinnerComponent } from './shared/components/spinner/spinner.component';
 
 @NgModule({
   declarations: [
@@ -60,7 +61,8 @@ import { UserExportListComponent } from './shared/components/user-export/list/li
     SearchComponent,
     SearchHistoryComponent,
     UserExportRequestComponent,
-    UserExportListComponent
+    UserExportListComponent,
+    SpinnerComponent
   ],
   imports: [
     BrowserModule,

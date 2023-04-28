@@ -24,7 +24,7 @@
         </alert>
         <button [disabled]="addUserForm.invalid || showSpinner" (click)="onClick()" class="blue mt-2">
             <i *ngIf="!showSpinner" class="bi bi-plus-square"></i>
-            <div *ngIf="showSpinner" class="spinner-border"></div>
+            <app-spinner *ngIf="showSpinner"/>
             Ajouter
         </button>
     </form>

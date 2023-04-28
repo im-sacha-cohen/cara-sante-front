@@ -1,5 +1,5 @@
 <h1>Informations utilisateur</h1>
-<div *ngIf="showSpinner" class="spinner-border"></div>
+<app-spinner *ngIf="showSpinner"/>
 <div *ngIf="!showSpinner" class="center">
     <div class="person-round">{{ user['firstName'][0] + user['lastName'][0] }}</div>
     <div class="section-card user blue-medium w-100 m-0">
@@ -48,13 +48,13 @@
                 </button>
                 <button class="orange" (click)="forgotPassword()">
                     <i *ngIf="!showForgotPasswordSpinner" class="bi bi-reply"></i>
-                    <div *ngIf="showForgotPasswordSpinner" class="spinner-border"></div>
+                    <app-spinner *ngIf="showForgotPasswordSpinner"/>
                     Réénitialiser le mot de passe
                 </button>
             </div>
             <button *ngIf="user.isFirstConnection" (click)="resendConfirmation()" class="white">
                 <i *ngIf="!showSpinnerResendConfirmation" class="bi bi-reply"></i>
-                <div *ngIf="showSpinnerResendConfirmation" class="spinner-border"></div>
+                <app-spinner *ngIf="showSpinnerResendConfirmation"/>
                 Renvoyer le mail de confirmation
             </button>
         </div>
@@ -92,7 +92,7 @@
         </button>
         <button class="red" (click)="confirmDesactivate()">
             <i *ngIf="!showSpinnerDesactivate" class="bi bi-person-x-fill"></i>
-            <div *ngIf="showSpinnerDesactivate" class="spinner-border"></div>
+            <app-spinner *ngIf="showSpinnerDesactivate"/>
             Désactiver
         </button>
     </div>

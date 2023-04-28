@@ -83,7 +83,7 @@
     </button>
     <button (click)="onSubmit()" class="blue-medium">
         <i *ngIf="!showSpinner" class="bi bi-check-circle-fill"></i>
-        <div *ngIf="showSpinner" class="spinner-border"></div>
+        <app-spinner *ngIf="showSpinner"/>
         Enregister
     </button>
 </div>

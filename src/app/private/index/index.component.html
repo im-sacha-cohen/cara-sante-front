@@ -2,7 +2,7 @@
 <div class="d-flex card-stat-container">
   <div class="section-card white hover align-self-start stats-detection-filled m-0 me-2">
     <h2>Vos statistiques</h2>
-    <div *ngIf="showUserStatSpinner" class="spinner-border relative"></div>
+    <app-spinner *ngIf="showUserStatSpinner"/>
     <canvas
       *ngIf="!showUserStatSpinner"
       baseChart
@@ -15,7 +15,7 @@
   </div>
   <div class="section-card white hover algin-self-start stats-detection-filled m-0 ms-2">
     <h2>Les statistiques de l'équipe</h2>
-    <div *ngIf="showTeamStatSpinner" class="spinner-border relative"></div>
+    <app-spinner *ngIf="showTeamStatSpinner"/>
     <canvas
       *ngIf="!showTeamStatSpinner"
       baseChart
@@ -29,7 +29,7 @@
 </div>
 <div class="d-flex align-items-start card-stat-container mt-2">
   <div class="section-card hover blue-medium detection-remaining d-flex algin-self-start m-0 me-1 col-3">
-    <div *ngIf="!detectionTestRemaining" class="spinner-border relative"></div>
+    <app-spinner *ngIf="!detectionTestRemaining"/>
     <div *ngIf="detectionTestRemaining" class="d-flex flex-column">
       <h3>Il reste {{ detectionTestRemaining.countText }} tests à saisir !</h3>
       <span>

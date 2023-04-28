@@ -19,8 +19,8 @@
             {{ errorMessage }}
         </alert>
         <button (click)="onSubmit()" [disabled]="showSpinner || this.formLogin.invalid" class="blue">
-            <i *ngIf="!showSpinner" class="bi bi-box-arrow-in-right"></i>
-            <div *ngIf="showSpinner" class="spinner-border"></div>
+            <i *ngIf="!showSpinner" class="fa-solid fa-right-to-bracket"></i>
+            <app-spinner *ngIf="showSpinner"/>
             Connexion
         </button>
     </form>

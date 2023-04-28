@@ -21,7 +21,7 @@
         [disabled]="selectedPeriod === null"
     >
         <i *ngIf="!showRequestExportSpinner" class="fa-solid fa-file-export"></i>
-        <div *ngIf="showRequestExportSpinner" class="spinner-border blue-medium"></div>
+        <app-spinner *ngIf="showRequestExportSpinner" [blueMedium]/>
         Créer l'export
     </button>
 </div>

@@ -1,7 +1,7 @@
 <div class="section-card blue-medium w-100">
     <h4>{{ title }}</h4>
     <div class="table-responsive">
-        <div *ngIf="showExportListVariable" class="spinner-border"></div>
+        <app-spinner *ngIf="showExportListVariable"/>
         <table *ngIf="!showExportListVariable" class="table">
             <thead>
                 <tr>
@@ -22,14 +22,14 @@
                     <td>
                         <button (click)="downloadExport(export.ref, i)" class="white small">
                             <i *ngIf="!export.showDownloadSpinner" class="fa-solid fa-download"></i>
-                            <div *ngIf="export.showDownloadSpinner" class="spinner-border blue-medium"></div>
+                            <app-spinner *ngIf="export.showDownloadSpinner" [blueMedium]="true"/>
                             Télécharger
                         </button>
                     </td>
                     <td>
                         <button (click)="deleteExport(export.ref, i)" class="blue-medium small">
                             <i *ngIf="!export.showDeleteSpinner" class="fa-solid fa-trash"></i>
-                            <div *ngIf="export.showDeleteSpinner" class="spinner-border"></div>
+                            <app-spinner *ngIf="export.showDeleteSpinner"/>
                             Supprimer
                         </button>
                     </td>
