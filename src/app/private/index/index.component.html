@@ -29,7 +29,7 @@
 </div>
 <div class="d-flex align-items-start card-stat-container mt-2">
   <div class="section-card hover blue-medium detection-remaining d-flex algin-self-start m-0 me-1 col-3">
-    <app-spinner *ngIf="!detectionTestRemaining"/>
+    <app-spinner *ngIf="!detectionTestRemaining" [white]="true"/>
     <div *ngIf="detectionTestRemaining" class="d-flex flex-column">
       <h3>Il reste {{ detectionTestRemaining.countText }} tests à saisir !</h3>
       <span>

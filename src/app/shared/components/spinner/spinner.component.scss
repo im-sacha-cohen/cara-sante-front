@@ -1,0 +1,13 @@
+i {
+    &.blue-medium {
+        &::before {
+            color: #007b91;
+        }
+    }
+
+    &.white {
+        &::before {
+            color: white !important;
+        }
+    }
+}

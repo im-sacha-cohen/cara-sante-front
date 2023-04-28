@@ -43,17 +43,17 @@
             <h3>Actions</h3>
             <div *ngIf="!user.isFirstConnection" class="d-flex btn-container">
                 <button class="red me-2" (click)="desactivate(template)">
-                    <i class="bi bi-x-circle"></i>
+                    <i class="fa-solid fa-circle-xmark"></i>
                     Désactiver ce compte
                 </button>
                 <button class="orange" (click)="forgotPassword()">
-                    <i *ngIf="!showForgotPasswordSpinner" class="bi bi-reply"></i>
+                    <i *ngIf="!showForgotPasswordSpinner" class="fa-solid fa-paper-plane"></i>
                     <app-spinner *ngIf="showForgotPasswordSpinner"/>
                     Réénitialiser le mot de passe
                 </button>
             </div>
             <button *ngIf="user.isFirstConnection" (click)="resendConfirmation()" class="white">
-                <i *ngIf="!showSpinnerResendConfirmation" class="bi bi-reply"></i>
+                <i *ngIf="!showSpinnerResendConfirmation" class="fa-solid fa-paper-plane"></i>
                 <app-spinner *ngIf="showSpinnerResendConfirmation"/>
                 Renvoyer le mail de confirmation
             </button>
@@ -87,11 +87,11 @@
     </div>
     <div class="modal-footer">
         <button class="white" (click)="cancel()">
-            <i class="bi bi-x-circle"></i>
+            <i *ngIf="!showSpinnerDesactivate" class="fa-solid fa-circle-xmark"></i>
             Annuler
         </button>
         <button class="red" (click)="confirmDesactivate()">
-            <i *ngIf="!showSpinnerDesactivate" class="bi bi-person-x-fill"></i>
+            <i *ngIf="!showSpinnerDesactivate" class="fa-solid fa-check"></i>
             <app-spinner *ngIf="showSpinnerDesactivate"/>
             Désactiver
         </button>
