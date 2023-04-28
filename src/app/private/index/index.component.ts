@@ -26,6 +26,8 @@ export class IndexComponent implements OnInit {
   detectionTestRemaining: any;
   firstName = '';
   isAdmin = false;
+  earning: any;
+  showEarningSpinner = true;
 
   constructor(
     private authService: AuthService,
@@ -40,6 +42,7 @@ export class IndexComponent implements OnInit {
     this.getUserStats();
     this.getTeamStats();
     this.getDetectionTestRemaining();
+    this.getEarning();
     this.isAdmin = this.authService.isAdmin();
   }
 
@@ -82,6 +85,21 @@ export class IndexComponent implements OnInit {
         this.buildTeamStat(resp);
         this.showTeamStatSpinner = false;
       }
+    );
+  }
+
+  getEarning(): void {
+    this.showEarningSpinner = true;
+
+    this.queryService.query(
+      'GET',
+      '/api/user/earning'
+    ).subscribe(
+      resp => {
+        this.earning = resp;
+        this.showEarningSpinner = false;
+      },
+      () => this.showEarningSpinner = false
     );
   }
 

@@ -97,13 +97,14 @@
 </div>
 <div class="d-flex align-items-start card-stat-container mt-2">
   <div class="section-card hover blue detection-remaining d-flex algin-self-start m-0 me-1 col-3">
-    <div class="d-flex flex-column">
-      <h3><i class="fa-solid fa-coins"></i> 110€</h3>
+    <app-spinner *ngIf="showEarningSpinner" [white]="true"/>
+    <div *ngIf="!showEarningSpinner" class="d-flex flex-column">
+      <h3><i class="fa-solid fa-coins"></i> {{ earning['earning'] }} €</h3>
       <span>
-        Estimation de ce que vous allez gagner à la fin du mois d'avril pour les tests que vous avez facturés. 
+        Estimation de ce que vous allez gagner à la fin du mois de {{ earning['month'] }} pour les tests que vous avez facturés si aucun rejet n'a lieu.
         <i
           class="fa-solid fa-circle-question"
-          tooltip="Chaque test indiqué comme facturé, non renseigné comme facturé via AmeliPro, est compté à 3€."
+          tooltip="Chaque test indiqué comme facturé, non renseigné comme facturé via AmeliPro, est compté 3€."
         ></i>
       </span>
     </div>
