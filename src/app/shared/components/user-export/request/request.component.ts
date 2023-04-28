@@ -90,7 +90,7 @@ export class UserExportRequestComponent {
     );
   }
 
-  toggleMonthValue($event): void {
+  toggleMonthValue($event: any): void {
     this.selectedPeriod = $event;
   }
 }

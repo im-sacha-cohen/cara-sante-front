@@ -25,6 +25,6 @@ export class ForgotPasswordService {
 
   async forgotPassword(mail: string): Promise<any> {
     await this.requestPassword(mail);
-    this.toastService.set('success', 'Le mail de rénitialisation a bien été envoyé !');
+    this.toastService.set('success', 'Le mail de réinitialisation a bien été envoyé !');
   }
 }

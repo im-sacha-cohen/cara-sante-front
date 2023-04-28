@@ -1,3 +1,7 @@
 bs-tooltip-container {
     position: absolute;
+
+    .tooltip-arrow {
+        display: none !important;
+    }
 }

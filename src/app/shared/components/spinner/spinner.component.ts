@@ -9,9 +9,4 @@ export class SpinnerComponent {
   @Input() showSpinner: boolean;
   @Input() blueMedium = false;
   @Input() white = false;
-
-  ngOnInit() {
-    console.log(this.blueMedium);
-    console.log(this.white);
-  }
 }

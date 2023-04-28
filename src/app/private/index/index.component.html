@@ -31,7 +31,10 @@
   <div class="section-card hover blue-medium detection-remaining d-flex algin-self-start m-0 me-1 col-3">
     <app-spinner *ngIf="!detectionTestRemaining" [white]="true"/>
     <div *ngIf="detectionTestRemaining" class="d-flex flex-column">
-      <h3>Il reste {{ detectionTestRemaining.countText }} tests à saisir !</h3>
+      <h3>
+        <i class="fa-solid fa-pen"></i> 
+        Il reste {{ detectionTestRemaining.countText }} tests à saisir !
+      </h3>
       <span>
         {{ detectionTestRemaining.message }}
       </span>
@@ -44,7 +47,10 @@
     </div>
   </div>
   <div class="d-flex flex-column section-card hover blue-medium ms-1 contact">
-    <h3>Le support est disponible !</h3>
+    <h3>
+      <i class="fa-solid fa-headset"></i> 
+      Le support est disponible !
+    </h3>
     <span>Nous répondons par mail en quelques minutes pour une demande d'assistance.</span>
     <a routerLink="/support">
       <button class="white">
@@ -57,7 +63,10 @@
 <div class="d-flex align-items-start card-stat-container mt-2">
   <div class="section-card hover blue-medium detection-remaining d-flex algin-self-start m-0 me-1 col-3">
     <div class="d-flex flex-column">
-      <h3>Nouveau !</h3>
+      <h3>
+        <i class="fa-solid fa-circle-info"></i> 
+        Nouveau !
+    </h3>
       <span>
         Vous pouvez désormais créer des exports des tests que vous avez facturés !
       </span>
@@ -71,7 +80,9 @@
   </div>
   <div *ngIf="isAdmin" class="section-card hover blue-medium detection-remaining d-flex algin-self-start m-0 me-1 col-3">
     <div class="d-flex flex-column">
-      <h3>{{ firstName }},</h3>
+      <h3><i class="fa-solid fa-file-export"></i> 
+        {{ firstName }},
+      </h3>
       <span>
         En tant qu'administrateur, vous pouvez créer des exports pour l'utilisateur de votre choix.
       </span>
@@ -81,6 +92,20 @@
           Liste des utilisateurs
         </button>
       </a>
+    </div>
+  </div>
+</div>
+<div class="d-flex align-items-start card-stat-container mt-2">
+  <div class="section-card hover blue detection-remaining d-flex algin-self-start m-0 me-1 col-3">
+    <div class="d-flex flex-column">
+      <h3><i class="fa-solid fa-coins"></i> 110€</h3>
+      <span>
+        Estimation de ce que vous allez gagner à la fin du mois d'avril pour les tests que vous avez facturés. 
+        <i
+          class="fa-solid fa-circle-question"
+          tooltip="Chaque test indiqué comme facturé, non renseigné comme facturé via AmeliPro, est compté à 3€."
+        ></i>
+      </span>
     </div>
   </div>
 </div>
