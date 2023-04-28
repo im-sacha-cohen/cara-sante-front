@@ -1,5 +1,13 @@
 @import '../../../assets/scss/variables.scss';
 
+.card-stat-container {
+    &.three-cards {
+        .section-card {
+            width: 32.5%;
+        }
+    }
+}
+
 .stats-detection-filled {
     max-height: 350px;
     height: 350px;
@@ -20,6 +28,13 @@
 .section-card {
     span {
         margin-bottom: 10px;
+    }
+
+    canvas {
+        width: 100%!important;
+        background: white;
+        border-radius: 5px;
+        height: auto!important;
     }
 }
 
