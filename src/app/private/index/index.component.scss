@@ -55,17 +55,19 @@
     .card-stat-container {
         flex-direction: column;
 
-        .stats-detection-filled {
-            max-height: 250px;
-            height: 250px;
-            width: 100%;
-            min-width: unset;
-            margin: 0!important;
-            margin-bottom: 10px!important;
-        
-            canvas {
-                max-height: 150px!important;
-                height: 150px!important;
+        &.three-cards {
+            .stats-detection-filled {
+                max-height: 250px;
+                height: 250px;
+                width: 100%;
+                min-width: unset;
+                margin: 0!important;
+                margin-bottom: 10px!important;
+            
+                canvas {
+                    max-height: 150px!important;
+                    height: 150px!important;
+                }
             }
         }
     }
