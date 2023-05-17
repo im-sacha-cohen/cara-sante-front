@@ -28,7 +28,9 @@
                     <th scope="col">Nom</th>
                     <th scope="col">Mail</th>
                     <th scope="col">Dernière connexion</th>
-                    <th scope="col">Patients facturés</th>
+                    <th scope="col">Patients facturés via Liora</th>
+                    <th scope="col">Patients facturés via AmeliPro</th>
+                    <th scope="col">Total patients facturés</th>
                     <th scope="col">Status</th>
                 </tr>
             </thead>
@@ -39,6 +41,8 @@
                     <td>{{ user.mail }}</td>
                     <td *ngIf="user.lastLoginFrench !== true">{{ user.lastLoginFrench }}</td>
                     <td *ngIf="user.lastLoginFrench === true"><em>Aucune connexion enregistrée</em></td>
+                    <td>{{ user.invoicedWithLiora }}</td>
+                    <td>{{ user.invoicedWithAmelipro }}</td>
                     <td>{{ user.totalInvoiced }}</td>
                     <td>
                         <ng-container *ngIf="user.isDesactivated">
